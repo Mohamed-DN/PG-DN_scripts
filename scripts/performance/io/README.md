@@ -1,21 +1,37 @@
 # Io
 
-[← Home](../../../README.md) · [Sicurezza e privilegi](../../../docs/SAFETY.md)
+[← Home](../../../README.md) · [Sicurezza e privilegi](../../../_support/docs/SAFETY.md)
 
-**3 query** · client `psql` · diagnosi in transazione read-only.
+**6 query** · client `psql` · diagnosi in transazione read-only.
 
-Leggere header, versione e privilegi prima dell’esecuzione. Le statistiche sono cumulative: un valore isolato non giustifica un’azione correttiva.
+Leggere header, versione e privilegi prima dell’esecuzione. I contatori di attività sono cumulativi: un valore isolato non giustifica un’azione correttiva.
+
+## 🗂️ Mappa della libreria
+
+```text
+io/
+|
++-- buffercache-summary.sql                          ← Buffer cache summary
++-- checkpoint-settings-context.sql                  ← Checkpoint setting context
++-- database-io-timing.sql                           ← Database I/O timing
++-- database-temp-files.sql                          ← Database temporary file counters
++-- io-wait-snapshot.sql                             ← Current I/O wait snapshot
++-- pg-stat-io.sql                                   ← I/O by backend and context
+```
 
 ```console
-python tools/pgdn.py run scripts/performance/io/buffercache-summary.sql
+psql -X -v ON_ERROR_STOP=1 -f scripts/performance/io/buffercache-summary.sql
 ```
 
 Comando da eseguire dalla radice del checkout.
 
-| Script | Scopo | PostgreSQL | Privilegi |
-| :-- | :-- | :-- | :-- |
-| [buffercache-summary.sql](buffercache-summary.sql) | Summarize shared-buffer usage only when pg_buffercache is already installed; extension schema is discovered and quoted safely. | 16+ | pg_monitor; function EXECUTE may be granted separately |
-| [database-io-timing.sql](database-io-timing.sql) | Show cumulative block timings; zero can mean track_io_timing was disabled. | 14+ | pg_read_all_stats |
-| [pg-stat-io.sql](pg-stat-io.sql) | Inspect cumulative I/O counters; correlate them with operating system metrics. | 16+ | pg_read_all_stats; PostgreSQL 16+ |
+| Script | Scopo | PostgreSQL | Privilegi | Procedura |
+| :-- | :-- | :-- | :-- | :-- |
+| [buffercache-summary.sql](buffercache-summary.sql) | Summarize shared-buffer usage only when pg_buffercache is already installed; extension schema is discovered and quoted safely. | 16–18 (verificato) | pg_monitor; function EXECUTE may be granted separately | [Apri](../../../procedures/monitoring.md) |
+| [checkpoint-settings-context.sql](checkpoint-settings-context.sql) | Show checkpoint and background write settings relevant to observed counter trends. | 14–18 (verificato) | CONNECT | [Apri](../../../procedures/monitoring.md) |
+| [database-io-timing.sql](database-io-timing.sql) | Show cumulative block timings; zero can mean track_io_timing was disabled. | 14–18 (verificato) | pg_read_all_stats | [Apri](../../../procedures/monitoring.md) |
+| [database-temp-files.sql](database-temp-files.sql) | Rank databases by temporary file volume and count since reset. | 14–18 (verificato) | pg_monitor | [Apri](../../../procedures/monitoring.md) |
+| [io-wait-snapshot.sql](io-wait-snapshot.sql) | Summarize active sessions currently waiting on I/O by event and backend type. | 14–18 (verificato) | pg_read_all_stats | [Apri](../../../procedures/monitoring.md) |
+| [pg-stat-io.sql](pg-stat-io.sql) | Inspect cumulative I/O counters; correlate them with operating system metrics. | 16–18 (verificato) | pg_read_all_stats; PostgreSQL 16+ | [Apri](../../../procedures/monitoring.md) |
 
-> Indice generato da `python tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.
+> Indice generato da `python _support/tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.

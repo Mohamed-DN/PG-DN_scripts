@@ -1,0 +1,213 @@
+{
+  "engine": "podman",
+  "postgres_major_requested": 18,
+  "image": "docker.io/library/postgres:18-alpine",
+  "network_isolated": true,
+  "host_ports_published": false,
+  "checks": {
+    "replication_trust_scoped_to_internal_lab": true,
+    "pg_verifybackup": "passed",
+    "standby_in_recovery": true,
+    "streaming_active": true,
+    "fixture_replicated_initially": true,
+    "paused_replay_lag_positive": true,
+    "paused_standby_remained_at_baseline": true,
+    "replication_converged": true,
+    "streaming_active_after_resume": true,
+    "diagnostic_scripts_all_passed": true,
+    "no_pitr_claim": true
+  },
+  "scripts": [
+    {
+      "path": "scripts/backup/inspection/active-backup-senders.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/backup/inspection/backup-api-activity.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/backup/inspection/basebackup-progress.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/backup/inspection/recovery-state.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nt|7697987339918336035|1\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/logical/publication-tables.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/logical/publications.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/logical/subscriptions.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/logical/table-sync-state.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/logical/workers.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/physical/primary-senders.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/physical/standby-conflicts.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\npostgres|0|0|0|0|0|\ntemplate1|0|0|0|0|0|\ntemplate0|0|0|0|0|0|\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/physical/standby-receiver-health.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n30|streaming|2026-10-18 12:42:49.342917+00|2026-10-18 12:42:49.34307+00|00:00:06.882914|0/304A2F0|2026-10-18 12:42:49.342917+00|pgdn_repl_slot|primary|5432\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/physical/standby-receiver.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nstreaming|0/3000000|0/304A2F0|2026-10-18 12:42:49.342917+00|primary|5432|pgdn_repl_slot\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/physical/standby-replay.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0/304A2F0|0/30387B8|72504|2026-10-18 12:42:47.718143+00|00:00:09.357906\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/slots/logical-stats.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/slots/retention.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/slots/wal-limit-headroom.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/replication/slots/xmin-horizons.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/archive/archive-status.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0|||0|||2026-10-18 12:42:45.094339+00\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/archive/ready-files.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0|0\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/retention/checkpoint-counters-common.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0|0|0|0|0|0|0|0|2026-10-18 12:42:45.094339+00\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/retention/retention-context.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0|0|1GB|0|-1\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/retention/wal-counters.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n0|0|0|0|2026-10-18 12:42:45.094339+00\nCOMMIT",
+      "error": ""
+    },
+    {
+      "path": "scripts/wal/retention/wal-directory-dimensions.sql",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Pager usage is off.\nBEGIN\nSET\nSET\n2|2|0|33554432|16777216|16777216|2026-10-18 12:42:32+00|2026-10-18 12:42:58+00\nCOMMIT",
+      "error": ""
+    }
+  ],
+  "resources": {
+    "network": "pgdn-repl-f97389e5acf54f03a90f56de7ec08d8c",
+    "containers": [
+      "pgdn-repl-f97389e5acf54f03a90f56de7ec08d8c-primary",
+      "pgdn-repl-f97389e5acf54f03a90f56de7ec08d8c-standby"
+    ],
+    "volumes": [
+      "pgdn-repl-f97389e5acf54f03a90f56de7ec08d8c-primary-data",
+      "pgdn-repl-f97389e5acf54f03a90f56de7ec08d8c-standby-data"
+    ]
+  },
+  "status": "passed",
+  "server_version": "18.6",
+  "image_id": "c293117fcecda7344b5480222e813b9f673d7abd69b1dd95eff239b768b04f59",
+  "backup_verification": "backup successfully verified",
+  "fixture_rows_initial": 20,
+  "paused_lag_bytes": 72504,
+  "fixture_rows_while_paused": 20,
+  "fixture_rows_primary_final": 120,
+  "fixture_rows_standby_final": 120,
+  "cleanup_errors": [],
+  "cleanup": "passed",
+  "pitr_proven": false
+}

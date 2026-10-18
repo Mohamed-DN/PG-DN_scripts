@@ -1,0 +1,61 @@
+{
+  "repository": "cybertec-postgresql/pgwatch2",
+  "repository_url": "https://github.com/cybertec-postgresql/pgwatch2",
+  "commit": "0c009025367e8737544c1067b79fe36609670d10",
+  "license": "BSD-3-Clause",
+  "license_source": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/LICENSE",
+  "selection": "Selected versioned SQL metric templates for activity, replication, table and index statistics; original README and license. Upstream is archived, so treat as historical reference.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "4b5830809c05fca250bd68de2f444ca0b189366dba7e3629e4040abf30780ca4",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/LICENSE",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "0cb46b72c59b96a83d5d8119bf32b8cb7afd29ac78a24d520f8c9480e0e2e7a0",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/README.md",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "pgwatch2/metrics/index_stats/16/metric.sql",
+      "sha256": "d5537288450f55266817bd158107fcf6e81d2938ab65cfd306781194a58fcc0c",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/pgwatch2/metrics/index_stats/16/metric.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "pgwatch2/metrics/replication/10/metric.sql",
+      "sha256": "1b728139cd9062becf19780f5c3052aa82442ff1e2e2caed869d9ece52bc7bb4",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/pgwatch2/metrics/replication/10/metric.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "pgwatch2/metrics/replication_slots/10/metric_master.sql",
+      "sha256": "703f9c1898aec4ce103e2e63aecf4282e654ed1001f620d33a47115745c7211f",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/pgwatch2/metrics/replication_slots/10/metric_master.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "pgwatch2/metrics/stat_activity/10/metric.sql",
+      "sha256": "b2216990a3b2bd7a2f03896089bdb033b244f944913261ae0771716986c388b4",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/pgwatch2/metrics/stat_activity/10/metric.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "pgwatch2/metrics/table_stats/16/metric.sql",
+      "sha256": "ca5c03da47d7053834cc6d03bae07f3de3e8c818db970bbf39ac8d78348acc5e",
+      "url": "https://github.com/cybertec-postgresql/pgwatch2/blob/0c009025367e8737544c1067b79fe36609670d10/pgwatch2/metrics/table_stats/16/metric.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    }
+  ],
+  "notice": "Upstream reference material, not validated and not included in smoke. All files are review-required; no file is certified read-only. No code or script has been executed."
+}

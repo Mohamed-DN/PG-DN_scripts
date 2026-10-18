@@ -1,0 +1,82 @@
+{
+  "repository": "pgsty/pg_exporter",
+  "repository_url": "https://github.com/pgsty/pg_exporter",
+  "commit": "72f00a4fa4e6eb7524174f2122b3fe1e1d608db4",
+  "license": "Apache-2.0",
+  "license_source": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/LICENSE",
+  "selection": "Selected declarative collector SQL configurations for activity, replication, slots, WAL, archiver, vacuum, and table/index bloat, plus original README and license.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "32dc115f4e66c2fb1c61ed90c4c7a34e95e04be1915db7ae0f07b69c3344a013",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/LICENSE",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "f133b03547d9ba3be2e54b3bcae210ded56169b025cef89d89cec7a2be623c7a",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/README.md",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0210-pg_repl.yml",
+      "sha256": "18b57dad3b139a4e01fb2adcd679e64c5b403bb4691e03fd6c65182999dc9d4f",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0210-pg_repl.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0240-pg_slot.yml",
+      "sha256": "aef4d15084b80d9a673d1a6540a8a178f9fe2a9072f7527893ce1b80abfb3193",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0240-pg_slot.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0320-pg_archiver.yml",
+      "sha256": "60024e2e7ac9ead0c9e565144022be70c58b8a9e2f824394004e401850cc015e",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0320-pg_archiver.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0410-pg_activity.yml",
+      "sha256": "d13f20162768e558b027c4c1da3d7db7c9574045f6c6480319819560f5f37121",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0410-pg_activity.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0450-pg_xact_age.yml",
+      "sha256": "326287e33ce09f20048e385e1e9aaf1fb69c2cabad18601d034ee9b7544e9254",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0450-pg_xact_age.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0510-pg_vacuuming.yml",
+      "sha256": "218b5bdf881da261b88b3c58629842001df1fce48f78b2a95e4f931195c827f0",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0510-pg_vacuuming.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0820-pg_table_bloat.yml",
+      "sha256": "17ca940cbcfd61a1fa9492d442052506f033ec7342720e9f7fd665aef497c377",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0820-pg_table_bloat.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "config/0830-pg_index_bloat.yml",
+      "sha256": "8178592e27d2a6089ef7651df19ebc7567400e0087d989b35b8e0f29c695379e",
+      "url": "https://github.com/pgsty/pg_exporter/blob/72f00a4fa4e6eb7524174f2122b3fe1e1d608db4/config/0830-pg_index_bloat.yml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    }
+  ],
+  "notice": "Upstream reference material, not validated and not included in smoke. All files are review-required; no file is certified read-only. No code or script has been executed."
+}

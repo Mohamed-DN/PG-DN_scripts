@@ -1,541 +1,275 @@
-# PG-DN_scripts
+# PG-DN scripts
 
-<p align="center"><img src="docs/assets/banner.svg" alt="PG-DN · PostgreSQL Operations Library" width="960"></p>
-
-[![Checks](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml/badge.svg)](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14–18-336791?logo=postgresql&logoColor=white)](docs/QUICKSTART.md)
-[![License](https://img.shields.io/badge/Original_code-MIT-2563eb)](LICENSE)
-
-Una biblioteca operativa PostgreSQL per trovare rapidamente la diagnosi giusta, capire i risultati e scegliere un intervento controllato. Nasce dalla revisione dei tuoi dieci file e dalla ricerca di raccolte DBA pubbliche, con provenienza e licenze visibili.
+Script e procedure PostgreSQL per amministrazione, monitoraggio e risoluzione dei problemi.
 
 <!-- BEGIN GENERATED COUNTS -->
-**68 script curati** · PostgreSQL 14–18 · [Catalogo ricercabile](docs/CATALOG.md) · [Fonti esterne](upstream/README.md)
+**144 script curati** · PostgreSQL 14–18
 <!-- END GENERATED COUNTS -->
 
-## Parti dal problema
-
-| Situazione | Procedura | Script |
-| :-- | :-- | :-- |
-| Database lento o indisponibile | [Triage](runbooks/triage.md) | [Attività](scripts/monitoring/README.md) |
-| Sessioni bloccate | [Lock](runbooks/locks.md) | [Connessioni](scripts/administration/README.md) |
-| Disco occupato dai WAL | [Crescita WAL](runbooks/wal-growth.md) | [WAL](scripts/wal/README.md) |
-| Replica in ritardo | [Replica](runbooks/replication-lag.md) | [Replica fisica, logica e slot](scripts/replication/README.md) |
-| Dead tuples, bloat, freeze | [Vacuum e bloat](runbooks/vacuum-bloat.md) | [Manutenzione](scripts/maintenance/README.md) |
-| Query o indici da analizzare | [Query lente](runbooks/slow-queries.md) | [Prestazioni](scripts/performance/README.md) |
-| Backup e ripristino | [Backup e recovery](runbooks/backup-restore.md) | [Ispezione](scripts/backup/README.md) |
-| Privilegi e accessi | [Sicurezza](runbooks/security.md) | [Ruoli e privilegi](scripts/security/README.md) |
-| Monitoraggio continuativo | [Metriche e azioni](runbooks/monitoring.md) | [Monitoraggio](scripts/monitoring/README.md) |
-
-## Primo utilizzo
-
-Servono Python 3.10+ per gli strumenti e il client `psql` per le query. Configura una connessione libpq (`PGSERVICE`, oppure `PGHOST`, `PGDATABASE`, `PGUSER`) e un file password protetto. [Guida con esempi Linux e PowerShell](docs/QUICKSTART.md).
-
-```console
-python tools/pgdn.py list --search wal
-python tools/pgdn.py run scripts/administration/inventory/server-info.sql
-```
-
-Puoi anche eseguire direttamente un file con `psql -X -v ON_ERROR_STOP=1 -f percorso.sql`. Le query curate iniziano una transazione read-only e hanno timeout locali. Leggi sempre versione e privilegi nell’header; `read-only` non significa costo zero. [Regole operative](docs/SAFETY.md).
-
-Per i comandi quotidiani: [cheat sheet psql e CLI](docs/reference/psql-cheatsheet.md) · [ruoli, schemi e manutenzione](docs/reference/administration-actions.md).
-
-## Come è organizzato
-
-```mermaid
-flowchart LR
-    A[Problema operativo] --> B[runbooks · diagnosi e decisioni]
-    B --> C[scripts · query curate]
-    B --> D[Intervento manuale e verifica]
-    E[File utente e fonti pubbliche] --> F[Revisione e compatibilità]
-    F --> C
-    E --> G[upstream · riferimenti separati]
-    C --> H[Test PostgreSQL 14–18]
-    C --> I[Catalogo e README automatici]
-```
-
-| Cartella | Contenuto |
+| Vai a | Cosa trovi |
 | :-- | :-- |
-| [`scripts/`](scripts/README.md) | Query per categoria e funzione; un compito per file, header uniforme |
-| [`runbooks/`](runbooks/README.md) | Procedure: controlli, interpretazione, interventi, verifica e recupero |
-| [`upstream/`](upstream/README.md) | Codice esterno con licenze originali e manifest; richiede revisione prima dell’uso |
-| [`docs/`](docs/README.md) | Architettura, avvio, fonti e rapporto delle correzioni |
-| [`tools/`](tools/README.md) | Ricerca, esecuzione e generazione degli indici |
-| [`tests/`](tests/README.md) | Controlli statici e prove su database isolati |
+| **[📂 Script](scripts/README.md)** | Query ordinate per categoria e funzione, con scopo, versione, privilegi e procedura collegata. |
+| **[🧭 Procedure](procedures/README.md)** | Percorsi passo per passo: controllo iniziale, script da eseguire, lettura dei risultati, intervento e verifica. |
 
-## Il README si aggiorna da solo
+## Script
 
-Aggiungi uno script nella categoria desiderata, oppure crea una sottocartella. Il workflow **Refresh navigation** rigenera albero, catalogo e README delle cartelle `scripts/` dopo un push al ramo principale; è disponibile anche l’avvio manuale. Su branch e pull request il workflow di validazione controlla che gli indici siano aggiornati.
+Apri la categoria che ti serve. Ogni cartella contiene un indice con i link ai singoli file SQL.
 
-Per vedere subito la modifica prima del push:
-
-```console
-python tools/catalog.py
-python tools/catalog.py --check
+<!-- BEGIN GENERATED MAP -->
+```text
+scripts/
+|
++-- administration/                                  ← 31 script · Istanza, configurazione, connessioni e cataloghi
+|   +-- configuration/                               ← 4 script · Parametri effettivi, capacità e impostazioni operative
+|   +-- connections/                                 ← 6 script · Sessioni, transazioni e occupazione connessioni
+|   +-- inventory/                                   ← 21 script · Oggetti, vincoli, tipi, partizioni e dipendenze
++-- backup/                                          ← 4 script · Diagnosi backup fisico e stato recovery
+|   +-- inspection/                                  ← 4 script · Identità cluster, recovery e attività di base backup
++-- maintenance/                                     ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
+|   +-- bloat/                                       ← 2 script · Dimensioni heap, indici e TOAST; indicatori da verificare
+|   +-- progress/                                    ← 6 script · Progresso VACUUM, ANALYZE, COPY, CLUSTER e indici
+|   +-- vacuum/                                      ← 9 script · Tuple morte, transazioni lunghe, XID e autovacuum
++-- monitoring/                                      ← 26 script · Controlli quotidiani, attività e trend operativi
+|   +-- activity/                                    ← 8 script · Attese, blocchi, transazioni e connessioni SSL
+|   +-- capacity/                                    ← 2 script · Dimensioni, crescita e spazio allocato
+|   +-- statistics/                                  ← 16 script · Contatori database, cache, SLRU e checkpoint
++-- performance/                                     ← 29 script · Query, indici, statistiche del planner e I/O
+|   +-- indexes/                                     ← 12 script · Indici, vincoli, FK, utilizzo e candidati da analizzare
+|   +-- io/                                          ← 6 script · Letture, scritture, timing e buffer cache
+|   +-- queries/                                     ← 3 script · Top SQL, tempi e file temporanei
+|   +-- statistics/                                  ← 8 script · Distribuzione dati, partizioni, HOT e sequenze
++-- replication/                                     ← 14 script · Replica fisica/logica, consumer e retention
+|   +-- logical/                                     ← 5 script · Publication, subscription e sincronizzazione tabelle
+|   +-- physical/                                    ← 5 script · Sender, receiver, replay e conflitti dello standby
+|   +-- slots/                                       ← 4 script · Slot, xmin, WAL trattenuti e margine di retention
++-- security/                                        ← 17 script · Ruoli, accessi, ACL e row-level security
+|   +-- privileges/                                  ← 11 script · Grant, privilegi effettivi, RLS e regole di accesso
+|   +-- roles/                                       ← 6 script · Membership, ereditarietà e attributi dei ruoli
++-- wal/                                             ← 6 script · Generazione WAL, archiviazione e checkpoint
+    +-- archive/                                     ← 2 script · Archiver, fallimenti e marker pronti da archiviare
+    +-- retention/                                   ← 4 script · Contatori, segmenti e cause della crescita WAL
 ```
-
-GitHub visualizza un file statico: l’automatismo è il commit generato da Actions. Non occorrono servizi esterni. [Come contribuire e aggiungere un header](docs/CONTRIBUTING.md).
+<!-- END GENERATED MAP -->
 
 <details>
-<summary><strong>Esplora l’albero completo del repository</strong></summary>
+<summary>Espandi l'albero completo con tutti gli script</summary>
 
 <!-- BEGIN GENERATED TREE -->
 ```text
-PG-DN_scripts/
-├── .github/
-│   ├── workflows/
-│   │   ├── navigation.yml
-│   │   ├── README.md
-│   │   └── validate.yml
-│   └── README.md
-├── docs/
-│   ├── adr/
-│   │   ├── 0001-repository-layout.md
-│   │   └── README.md
-│   ├── assets/
-│   │   ├── banner.svg
-│   │   └── README.md
-│   ├── evidence/
-│   │   ├── curated-sha256.json
-│   │   ├── physical-replication.json
-│   │   ├── postgres-matrix.json
-│   │   └── README.md
-│   ├── reference/
-│   │   ├── administration-actions.md
-│   │   ├── psql-cheatsheet.md
-│   │   └── README.md
-│   ├── architecture.md
-│   ├── CATALOG.md
-│   ├── CONTRIBUTING.md
-│   ├── MAINTENANCE.md
-│   ├── QUICKSTART.md
-│   ├── README.md
-│   ├── REPLICATION_LAB.md
-│   ├── SAFETY.md
-│   ├── SOURCE_REVIEW.md
-│   ├── SOURCES.md
-│   ├── UPSTREAM_AUDIT.md
-│   ├── USER_NOTES.md
-│   └── VALIDATION.md
-├── runbooks/
-│   ├── backup-restore.md
-│   ├── barman.md
-│   ├── incident-template.md
-│   ├── locks.md
-│   ├── monitoring.md
-│   ├── pgbackrest.md
-│   ├── pitr.md
-│   ├── README.md
-│   ├── replication-lag.md
-│   ├── security.md
-│   ├── slow-queries.md
-│   ├── triage.md
-│   ├── vacuum-bloat.md
-│   └── wal-growth.md
-├── scripts/
-│   ├── administration/
-│   │   ├── configuration/
-│   │   │   ├── connection-capacity.sql
-│   │   │   ├── non-default-settings.sql
-│   │   │   ├── README.md
-│   │   │   ├── vacuum-settings.sql
-│   │   │   └── wal-settings.sql
-│   │   ├── connections/
-│   │   │   ├── active.sql
-│   │   │   ├── by-state.sql
-│   │   │   ├── idle-in-transaction.sql
-│   │   │   └── README.md
-│   │   ├── inventory/
-│   │   │   ├── databases.sql
-│   │   │   ├── extensions.sql
-│   │   │   ├── largest-relations.sql
-│   │   │   ├── materialized-views.sql
-│   │   │   ├── partition-tree.sql
-│   │   │   ├── README.md
-│   │   │   ├── routines.sql
-│   │   │   ├── schemas.sql
-│   │   │   ├── sequences.sql
-│   │   │   └── server-info.sql
-│   │   └── README.md
-│   ├── backup/
-│   │   ├── inspection/
-│   │   │   ├── active-backup-senders.sql
-│   │   │   ├── README.md
-│   │   │   └── recovery-state.sql
-│   │   └── README.md
-│   ├── maintenance/
-│   │   ├── bloat/
-│   │   │   ├── README.md
-│   │   │   ├── relation-size-breakdown.sql
-│   │   │   └── toast-breakdown.sql
-│   │   ├── progress/
-│   │   │   ├── analyze.sql
-│   │   │   ├── create-index.sql
-│   │   │   ├── README.md
-│   │   │   └── vacuum.sql
-│   │   ├── vacuum/
-│   │   │   ├── dead-tuples.sql
-│   │   │   ├── oldest-transactions.sql
-│   │   │   ├── README.md
-│   │   │   └── wraparound-risk.sql
-│   │   └── README.md
-│   ├── monitoring/
-│   │   ├── activity/
-│   │   │   ├── advisory-locks.sql
-│   │   │   ├── blocking-sessions.sql
-│   │   │   ├── long-running.sql
-│   │   │   ├── prepared-transactions.sql
-│   │   │   ├── README.md
-│   │   │   ├── ssl-connections.sql
-│   │   │   └── wait-summary.sql
-│   │   ├── capacity/
-│   │   │   ├── database-sizes.sql
-│   │   │   ├── README.md
-│   │   │   └── tablespace-inventory.sql
-│   │   ├── statistics/
-│   │   │   ├── checkpointer.sql
-│   │   │   ├── database-counters.sql
-│   │   │   ├── README.md
-│   │   │   ├── reset-times.sql
-│   │   │   └── table-activity.sql
-│   │   └── README.md
-│   ├── performance/
-│   │   ├── indexes/
-│   │   │   ├── definitions.sql
-│   │   │   ├── duplicate-candidates.sql
-│   │   │   ├── invalid-indexes.sql
-│   │   │   ├── README.md
-│   │   │   ├── unused-candidates.sql
-│   │   │   └── usage-by-table.sql
-│   │   ├── io/
-│   │   │   ├── buffercache-summary.sql
-│   │   │   ├── database-io-timing.sql
-│   │   │   ├── pg-stat-io.sql
-│   │   │   └── README.md
-│   │   ├── queries/
-│   │   │   ├── README.md
-│   │   │   ├── top-mean-time.sql
-│   │   │   ├── top-temp-blocks.sql
-│   │   │   └── top-total-time.sql
-│   │   └── README.md
-│   ├── replication/
-│   │   ├── logical/
-│   │   │   ├── README.md
-│   │   │   ├── subscriptions.sql
-│   │   │   └── workers.sql
-│   │   ├── physical/
-│   │   │   ├── primary-senders.sql
-│   │   │   ├── README.md
-│   │   │   ├── standby-receiver.sql
-│   │   │   └── standby-replay.sql
-│   │   ├── slots/
-│   │   │   ├── logical-stats.sql
-│   │   │   ├── README.md
-│   │   │   └── retention.sql
-│   │   └── README.md
-│   ├── security/
-│   │   ├── privileges/
-│   │   │   ├── database-acl.sql
-│   │   │   ├── hba-rule-health.sql
-│   │   │   ├── README.md
-│   │   │   ├── relation-acl.sql
-│   │   │   ├── rls-policies.sql
-│   │   │   └── schema-acl.sql
-│   │   ├── roles/
-│   │   │   ├── expiring-logins.sql
-│   │   │   ├── membership.sql
-│   │   │   ├── README.md
-│   │   │   └── role-inventory.sql
-│   │   └── README.md
-│   ├── wal/
-│   │   ├── archive/
-│   │   │   ├── archive-status.sql
-│   │   │   ├── README.md
-│   │   │   └── ready-files.sql
-│   │   ├── retention/
-│   │   │   ├── README.md
-│   │   │   ├── retention-context.sql
-│   │   │   └── wal-counters.sql
-│   │   └── README.md
-│   └── README.md
-├── tests/
-│   ├── integration.py
-│   ├── README.md
-│   ├── replication.py
-│   ├── test_lab_safety.py
-│   ├── test_navigation.py
-│   └── test_upstream.py
-├── tools/
-│   ├── catalog.py
-│   ├── pgdn.py
-│   ├── README.md
-│   └── validate.py
-├── upstream/
-│   ├── andyatkinson_pg_scripts/
-│   │   ├── README.md
-│   │   └── source_index.json
-│   ├── Azmodey_pg_dba_scripts/
-│   │   ├── README.md
-│   │   └── source_index.json
-│   ├── dataegret_pg_utils/
-│   │   ├── bin/
-│   │   │   ├── check_replication_lag.pl
-│   │   │   ├── generate_pgbouncer_userlist.sh
-│   │   │   ├── log_check.sh
-│   │   │   ├── makecron.sh
-│   │   │   ├── offlag.sh
-│   │   │   ├── pg_log_search.pl
-│   │   │   ├── postgresql-audit.sh
-│   │   │   ├── README.md
-│   │   │   ├── server-audit.sh
-│   │   │   ├── server-checklist.sh
-│   │   │   ├── slony_extract_schema_to_file.sh
-│   │   │   └── stuff-update.sh
-│   │   ├── loganalyze/
-│   │   │   └── log_analyze.pl
-│   │   ├── slonik_template/
-│   │   │   ├── cluster_config.slonik.template
-│   │   │   ├── create_set.slonik
-│   │   │   ├── create_slave_node.slonik
-│   │   │   ├── drop_set.slonik
-│   │   │   ├── drop_slave_node.slonik
-│   │   │   ├── execute_script.slonik
-│   │   │   ├── init_cluster.slonik
-│   │   │   ├── populate_set.slonik.template
-│   │   │   ├── populate_set.slonik_footer
-│   │   │   ├── populate_set.slonik_header
-│   │   │   ├── set_drop_items.slonik
-│   │   │   ├── setup_cluster.slonik
-│   │   │   ├── slon.conf.template
-│   │   │   ├── store_path.slonik
-│   │   │   ├── subscribe_set.slonik
-│   │   │   └── switchover.slonik
-│   │   ├── sql/
-│   │   │   ├── global_reports/
-│   │   │   │   ├── query_stat_cpu_time.sql
-│   │   │   │   ├── query_stat_io_time.sql
-│   │   │   │   ├── query_stat_total.sql
-│   │   │   │   ├── query_stat_total_10.sql
-│   │   │   │   ├── query_stat_total_11.sql
-│   │   │   │   ├── query_stat_total_13.sql
-│   │   │   │   ├── query_stat_total_14.sql
-│   │   │   │   ├── query_stat_total_15.sql
-│   │   │   │   ├── query_stat_total_16.sql
-│   │   │   │   ├── query_stat_total_17.sql
-│   │   │   │   └── query_stat_total_18.sql
-│   │   │   ├── old/
-│   │   │   │   ├── create_db_activity_view_old.sql
-│   │   │   │   └── table_disk_activity.sql
-│   │   │   ├── slony/
-│   │   │   │   └── temp.txt
-│   │   │   ├── 83compat.sql
-│   │   │   ├── amcheck_indexes.sql
-│   │   │   ├── cache_stat.sql
-│   │   │   ├── check_all_tables_have_pk.sql
-│   │   │   ├── check_are_all_subscribed.sql
-│   │   │   ├── check_config.sql
-│   │   │   ├── check_missing_grants.sql
-│   │   │   ├── check_strange_fk.sql
-│   │   │   ├── check_uniq_indexes.sql
-│   │   │   ├── create_db_activity_view.sql
-│   │   │   ├── create_db_activity_view9.2.sql
-│   │   │   ├── create_query_stat_cpu_time_view.sql
-│   │   │   ├── create_query_stat_io_time_view.sql
-│   │   │   ├── create_query_stat_log.sql
-│   │   │   ├── create_query_stat_time_view.sql
-│   │   │   ├── create_repl_activity_view9.5.sql
-│   │   │   ├── create_slonik_set_full.sql
-│   │   │   ├── create_slonik_set_incremental.sql
-│   │   │   ├── create_xlog_math_procedures.sql
-│   │   │   ├── db_activity.sql
-│   │   │   ├── db_activity9.2.sql
-│   │   │   ├── db_activity9.6.sql
-│   │   │   ├── dirty_to_read_stat.sql
-│   │   │   ├── generate_drop_items.sql
-│   │   │   ├── index_bloat.sql
-│   │   │   ├── index_candidates_from_ssd.sql
-│   │   │   ├── index_candidates_to_deduplicate.sql
-│   │   │   ├── index_candidates_to_partial.sql
-│   │   │   ├── index_candidates_to_ssd.sql
-│   │   │   ├── index_disk_activity.sql
-│   │   │   ├── indexes_with_nulls.sql
-│   │   │   ├── indexing_progress.sql
-│   │   │   ├── locktree.sql
-│   │   │   ├── low_used_indexes.sql
-│   │   │   ├── low_used_indexes_with_replica.sql
-│   │   │   ├── master_wal_position.sql
-│   │   │   ├── query_stat_counts.sql
-│   │   │   ├── query_stat_cpu_time.sql
-│   │   │   ├── query_stat_io_time.sql
-│   │   │   ├── query_stat_rows.sql
-│   │   │   ├── query_stat_time.sql
-│   │   │   ├── query_stat_total_single_db.sql
-│   │   │   ├── redundant_indexes.sql
-│   │   │   ├── reindex_non_btree_indexes.sql
-│   │   │   ├── replication_pretty.sql
-│   │   │   ├── seq_scan_tables.sql
-│   │   │   ├── seq_scan_tables_with_replica.sql
-│   │   │   ├── set_default_grants.sql
-│   │   │   ├── set_missing_grants.sql
-│   │   │   ├── slave_wal_position.sql
-│   │   │   ├── slony_tables.sql
-│   │   │   ├── sync_tablespaces.sql
-│   │   │   ├── table_bloat.sql
-│   │   │   ├── table_bloat_approx.sql
-│   │   │   ├── table_bloat_approx12.sql
-│   │   │   ├── table_candidates_from_ssd.sql
-│   │   │   ├── table_candidates_to_ssd.sql
-│   │   │   ├── table_index_write_activity.sql
-│   │   │   ├── table_write_activity.sql
-│   │   │   ├── top_databases.sql
-│   │   │   ├── top_tables.sql
-│   │   │   ├── vacuum_progress.sql
-│   │   │   ├── vacuum_truncate_speedup.sql
-│   │   │   └── versions_check.sql
-│   │   ├── .gitmodules
-│   │   ├── LICENSE.md
-│   │   ├── manifest.json
-│   │   ├── README.md
-│   │   └── README.upstream.md
-│   ├── limdauto_pg_monitoring/
-│   │   ├── activities/
-│   │   │   └── connections.sql
-│   │   ├── examples/
-│   │   │   └── collectd.conf
-│   │   ├── imgs/
-│   │   │   └── demo.png
-│   │   ├── locks/
-│   │   │   ├── connections.sql
-│   │   │   ├── relations.sql
-│   │   │   └── statements.sql
-│   │   ├── tables/
-│   │   │   ├── disk.sql
-│   │   │   └── io.sql
-│   │   ├── LICENSE
-│   │   ├── manifest.json
-│   │   ├── README.md
-│   │   └── README.upstream.md
-│   ├── nikolays_postgres_dba/
-│   │   ├── .cursor/
-│   │   │   └── rules/
-│   │   │       └── sql-style.mdc
-│   │   ├── .github/
-│   │   │   └── workflows/
-│   │   │       ├── claude-code-review.yml
-│   │   │       ├── claude.yml
-│   │   │       └── test.yml
-│   │   ├── init/
-│   │   │   └── generate.sh
-│   │   ├── matviews/
-│   │   │   └── refresh_all.sql
-│   │   ├── misc/
-│   │   │   └── generate_password.sql
-│   │   ├── roles/
-│   │   │   ├── alter_user_with_random_password.psql
-│   │   │   └── create_user_with_random_password.psql
-│   │   ├── sql/
-│   │   │   ├── 0_node.sql
-│   │   │   ├── 1_databases.sql
-│   │   │   ├── 2_table_sizes.sql
-│   │   │   ├── 3_load_profiles.sql
-│   │   │   ├── a1_activity.sql
-│   │   │   ├── b1_table_estimation.sql
-│   │   │   ├── b2_btree_estimation.sql
-│   │   │   ├── b3_table_pgstattuple.sql
-│   │   │   ├── b4_btree_pgstattuple.sql
-│   │   │   ├── b5_tables_no_stats.sql
-│   │   │   ├── c1_amcheck_indexes.sql
-│   │   │   ├── c2_amcheck_heap.sql
-│   │   │   ├── c3_amcheck_parent.sql
-│   │   │   ├── c4_amcheck_full.sql
-│   │   │   ├── e1_extensions.sql
-│   │   │   ├── i1_rare_indexes.sql
-│   │   │   ├── i2_redundant_indexes.sql
-│   │   │   ├── i3_non_indexed_fks.sql
-│   │   │   ├── i4_invalid_indexes.sql
-│   │   │   ├── i5_indexes_migration.sql
-│   │   │   ├── l1_lock_trees.sql
-│   │   │   ├── l2_lock_trees.sql
-│   │   │   ├── m1_buffercache.sql
-│   │   │   ├── p1_index_create_progress.sql
-│   │   │   ├── r1_create_user_with_random_password.sql
-│   │   │   ├── r2_alter_user_with_random_password.sql
-│   │   │   ├── s1_pg_stat_statements_top_total.sql
-│   │   │   ├── s2_pg_stat_statements_report.sql
-│   │   │   ├── s3_pg_stat_statements_workload.sql
-│   │   │   ├── t1_tuning.sql
-│   │   │   ├── t2_storage_parameters.sql
-│   │   │   ├── v1_vacuum_activity.sql
-│   │   │   ├── v2_autovacuum_progress_and_queue.sql
-│   │   │   └── x1_alignment_padding.sql
-│   │   ├── test/
-│   │   │   └── regression/
-│   │   │       ├── 0_node.out
-│   │   │       ├── a1_activity.out
-│   │   │       └── p1_alignment_padding.out
-│   │   ├── .gitignore
-│   │   ├── CLAUDE.md
-│   │   ├── LICENSE
-│   │   ├── manifest.json
-│   │   ├── README.md
-│   │   ├── README.upstream.md
-│   │   ├── RELEASE_NOTES.md
-│   │   ├── start.psql
-│   │   └── warmup.psql
-│   ├── pgexperts_pgx_scripts/
-│   │   ├── bloat/
-│   │   │   ├── index_bloat_check.sql
-│   │   │   └── table_bloat_check.sql
-│   │   ├── columns/
-│   │   │   ├── integer_usage.py
-│   │   │   └── missing_PKs.sql
-│   │   ├── duplicate_indexes/
-│   │   │   ├── duplicate_indexes.sql
-│   │   │   └── readme.md
-│   │   ├── indexes/
-│   │   │   ├── duplicate_indexes_fuzzy.sql
-│   │   │   ├── fk_no_index.sql
-│   │   │   ├── needed_indexes.sql
-│   │   │   └── unused_indexes.sql
-│   │   ├── kill_idle/
-│   │   │   ├── kill_idle_93_table.sql
-│   │   │   ├── kill_idle_xact_91.sh
-│   │   │   └── kill_idle_xact_93.sh
-│   │   ├── locks/
-│   │   │   ├── lock_tables.sql
-│   │   │   ├── log_locks.sh
-│   │   │   └── README.rst
-│   │   ├── pgbouncer/
-│   │   │   └── log_pgbouncer_stats.sh
-│   │   ├── slony/
-│   │   │   ├── log_slony_status.sh
-│   │   │   └── see_replication_config.sql
-│   │   ├── vacuum/
-│   │   │   ├── database_xid_age.sql
-│   │   │   ├── last_autovacuum.sql
-│   │   │   ├── last_autovacuum_and_autoanalyze.sql
-│   │   │   ├── no_stats_table_check.sql
-│   │   │   └── table_xid_age.sql
-│   │   ├── LICENSE
-│   │   ├── manifest.json
-│   │   ├── README.md
-│   │   └── README.upstream.md
-│   ├── README.md
-│   └── SOURCES.json
-├── .gitattributes
-├── .gitignore
-├── catalog.json
-├── LICENSE
-└── README.md
+scripts/
+|
++-- administration/                                  ← 31 script · Istanza, configurazione, connessioni e cataloghi
+|   +-- configuration/                               ← 4 script · Parametri effettivi, capacità e impostazioni operative
+|   |   +-- connection-capacity.sql                  ← Connection capacity
+|   |   +-- non-default-settings.sql                 ← Non-default settings
+|   |   +-- vacuum-settings.sql                      ← Vacuum and autovacuum settings
+|   |   +-- wal-settings.sql                         ← WAL and checkpoint settings
+|   +-- connections/                                 ← 6 script · Sessioni, transazioni e occupazione connessioni
+|   |   +-- active.sql                               ← Active sessions
+|   |   +-- backend-detail.sql                       ← Backend session detail
+|   |   +-- by-state.sql                             ← Connections by state
+|   |   +-- idle-in-transaction.sql                  ← Idle transactions
+|   |   +-- oldest-backend-transactions.sql          ← Oldest active backend transactions
+|   |   +-- xid-holding-backends.sql                 ← Sessions holding old transaction horizons
+|   +-- inventory/                                   ← 21 script · Oggetti, vincoli, tipi, partizioni e dipendenze
+|       +-- collation-versions.sql                   ← Collation provider and recorded versions
+|       +-- columns.sql                              ← Column definitions inventory
+|       +-- constraints.sql                          ← Constraint inventory
+|       +-- databases.sql                            ← Database inventory
+|       +-- extensions-dependencies.sql              ← Extension-owned object dependencies
+|       +-- extensions.sql                           ← Installed extensions
+|       +-- fdw-metadata.sql                         ← Foreign data wrapper metadata
+|       +-- largest-relations.sql                    ← Largest relations
+|       +-- materialized-views.sql                   ← Materialized view inventory
+|       +-- object-dependencies.sql                  ← Direct object dependencies
+|       +-- ownership.sql                            ← Application object ownership
+|       +-- partition-tree.sql                       ← Partition hierarchy
+|       +-- relations-detailed.sql                   ← Relation inventory with storage and state
+|       +-- routines.sql                             ← Routine inventory
+|       +-- schemas.sql                              ← Schema inventory
+|       +-- sequences.sql                            ← Sequence inventory
+|       +-- server-info.sql                          ← Server identity
+|       +-- triggers.sql                             ← Trigger inventory
+|       +-- types-enums-domains.sql                  ← Enum and domain type inventory
+|       +-- unvalidated-constraints.sql              ← Unvalidated constraints
+|       +-- views-and-definitions.sql                ← View inventory with options
++-- backup/                                          ← 4 script · Diagnosi backup fisico e stato recovery
+|   +-- inspection/                                  ← 4 script · Identità cluster, recovery e attività di base backup
+|       +-- active-backup-senders.sql                ← Active backup senders
+|       +-- backup-api-activity.sql                  ← Backup API activity
+|       +-- basebackup-progress.sql                  ← Base backup progress
+|       +-- recovery-state.sql                       ← Recovery state
++-- maintenance/                                     ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
+|   +-- bloat/                                       ← 2 script · Dimensioni heap, indici e TOAST; indicatori da verificare
+|   |   +-- relation-size-breakdown.sql              ← Relation size breakdown
+|   |   +-- toast-breakdown.sql                      ← TOAST storage breakdown
+|   +-- progress/                                    ← 6 script · Progresso VACUUM, ANALYZE, COPY, CLUSTER e indici
+|   |   +-- analyze.sql                              ← Analyze progress
+|   |   +-- cluster-rewrite.sql                      ← CLUSTER and rewrite progress
+|   |   +-- copy.sql                                 ← COPY progress
+|   |   +-- create-index.sql                         ← Index build progress
+|   |   +-- index-build.sql                          ← Index build progress detail
+|   |   +-- vacuum.sql                               ← Vacuum progress
+|   +-- vacuum/                                      ← 9 script · Tuple morte, transazioni lunghe, XID e autovacuum
+|       +-- dead-tuples.sql                          ← Dead tuple estimates
+|       +-- hot-update-ratio.sql                     ← HOT update ratio
+|       +-- oldest-transactions.sql                  ← Old transactions
+|       +-- per-table-autovacuum-overrides.sql       ← Per-table autovacuum overrides
+|       +-- table-freeze-age.sql                     ← Table freeze age
+|       +-- table-multixact-age.sql                  ← Table multixact age
+|       +-- toast-storage-share.sql                  ← TOAST storage candidates
+|       +-- vacuum-history.sql                       ← Per-table vacuum history
+|       +-- wraparound-risk.sql                      ← Transaction and multixact age
++-- monitoring/                                      ← 26 script · Controlli quotidiani, attività e trend operativi
+|   +-- activity/                                    ← 8 script · Attese, blocchi, transazioni e connessioni SSL
+|   |   +-- advisory-locks.sql                       ← Advisory lock summary
+|   |   +-- blocking-impact.sql                      ← Blocking impact by backend
+|   |   +-- blocking-sessions.sql                    ← Blocking sessions
+|   |   +-- long-running.sql                         ← Long-running queries
+|   |   +-- prepared-transactions.sql                ← Prepared transactions
+|   |   +-- ssl-connections.sql                      ← SSL connection summary
+|   |   +-- wait-summary.sql                         ← Wait event summary
+|   |   +-- waiting-locks-by-relation.sql            ← Waiting locks by relation
+|   +-- capacity/                                    ← 2 script · Dimensioni, crescita e spazio allocato
+|   |   +-- database-sizes.sql                       ← Database sizes
+|   |   +-- tablespace-inventory.sql                 ← Tablespace inventory
+|   +-- statistics/                                  ← 16 script · Contatori database, cache, SLRU e checkpoint
+|       +-- checkpointer-activity.sql                ← Checkpointer activity counters
+|       +-- checkpointer.sql                         ← Checkpointer counters
+|       +-- database-age.sql                         ← Database transaction ID age
+|       +-- database-cache-hit.sql                   ← Database shared-buffer hit ratio
+|       +-- database-counters.sql                    ← Database counters
+|       +-- database-transaction-ratio.sql           ← Database commit and rollback ratio
+|       +-- database-work-counters.sql               ← Database workload counters
+|       +-- deadlocks-and-conflicts.sql              ← Deadlocks and standby conflicts
+|       +-- io-by-backend.sql                        ← I/O statistics by backend
+|       +-- relation-block-io.sql                    ← Relation block I/O counters
+|       +-- reset-times.sql                          ← Statistics reset times
+|       +-- slru-counters.sql                        ← SLRU activity counters
+|       +-- table-activity.sql                       ← Table activity
+|       +-- table-hot-updates.sql                    ← Table HOT update ratios
+|       +-- table-statistics-coverage.sql            ← Table statistics coverage
+|       +-- temporary-files.sql                      ← Temporary file counters by database
++-- performance/                                     ← 29 script · Query, indici, statistiche del planner e I/O
+|   +-- indexes/                                     ← 12 script · Indici, vincoli, FK, utilizzo e candidati da analizzare
+|   |   +-- access-methods.sql                       ← Index access methods
+|   |   +-- constraint-index-signatures.sql          ← Constraint index signatures
+|   |   +-- definitions.sql                          ← Index definitions
+|   |   +-- duplicate-candidates.sql                 ← Duplicate index candidates
+|   |   +-- foreign-keys-without-index.sql           ← Foreign keys without leading index
+|   |   +-- index-usage-context.sql                  ← Index usage counter context
+|   |   +-- index-validity-state.sql                 ← Index validity state
+|   |   +-- invalid-indexes.sql                      ← Invalid indexes
+|   |   +-- key-included-columns.sql                 ← Index keys and included columns
+|   |   +-- unused-candidates.sql                    ← Unused index candidates
+|   |   +-- usage-by-table.sql                       ← Index usage by table
+|   |   +-- write-pressure.sql                       ← Index write pressure context
+|   +-- io/                                          ← 6 script · Letture, scritture, timing e buffer cache
+|   |   +-- buffercache-summary.sql                  ← Buffer cache summary
+|   |   +-- checkpoint-settings-context.sql          ← Checkpoint setting context
+|   |   +-- database-io-timing.sql                   ← Database I/O timing
+|   |   +-- database-temp-files.sql                  ← Database temporary file counters
+|   |   +-- io-wait-snapshot.sql                     ← Current I/O wait snapshot
+|   |   +-- pg-stat-io.sql                           ← I/O by backend and context
+|   +-- queries/                                     ← 3 script · Top SQL, tempi e file temporanei
+|   |   +-- top-mean-time.sql                        ← Statements by mean time
+|   |   +-- top-temp-blocks.sql                      ← Statements by temporary blocks
+|   |   +-- top-total-time.sql                       ← Statements by total time
+|   +-- statistics/                                  ← 8 script · Distribuzione dati, partizioni, HOT e sequenze
+|       +-- analyze-freshness.sql                    ← Analyze freshness
+|       +-- column-skew-metadata.sql                 ← Column skew metadata
+|       +-- null-fractions.sql                       ← Column null fraction metadata
+|       +-- partition-hierarchy.sql                  ← Partition hierarchy
+|       +-- partition-index-attachments.sql          ← Partition index attachments
+|       +-- physical-correlation.sql                 ← Column physical correlation
+|       +-- sequence-context.sql                     ← Sequence inventory context
+|       +-- sequence-headroom.sql                    ← Sequence exhaustion headroom
++-- replication/                                     ← 14 script · Replica fisica/logica, consumer e retention
+|   +-- logical/                                     ← 5 script · Publication, subscription e sincronizzazione tabelle
+|   |   +-- publication-tables.sql                   ← Logical publication table mapping
+|   |   +-- publications.sql                         ← Logical publication configuration
+|   |   +-- subscriptions.sql                        ← Logical subscriptions
+|   |   +-- table-sync-state.sql                     ← Logical table synchronization state
+|   |   +-- workers.sql                              ← Logical replication workers
+|   +-- physical/                                    ← 5 script · Sender, receiver, replay e conflitti dello standby
+|   |   +-- primary-senders.sql                      ← Physical replication senders
+|   |   +-- standby-conflicts.sql                    ← Standby recovery conflicts
+|   |   +-- standby-receiver-health.sql              ← Standby receiver health
+|   |   +-- standby-receiver.sql                     ← Standby WAL receiver
+|   |   +-- standby-replay.sql                       ← Standby replay status
+|   +-- slots/                                       ← 4 script · Slot, xmin, WAL trattenuti e margine di retention
+|       +-- logical-stats.sql                        ← Logical slot counters
+|       +-- retention.sql                            ← Replication slot retention
+|       +-- wal-limit-headroom.sql                   ← Replication slot WAL limit headroom
+|       +-- xmin-horizons.sql                        ← Replication slot xmin horizons
++-- security/                                        ← 17 script · Ruoli, accessi, ACL e row-level security
+|   +-- privileges/                                  ← 11 script · Grant, privilegi effettivi, RLS e regole di accesso
+|   |   +-- database-acl.sql                         ← Database ACL
+|   |   +-- effective-database-privileges.sql        ← Effective database privileges for roles
+|   |   +-- hba-rule-health.sql                      ← HBA rule health
+|   |   +-- public-schema-grants.sql                 ← PUBLIC schema and relation grants
+|   |   +-- relation-acl.sql                         ← Relation ACL
+|   |   +-- rls-enabled-without-policy.sql           ← RLS-enabled relations without visible policies
+|   |   +-- rls-policies.sql                         ← Row-level security policy inventory
+|   |   +-- routine-execute-grants.sql               ← Routine EXECUTE grants
+|   |   +-- routine-security-definer.sql             ← SECURITY DEFINER routine inventory
+|   |   +-- schema-acl.sql                           ← Schema ACL
+|   |   +-- schema-effective-privileges.sql          ← Effective schema privileges
+|   +-- roles/                                       ← 6 script · Membership, ereditarietà e attributi dei ruoli
+|       +-- default-acl.sql                          ← Default privileges inventory
+|       +-- expiring-logins.sql                      ← Expiring login roles
+|       +-- membership.sql                           ← Role memberships
+|       +-- role-attributes.sql                      ← Role security attributes
+|       +-- role-inventory.sql                       ← Role inventory
+|       +-- role-membership-edges.sql                ← Role membership edges with portable attributes
++-- wal/                                             ← 6 script · Generazione WAL, archiviazione e checkpoint
+    +-- archive/                                     ← 2 script · Archiver, fallimenti e marker pronti da archiviare
+    |   +-- archive-status.sql                       ← Archive status
+    |   +-- ready-files.sql                          ← Ready WAL archive files
+    +-- retention/                                   ← 4 script · Contatori, segmenti e cause della crescita WAL
+        +-- checkpoint-counters-common.sql           ← Checkpoint counters
+        +-- retention-context.sql                    ← WAL retention context
+        +-- wal-counters.sql                         ← WAL counters
+        +-- wal-directory-dimensions.sql             ← WAL directory dimensions
 ```
 <!-- END GENERATED TREE -->
 
 </details>
 
-## Provenienza e verifica
+## Procedure
 
-- [Cosa è stato corretto nei dieci file ricevuti](docs/SOURCE_REVIEW.md) e [appunti riorganizzati](docs/USER_NOTES.md).
-- [Ricerca e fonti](docs/SOURCES.md), [audit delle raccolte importate](docs/UPSTREAM_AUDIT.md), [manifest delle sorgenti](upstream/SOURCES.json).
-- [Risultati e limiti dei test](docs/VALIDATION.md); le raccolte esterne non ereditano la verifica degli script curati.
-- [Architettura](docs/architecture.md) e [decisione sulla struttura](docs/adr/0001-repository-layout.md).
+Parti da [triage](procedures/triage.md) se la causa non è chiara, oppure scegli una procedura nell'[indice](procedures/README.md). Ogni percorso indica quali script usare e come proseguire in base al risultato.
 
-La raccolta cresce per casi d’uso e verifiche. Le fonti esterne restano attribuite ai rispettivi autori; le relative licenze prevalgono per quei file.
+<!-- BEGIN GENERATED PROCEDURES -->
+```text
+procedures/
+|
++-- backup-restore.md          ← Backup, restore e PITR
++-- barman.md                  ← Backup e PITR con Barman
++-- incident-template.md       ← Scheda incidente PostgreSQL
++-- locks.md                   ← Diagnosi dei lock
++-- monitoring.md              ← Baseline e monitoraggio PostgreSQL
++-- pgbackrest.md              ← Backup e PITR con pgBackRest
++-- pitr.md                    ← PITR fisico su istanza isolata
++-- replication-lag.md         ← Ritardo di replica fisica e logica
++-- security.md                ← Diagnosi ruoli, privilegi e autenticazione
++-- slow-queries.md            ← Diagnosi query lente
++-- triage.md                  ← Triage iniziale PostgreSQL
++-- vacuum-bloat.md            ← Autovacuum, VACUUM e bloat
++-- wal-growth.md              ← Crescita di WAL e ritardo archivio
+```
+<!-- END GENERATED PROCEDURES -->
+
+## Esegui uno script
+
+Configura la connessione `psql`, leggi scopo e privilegi nell'header del file, quindi esegui dalla radice del repository:
+
+```console
+psql -X -v ON_ERROR_STOP=1 -f scripts/administration/inventory/server-info.sql
+```
+
+Le query in `scripts/` usano transazioni di sola lettura e timeout. Gli interventi sono descritti nelle procedure e richiedono la verifica dei prerequisiti. [Configurazione della connessione ed esempi](_support/docs/QUICKSTART.md).
+
+Gli alberi si aggiornano automaticamente dopo il push su `main` quando aggiungi, sposti o rimuovi script e procedure. Per aggiornare gli indici prima del push: `python _support/tools/catalog.py`.
+
+Documentazione tecnica, fonti, test e strumenti di manutenzione sono raccolti in **[_support/](_support/README.md)**.
