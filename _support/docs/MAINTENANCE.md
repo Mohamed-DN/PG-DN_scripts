@@ -24,6 +24,12 @@ Il generatore aggiorna gli alberi di script e procedure nella home. Gli altri ma
 
 Il workflow aggiorna solo gli indici generati e crea un commit soltanto se il contenuto cambia. Il commit del bot non innesca un ciclo di aggiornamenti. Il pulsante **Run workflow** permette anche un avvio manuale. [Definizione del workflow](../../.github/workflows/navigation.yml).
 
+## Controllare un aggiornamento
+
+Dopo il push apri **Actions → Refresh navigation** e attendi l'esito. Se la mappa cambia, compare un commit `docs: refresh generated navigation` firmato da `github-actions[bot]`. Aggiorna poi la copia locale con un pull prima di aggiungere altri contenuti.
+
+Esempio verificabile: [aggiunta di una procedura](https://github.com/Mohamed-DN/PG-DN_scripts/commit/0081c87dea3289f4a762ec9d751790c212fd3f37) → [esecuzione automatica](https://github.com/Mohamed-DN/PG-DN_scripts/actions/runs/39152498674) → [aggiornamento della home e dell'indice](https://github.com/Mohamed-DN/PG-DN_scripts/commit/98176b989489e7d83597f138ade7e8a35b22542b). La procedura è stata aggiunta senza modificare a mano i due indici.
+
 ## Aggiornare una sorgente esterna
 
 Acquisisci la nuova revisione in una directory di lavoro separata. Confronta commit, licenza repository, avvisi dei singoli file e changelog. Non eseguire gli script durante l’importazione e non sovrascrivere le query curate con un aggiornamento del vendor.

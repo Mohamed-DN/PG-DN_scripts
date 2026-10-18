@@ -2,7 +2,7 @@
 
 ## Prima di proporre una modifica
 
-Individua il runbook o la categoria in `scripts/` che possiede il caso d'uso. Controlla la versione minima supportata, i privilegi necessari, l'effetto della query e i riferimenti alla documentazione ufficiale della stessa major. Non inserire dati di produzione, dump, credenziali o identificativi sensibili.
+Individua il runbook o la categoria in `scripts/` che possiede il caso d'uso. Controlla il range di versioni verificato, i privilegi necessari, l'effetto della query e i riferimenti alla documentazione ufficiale della stessa major. Non inserire dati di produzione, dump, credenziali o identificativi sensibili.
 
 ## Requisiti per gli script
 
@@ -11,7 +11,7 @@ Aggiungi una query per file sotto `scripts/<categoria>/<funzione>/nome.sql`. Il 
 ```sql
 -- Title: Database identity
 -- Description: Identify the selected database before collecting evidence.
--- Postgres: 14+
+-- Postgres: 14–18 (da verificare)
 -- Privilege: CONNECT
 -- Risk: read-only
 -- Source: original; https://www.postgresql.org/docs/18/functions-info.html
@@ -24,6 +24,8 @@ SET LOCAL lock_timeout='2s';
 SELECT pg_catalog.current_database();
 COMMIT;
 ```
+
+Sostituisci il range del modello con quello realmente provato e indica `verificato` dopo il superamento della matrice pertinente. Gli estremi sono inclusi; evita `14+`, che non chiarisce il limite superiore. [Convenzioni di compatibilità](COMPATIBILITY.md).
 
 Esegui `python _support/tools/catalog.py`, `python _support/tools/validate.py` e `python -m unittest discover -s _support/tests -v`, quindi committa anche gli indici aggiornati. Il workflow sul ramo principale aggiorna automaticamente la navigazione se aggiungi un file direttamente da GitHub. Se `main` è protetto contro i push del bot, il manutentore deve applicare la generazione nella pull request; il fallimento del workflow resta visibile in Actions.
 
