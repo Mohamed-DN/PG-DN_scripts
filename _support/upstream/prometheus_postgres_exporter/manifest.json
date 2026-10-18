@@ -1,0 +1,40 @@
+{
+  "repository": "prometheus-community/postgres_exporter",
+  "repository_url": "https://github.com/prometheus-community/postgres_exporter",
+  "commit": "5baef8f1b82b4520143ede48dedfcd58b31903f8",
+  "license": "Apache-2.0",
+  "license_source": "https://github.com/prometheus-community/postgres_exporter/blob/5baef8f1b82b4520143ede48dedfcd58b31903f8/LICENSE",
+  "selection": "Selected query definitions and the upstream NOTICE, README, and license; no executable code, tests, or generated outputs.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "url": "https://github.com/prometheus-community/postgres_exporter/blob/5baef8f1b82b4520143ede48dedfcd58b31903f8/LICENSE",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "c2b25777f0352bc2324df473fbde0ae63ac65442620a623dc730c94a41337950",
+      "url": "https://github.com/prometheus-community/postgres_exporter/blob/5baef8f1b82b4520143ede48dedfcd58b31903f8/NOTICE",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "6bccac256fe591cf01c66877d881c501a9c2d58b2522344705b646df2fbce47a",
+      "url": "https://github.com/prometheus-community/postgres_exporter/blob/5baef8f1b82b4520143ede48dedfcd58b31903f8/README.md",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "queries.yaml",
+      "sha256": "7d189a473b4f79ac1e183f3a277130ac70416d6208ab931925f7c451410bd5ff",
+      "url": "https://github.com/prometheus-community/postgres_exporter/blob/5baef8f1b82b4520143ede48dedfcd58b31903f8/queries.yaml",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    }
+  ],
+  "notice": "Upstream reference material, not validated and not included in smoke. All files are review-required; no file is certified read-only. No code or script has been executed."
+}

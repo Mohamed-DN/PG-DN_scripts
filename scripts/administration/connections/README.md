@@ -1,21 +1,37 @@
 # Connections
 
-[← Home](../../../README.md) · [Sicurezza e privilegi](../../../docs/SAFETY.md)
+[← Home](../../../README.md) · [Sicurezza e privilegi](../../../_support/docs/SAFETY.md)
 
-**3 query** · client `psql` · diagnosi in transazione read-only.
+**6 query** · client `psql` · diagnosi in transazione read-only.
 
-Leggere header, versione e privilegi prima dell’esecuzione. Le statistiche sono cumulative: un valore isolato non giustifica un’azione correttiva.
+Leggere header, versione e privilegi prima dell’esecuzione. I contatori di attività sono cumulativi: un valore isolato non giustifica un’azione correttiva.
+
+## 🗂️ Mappa della libreria
+
+```text
+connections/
+|
++-- active.sql                                       ← Active sessions
++-- backend-detail.sql                               ← Backend session detail
++-- by-state.sql                                     ← Connections by state
++-- idle-in-transaction.sql                          ← Idle transactions
++-- oldest-backend-transactions.sql                  ← Oldest active backend transactions
++-- xid-holding-backends.sql                         ← Sessions holding old transaction horizons
+```
 
 ```console
-python tools/pgdn.py run scripts/administration/connections/active.sql
+psql -X -v ON_ERROR_STOP=1 -f scripts/administration/connections/active.sql
 ```
 
 Comando da eseguire dalla radice del checkout.
 
-| Script | Scopo | PostgreSQL | Privilegi |
-| :-- | :-- | :-- | :-- |
-| [active.sql](active.sql) | Show active sessions, age, waits and bounded query prefix; query text may contain sensitive values. | 14+ | pg_read_all_stats; otherwise own sessions |
-| [by-state.sql](by-state.sql) | Summarize visible sessions by database, role, state and wait class. | 14+ | pg_read_all_stats for complete details |
-| [idle-in-transaction.sql](idle-in-transaction.sql) | Find idle-in-transaction sessions and transaction age. | 14+ | pg_read_all_stats; otherwise own sessions |
+| Script | Scopo | PostgreSQL | Privilegi | Procedura |
+| :-- | :-- | :-- | :-- | :-- |
+| [active.sql](active.sql) | Show active sessions, age, waits and bounded query prefix; query text may contain sensitive values. | 14–18 (verificato) | pg_read_all_stats; otherwise own sessions | [Apri](../../../procedures/triage.md) |
+| [backend-detail.sql](backend-detail.sql) | Summarize visible backends by database, user, application, client and state. | 14–18 (verificato) | pg_read_all_stats for complete session metadata visibility | [Apri](../../../procedures/triage.md) |
+| [by-state.sql](by-state.sql) | Summarize visible sessions by database, role, state and wait class. | 14–18 (verificato) | pg_read_all_stats for complete details | [Apri](../../../procedures/triage.md) |
+| [idle-in-transaction.sql](idle-in-transaction.sql) | Find idle-in-transaction sessions and transaction age. | 14–18 (verificato) | pg_read_all_stats; otherwise own sessions | [Apri](../../../procedures/locks.md) |
+| [oldest-backend-transactions.sql](oldest-backend-transactions.sql) | Rank visible sessions by transaction age and identify idle-in-transaction blockers. | 14–18 (verificato) | pg_read_all_stats for complete session visibility | [Apri](../../../procedures/locks.md) |
+| [xid-holding-backends.sql](xid-holding-backends.sql) | Rank sessions by backend xmin, the reported visibility horizon relevant to vacuum cleanup. | 14–18 (verificato) | pg_read_all_stats for complete session visibility | [Apri](../../../procedures/vacuum-bloat.md) |
 
-> Indice generato da `python tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.
+> Indice generato da `python _support/tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.

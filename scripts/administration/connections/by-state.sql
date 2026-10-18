@@ -1,14 +1,21 @@
 -- Title: Connections by state
 -- Description: Summarize visible sessions by database, role, state and wait class.
--- Postgres: 14+
+-- Postgres: 14–18 (verificato)
 -- Privilege: pg_read_all_stats for complete details
 -- Risk: read-only
 -- Source: user:+Postgres_Main_commands.sql
--- Runbook: runbooks/triage.md
+-- Runbook: procedures/triage.md
+-- Usarla per capire la distribuzione delle connessioni per database, ruolo, stato e classe di attesa senza leggere SQL.
+-- sessions conta le righe visibili per gruppo; wait_event_type NULL indica spesso assenza di attesa tracciata.
+-- È una fotografia, non un tasso o un conteggio garantito se i privilegi limitano la visibilità.
 \set ON_ERROR_STOP on
 \pset pager off
 BEGIN READ ONLY;
-SET LOCAL statement_timeout='15s';
-SET LOCAL lock_timeout='2s';
-SELECT datname,usename,state,wait_event_type,count(*) AS sessions FROM pg_catalog.pg_stat_activity GROUP BY datname,usename,state,wait_event_type ORDER BY sessions DESC LIMIT 100;
+SET LOCAL statement_timeout = '15s';
+SET LOCAL lock_timeout = '2s';
+SELECT datname,usename,state,wait_event_type,count(*) AS sessions
+FROM pg_catalog.pg_stat_activity
+GROUP BY datname,usename,state,wait_event_type
+ORDER BY sessions DESC
+LIMIT 100;
 COMMIT;

@@ -1,0 +1,54 @@
+{
+  "repository": "jobinau/pg_gather",
+  "repository_url": "https://github.com/jobinau/pg_gather",
+  "commit": "fb0ed42a39a79ec0dcc13a497b31074fcc801a55",
+  "license": "PostgreSQL License (custom text in LICENSE.md; permissive, MIT-like)",
+  "license_source": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/LICENSE.md",
+  "selection": "Selected SQL collection and reporting templates plus original README and license; no scripts or generated artifacts.",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "7c224c6fa239f92d8d05c43e81ceb4d28e89f595986c52899dbc01c853aeb0b8",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/LICENSE.md",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "4243f619299130b05ef7c9d9929107401bd19ac10beff66e85966e394d643452",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/README.md",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "analysis_queries.sql",
+      "sha256": "9c95f059d9ecf4be011ebdea166d8f8cd7af7bfe047ede4b9f36ebaf96938642",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/analysis_queries.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "gather.sql",
+      "sha256": "2094bb30df7aafa1b2c4e78b829389cac1a5f8d8019206c13c9f0205518129d2",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/gather.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "gather_report.sql",
+      "sha256": "a80dfcc61be313f8f095adbe5b3099c16dba803c843d71ca370f3af307cc71ee",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/gather_report.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    },
+    {
+      "path": "gather_schema.sql",
+      "sha256": "e21f1a278067f9c3c1d416536a63e67b48efe8d9fbe7a42b668353d8a96cad81",
+      "url": "https://github.com/jobinau/pg_gather/blob/fb0ed42a39a79ec0dcc13a497b31074fcc801a55/gather_schema.sql",
+      "risk": "review-required",
+      "risk_basis": "Upstream reference material has not been run or validated; verify content, compatibility, privileges and possible effects before use."
+    }
+  ],
+  "notice": "Upstream reference material, not validated and not included in smoke. All files are review-required; no file is certified read-only. No code or script has been executed."
+}
