@@ -106,6 +106,7 @@ PG-DN_scripts/
 │   ├── architecture.md
 │   ├── CATALOG.md
 │   ├── CONTRIBUTING.md
+│   ├── MAINTENANCE.md
 │   ├── QUICKSTART.md
 │   ├── README.md
 │   ├── REPLICATION_LAB.md
