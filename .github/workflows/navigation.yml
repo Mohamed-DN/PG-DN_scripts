@@ -2,6 +2,12 @@ name: Refresh navigation
 on:
   push:
     branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'procedures/**'
+      - '_support/tools/catalog.py'
+      - '.github/workflows/navigation.yml'
+      - 'README.md'
   workflow_dispatch:
 permissions:
   contents: write
@@ -27,7 +33,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md _support/catalog.json _support/docs/CATALOG.md
+          git add README.md procedures/README.md _support/catalog.json _support/docs/CATALOG.md
           find scripts -name README.md -print0 | xargs -0 -r git add --
           if ! git diff --cached --quiet; then
             git commit -m 'docs: refresh generated navigation'

@@ -1,6 +1,6 @@
 # Script operativi
 
-[← Home](../README.md) · [Sicurezza e privilegi](../_support/docs/SAFETY.md)
+[← Home](../README.md) · [Come eseguire gli script](../_support/docs/QUICKSTART.md) · [Sicurezza e privilegi](../_support/docs/SAFETY.md)
 
 **144 query** · client `psql` · diagnosi in transazione read-only.
 
@@ -8,12 +8,13 @@ Leggere header, versione e privilegi prima dell’esecuzione. I contatori di att
 
 [administration](administration/README.md) · [backup](backup/README.md) · [maintenance](maintenance/README.md) · [monitoring](monitoring/README.md) · [performance](performance/README.md) · [replication](replication/README.md) · [security](security/README.md) · [wal](wal/README.md)
 
-## 🗂️ Mappa della libreria
+<details>
+<summary>🗂️ Mappa della libreria · apri / chiudi</summary>
 
 ```text
 scripts/
 |
-+-- administration/                                  ← 31 script · Istanza, configurazione, connessioni e cataloghi
++-- 🟦 administration/                                ← 31 script · Istanza, configurazione, connessioni e cataloghi
 |   +-- configuration/                               ← 4 script · Parametri effettivi, capacità e impostazioni operative
 |   |   +-- connection-capacity.sql                  ← Connection capacity
 |   |   +-- non-default-settings.sql                 ← Non-default settings
@@ -48,13 +49,13 @@ scripts/
 |       +-- types-enums-domains.sql                  ← Enum and domain type inventory
 |       +-- unvalidated-constraints.sql              ← Unvalidated constraints
 |       +-- views-and-definitions.sql                ← View inventory with options
-+-- backup/                                          ← 4 script · Diagnosi backup fisico e stato recovery
++-- 🟩 backup/                                        ← 4 script · Diagnosi backup fisico e stato recovery
 |   +-- inspection/                                  ← 4 script · Identità cluster, recovery e attività di base backup
 |       +-- active-backup-senders.sql                ← Active backup senders
 |       +-- backup-api-activity.sql                  ← Backup API activity
 |       +-- basebackup-progress.sql                  ← Base backup progress
 |       +-- recovery-state.sql                       ← Recovery state
-+-- maintenance/                                     ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
++-- 🟧 maintenance/                                   ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
 |   +-- bloat/                                       ← 2 script · Dimensioni heap, indici e TOAST; indicatori da verificare
 |   |   +-- relation-size-breakdown.sql              ← Relation size breakdown
 |   |   +-- toast-breakdown.sql                      ← TOAST storage breakdown
@@ -75,7 +76,7 @@ scripts/
 |       +-- toast-storage-share.sql                  ← TOAST storage candidates
 |       +-- vacuum-history.sql                       ← Per-table vacuum history
 |       +-- wraparound-risk.sql                      ← Transaction and multixact age
-+-- monitoring/                                      ← 26 script · Controlli quotidiani, attività e trend operativi
++-- 🟪 monitoring/                                    ← 26 script · Controlli quotidiani, attività e trend operativi
 |   +-- activity/                                    ← 8 script · Attese, blocchi, transazioni e connessioni SSL
 |   |   +-- advisory-locks.sql                       ← Advisory lock summary
 |   |   +-- blocking-impact.sql                      ← Blocking impact by backend
@@ -105,7 +106,7 @@ scripts/
 |       +-- table-hot-updates.sql                    ← Table HOT update ratios
 |       +-- table-statistics-coverage.sql            ← Table statistics coverage
 |       +-- temporary-files.sql                      ← Temporary file counters by database
-+-- performance/                                     ← 29 script · Query, indici, statistiche del planner e I/O
++-- 🟨 performance/                                   ← 29 script · Query, indici, statistiche del planner e I/O
 |   +-- indexes/                                     ← 12 script · Indici, vincoli, FK, utilizzo e candidati da analizzare
 |   |   +-- access-methods.sql                       ← Index access methods
 |   |   +-- constraint-index-signatures.sql          ← Constraint index signatures
@@ -139,7 +140,7 @@ scripts/
 |       +-- physical-correlation.sql                 ← Column physical correlation
 |       +-- sequence-context.sql                     ← Sequence inventory context
 |       +-- sequence-headroom.sql                    ← Sequence exhaustion headroom
-+-- replication/                                     ← 14 script · Replica fisica/logica, consumer e retention
++-- 🔷 replication/                                   ← 14 script · Replica fisica/logica, consumer e retention
 |   +-- logical/                                     ← 5 script · Publication, subscription e sincronizzazione tabelle
 |   |   +-- publication-tables.sql                   ← Logical publication table mapping
 |   |   +-- publications.sql                         ← Logical publication configuration
@@ -157,7 +158,7 @@ scripts/
 |       +-- retention.sql                            ← Replication slot retention
 |       +-- wal-limit-headroom.sql                   ← Replication slot WAL limit headroom
 |       +-- xmin-horizons.sql                        ← Replication slot xmin horizons
-+-- security/                                        ← 17 script · Ruoli, accessi, ACL e row-level security
++-- 🟥 security/                                      ← 17 script · Ruoli, accessi, ACL e row-level security
 |   +-- privileges/                                  ← 11 script · Grant, privilegi effettivi, RLS e regole di accesso
 |   |   +-- database-acl.sql                         ← Database ACL
 |   |   +-- effective-database-privileges.sql        ← Effective database privileges for roles
@@ -177,7 +178,7 @@ scripts/
 |       +-- role-attributes.sql                      ← Role security attributes
 |       +-- role-inventory.sql                       ← Role inventory
 |       +-- role-membership-edges.sql                ← Role membership edges with portable attributes
-+-- wal/                                             ← 6 script · Generazione WAL, archiviazione e checkpoint
++-- 🔶 wal/                                           ← 6 script · Generazione WAL, archiviazione e checkpoint
     +-- archive/                                     ← 2 script · Archiver, fallimenti e marker pronti da archiviare
     |   +-- archive-status.sql                       ← Archive status
     |   +-- ready-files.sql                          ← Ready WAL archive files
@@ -201,11 +202,11 @@ flowchart TD
     root --> c7["wal · 6 query"]
 ```
 
-```console
-psql -X -v ON_ERROR_STOP=1 -f scripts/administration/configuration/connection-capacity.sql
-```
+</details>
 
-Comando da eseguire dalla radice del checkout.
+## Scegli uno script
+
+Trova il controllo nella tabella, apri il file e leggi scopo, versione e privilegi. La colonna **Procedura** spiega come interpretare il risultato e scegliere il passo successivo.
 
 | Script | Scopo | PostgreSQL | Privilegi | Procedura |
 | :-- | :-- | :-- | :-- | :-- |

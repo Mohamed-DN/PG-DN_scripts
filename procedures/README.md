@@ -4,21 +4,25 @@ Procedure operative per triage, diagnosi e recupero di PostgreSQL 14–18. Sono 
 
 ## Scegli il percorso
 
-| Sintomo | Procedura |
-|---|---|
-| Allarme nuovo o impatto non chiaro | [triage](triage.md) |
-| Sessioni in attesa / blocchi | [locks](locks.md) |
-| Crescita improvvisa di `pg_wal` o archivio fermo | [wal-growth](wal-growth.md) |
-| Standby indietro o non aggiornato | [replication-lag](replication-lag.md) |
-| Bloat sospetto o autovacuum in ritardo | [vacuum-bloat](vacuum-bloat.md) |
-| Query lenta o regressione | [slow-queries](slow-queries.md) |
-| Backup o ripristino logico | [backup-restore](backup-restore.md) |
-| PITR fisico con backup e WAL | [pitr](pitr.md) |
-| Backup manager Barman | [barman](barman.md) |
-| Backup manager pgBackRest | [pgBackRest](pgbackrest.md) |
-| Ruoli, autenticazione o privilegi | [security](security.md) |
-| Baseline di metriche e capacità | [monitoring](monitoring.md) |
-| Registrazione uniforme dell'incidente | [incident-template](incident-template.md) |
+<!-- BEGIN GENERATED INDEX -->
+| Procedura | Quando usarla |
+| :-- | :-- |
+| [Backup, restore e PITR](backup-restore.md) | Usare per verificare protezione dati, recuperare una base logica o predisporre ripristino fisico. |
+| [Backup e PITR con Barman](barman.md) | Procedura riferita alla sintassi documentata per **Barman 3.17.0** e PostgreSQL 14–18. |
+| [Scheda incidente PostgreSQL](incident-template.md) | Copiare questa scheda in uno spazio autorizzato dal processo di incident response. |
+| [Diagnosi dei lock](locks.md) | Usare quando sessioni applicative sono in attesa, DDL resta bloccato o l'allarme mostra lock non concessi. |
+| [Baseline e monitoraggio PostgreSQL](monitoring.md) | Questa procedura aiuta a stabilire una baseline e leggere gli allarmi senza trasformare valori istantanei in diagnosi. |
+| [Backup e PITR con pgBackRest](pgbackrest.md) | Procedura basata sulla documentazione pgBackRest **2.59.3**. |
+| [PITR fisico su istanza isolata](pitr.md) | Procedura PostgreSQL 14–18 per ripristinare un backup fisico e riprodurre WAL fino a un istante UTC, fermandosi in pausa per ispezionare i dati. |
+| [Ritardo di replica fisica e logica](replication-lag.md) | Usare quando una replica è in ritardo, non riceve WAL, il replay è fermo o il consumer logico non avanza. |
+| [Diagnosi ruoli, privilegi e autenticazione](security.md) | Usare per accesso negato o sospetto e per verificare privilegi prima di un cambiamento. |
+| [Diagnosi query lente](slow-queries.md) | Usare quando una query ha latenza elevata o peggiora rispetto alla baseline. |
+| [Triage iniziale PostgreSQL](triage.md) | Usare questa procedura quando un allarme o una segnalazione non ha ancora una causa verificata. |
+| [Autovacuum, VACUUM e bloat](vacuum-bloat.md) | Usare quando crescono tabelle/indici o spazio, l'autovacuum sembra non recuperare arretrato, o aumentano transazioni lunghe e rischio wraparound. |
+| [Crescita di WAL e ritardo archivio](wal-growth.md) | Usare quando `pg_wal` o il repository WAL cresce, `pg_stat_archiver` segnala fallimenti oppure lo spazio libero diminuisce. |
+<!-- END GENERATED INDEX -->
+
+L'indice include automaticamente le procedure presenti, anche nelle sottocartelle. La descrizione deriva dal primo paragrafo di ciascuna guida.
 
 ## Flusso operativo
 
