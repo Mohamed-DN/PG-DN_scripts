@@ -1,0 +1,89 @@
+{
+  "repository": "limdauto/pg-monitoring",
+  "repository_url": "https://github.com/limdauto/pg-monitoring",
+  "commit": "1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe",
+  "branch_at_fetch": "master",
+  "license": "MIT",
+  "license_source": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/LICENSE",
+  "selection": "albero tracciato; README root preservato come README.upstream.md; submodule non inizializzati esclusi",
+  "submodules_not_imported": [],
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "87991af63b8fbcdc47b41d1fe32dec41cdf912242965ab6e7566207be0958919",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/LICENSE",
+      "risk": "read-only",
+      "risk_basis": "Testo di licenza."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "3af7483825b69e726a01e8477692bae38c4438de9023e7ffa58ca1fb4a46fe37",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/README.md",
+      "risk": "review-required",
+      "risk_basis": "Original upstream README, including attributions; documentation only, not audited."
+    },
+    {
+      "path": "activities/connections.sql",
+      "sha256": "7f02ee8093d62453c0eeee0ab6cebe5f312a8bdf7a8ac31669ec9d9ecaba1b27",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/activities/connections.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "examples/collectd.conf",
+      "sha256": "11a418e3e77d1d967f67c70d8e89a3f540a4270b69d8715e78fc09047dbfb922",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/examples/collectd.conf",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "imgs/demo.png",
+      "sha256": "f57cc9381af86539cdb698b9a38ab003ab54614a305a52a330dbc5f82a29781e",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/imgs/demo.png",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "locks/connections.sql",
+      "sha256": "fbb11b59768b33d27860b0d106e2195be3fd517c1bc663617304a54475de2a89",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/locks/connections.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "locks/relations.sql",
+      "sha256": "f391a4b8f35d6153a4f9e65236ee862a56590535373adc047c072e8e978ebcf8",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/locks/relations.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "locks/statements.sql",
+      "sha256": "8e96affbf84b06eb17d4a3d821b1220c75a5cfa9c7dcc289c92c1a3ba60ea0fb",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/locks/statements.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "tables/disk.sql",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/tables/disk.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "tables/io.sql",
+      "sha256": "c430de5b6673d435b17597028081c98e743a38108bf65c560749bfaa94befe5f",
+      "url": "https://github.com/limdauto/pg-monitoring/blob/1cb18cbecc8d1f67ea1d3e8f141cbd4e012a1efe/tables/io.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    }
+  ],
+  "risk_counts": {
+    "read-only": 7,
+    "non-read-only": 0,
+    "review-required": 2
+  },
+  "notice": "Materiale upstream di riferimento, non validato e non incluso nello smoke. La classificazione è euristica; non promette sicurezza. Gli script shell non sono stati eseguiti."
+}

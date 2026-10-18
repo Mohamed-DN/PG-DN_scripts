@@ -1,0 +1,74 @@
+{
+  "repository": "Azmodey/pg_dba_scripts",
+  "repository_url": "https://github.com/Azmodey/pg_dba_scripts",
+  "commit": "3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab",
+  "license": "Assente al commit acquisito; nessun permesso di ridistribuzione rilevato",
+  "action": "Il clone completo resta soltanto in .work/upstream, escluso dal repository. Nessun codice o README upstream è stato copiato in upstream/.",
+  "tracked_file_count_local_clone": 16,
+  "files_index": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/README.md"
+    },
+    {
+      "path": "media/db_activity_pgbench.png",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/media/db_activity_pgbench.png"
+    },
+    {
+      "path": "media/db_activity_replogical.png",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/media/db_activity_replogical.png"
+    },
+    {
+      "path": "media/db_activity_repstream.png",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/media/db_activity_repstream.png"
+    },
+    {
+      "path": "media/db_activity_vacuumfull.png",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/media/db_activity_vacuumfull.png"
+    },
+    {
+      "path": "media/db_information.png",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/media/db_information.png"
+    },
+    {
+      "path": "scripts/pg_database_activity.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_activity.sh"
+    },
+    {
+      "path": "scripts/pg_database_activity_refresh.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_activity_refresh.sh"
+    },
+    {
+      "path": "scripts/pg_database_hugepages.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_hugepages.sh"
+    },
+    {
+      "path": "scripts/pg_database_information.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_information.sh"
+    },
+    {
+      "path": "scripts/pg_database_logs.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_logs.sh"
+    },
+    {
+      "path": "scripts/pg_database_reload_conf.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_reload_conf.sh"
+    },
+    {
+      "path": "scripts/pg_database_start.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_start.sh"
+    },
+    {
+      "path": "scripts/pg_database_status.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_status.sh"
+    },
+    {
+      "path": "scripts/pg_database_stop.sh",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/pg_database_stop.sh"
+    },
+    {
+      "path": "scripts/settings.txt",
+      "url": "https://github.com/Azmodey/pg_dba_scripts/blob/3ff7a9041e5a6a78a91bb222c962f76e30c1d3ab/scripts/settings.txt"
+    }
+  ]
+}

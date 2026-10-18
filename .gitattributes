@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.sql text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+# Immutable vendor snapshots: preserve exact upstream bytes and whitespace.
+# Upstream Markdown may contain seven '=' heading underlines, not merge conflicts.
+upstream/** -text -whitespace conflict-marker-size=32

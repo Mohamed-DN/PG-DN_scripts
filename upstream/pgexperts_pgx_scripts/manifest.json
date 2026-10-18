@@ -1,0 +1,201 @@
+{
+  "repository": "pgexperts/pgx_scripts",
+  "repository_url": "https://github.com/pgexperts/pgx_scripts",
+  "commit": "e4f312d37b5fcf8a9f18fe857cee00ece13a387d",
+  "branch_at_fetch": "master",
+  "license": "BSD-3-Clause (testo riportato nel LICENSE upstream)",
+  "license_source": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/LICENSE",
+  "selection": "albero tracciato; README root preservato come README.upstream.md; submodule non inizializzati esclusi",
+  "submodules_not_imported": [],
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "81dfa1f54c97d1b22485cef6e72d9788146543ea62709dbd884721dbd3e0d766",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/LICENSE",
+      "risk": "read-only",
+      "risk_basis": "Testo di licenza."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "e8ae62a0a59049bdd302f9354c180cdb97e088226f30ef7bdd71ccdf3fb8c808",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/README.md",
+      "risk": "review-required",
+      "risk_basis": "Original upstream README, including attributions; documentation only, not audited."
+    },
+    {
+      "path": "bloat/index_bloat_check.sql",
+      "sha256": "a400f2f4ffbee50554d49c3bbde0072ee8f063d8aec5e70312b18eae3bd90f6b",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/bloat/index_bloat_check.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "bloat/table_bloat_check.sql",
+      "sha256": "4be7946f454200851d7ef3cb88dca4e087f7107d912ae15312db883d1b490020",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/bloat/table_bloat_check.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "columns/integer_usage.py",
+      "sha256": "fbcad86ac012532d481fa8ba3a75d3f052ccddac8a13fbbd0a8b2fa8ad0aff4a",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/columns/integer_usage.py",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "columns/missing_PKs.sql",
+      "sha256": "2e65d31c94cb517cbbae9170c4f3e6784428e656c4553442b09a0ac5e6b7af6c",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/columns/missing_PKs.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "duplicate_indexes/duplicate_indexes.sql",
+      "sha256": "97bee41467c08af35758402eb13b352a04ec42f25d1be426c809046d3595cd52",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/duplicate_indexes/duplicate_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "duplicate_indexes/readme.md",
+      "sha256": "5d5104371508faa6048166dca44d8214c581b4b0547fad073990518f17e53dcd",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/duplicate_indexes/readme.md",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "indexes/duplicate_indexes_fuzzy.sql",
+      "sha256": "5f781070c96983a731809728a25cfaab4d6dcfeb54d5f01afc64bde19268992c",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/indexes/duplicate_indexes_fuzzy.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "indexes/fk_no_index.sql",
+      "sha256": "f04f346e20ec411ac4031bbc9bb24eaa96ae407df36013a72429e1747f8fd2cd",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/indexes/fk_no_index.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "indexes/needed_indexes.sql",
+      "sha256": "191b152ebee1861e9be17c08e349ef6690faeb87ef1677bbaa2a303b6f443f53",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/indexes/needed_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "indexes/unused_indexes.sql",
+      "sha256": "eea7ef5c7b00bea9c390650657db97a374797403bd7e421e40840f68285f63ca",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/indexes/unused_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "kill_idle/kill_idle_93_table.sql",
+      "sha256": "99d84ef2c6a5eff13da87dbd0e88e08cf7e5c52eacebdb29c0ae5e1d3d1d8348",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/kill_idle/kill_idle_93_table.sql",
+      "risk": "review-required",
+      "risk_basis": "Possibili effetti su sessioni, configurazione, statistiche o stato WAL rilevati per nome funzione."
+    },
+    {
+      "path": "kill_idle/kill_idle_xact_91.sh",
+      "sha256": "2d24f794b95b61a9c894a06322c220c3a803ddfa00be08051169b04f43609646",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/kill_idle/kill_idle_xact_91.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "kill_idle/kill_idle_xact_93.sh",
+      "sha256": "749e856238c77452a44c57c5841aef6928546ba5881533a475590c644812934b",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/kill_idle/kill_idle_xact_93.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "locks/README.rst",
+      "sha256": "a99de6743bbcd5e191026c3035cc7db3581faba31aaeaee98318f8e585ac81f4",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/locks/README.rst",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "locks/lock_tables.sql",
+      "sha256": "857ec9f89c95f8f8008679c60ec0f03b760f6698b447a16a445e975c894184b5",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/locks/lock_tables.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "locks/log_locks.sh",
+      "sha256": "254e9ef03477eb95ec6576f802a873f0ce2040b425afb5528131c4ae313f99ad",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/locks/log_locks.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "pgbouncer/log_pgbouncer_stats.sh",
+      "sha256": "db1e572fbd418af6fe002581fe143965b9a4325df16c716917a58b92504c49e5",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/pgbouncer/log_pgbouncer_stats.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slony/log_slony_status.sh",
+      "sha256": "f9d45449c7a22b3a42a6dbe42815eca479c176cdd50c48778c36469725babe67",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/slony/log_slony_status.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slony/see_replication_config.sql",
+      "sha256": "cc27e0d8ddb589f6d02ea74282266133737c89719d0f8fde301ddf985f801fcd",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/slony/see_replication_config.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "vacuum/database_xid_age.sql",
+      "sha256": "c0c5b61aa0a8a240fab1dd77180df16e5a948ae1ef54091a56af89ef98e5808d",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/vacuum/database_xid_age.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "vacuum/last_autovacuum.sql",
+      "sha256": "15fc008fd0206a64ee423eebf3873b91163089d6a0e3edc1f128bf96c4b464ca",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/vacuum/last_autovacuum.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "vacuum/last_autovacuum_and_autoanalyze.sql",
+      "sha256": "fa980bc5acc5e976915d31c58c5c25526814cefc138bbde45e55e3d417c5c319",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/vacuum/last_autovacuum_and_autoanalyze.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "vacuum/no_stats_table_check.sql",
+      "sha256": "f0a44fa42257ef16acc656abda99c9d55d4baf097a5470562da2e0fe3de423eb",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/vacuum/no_stats_table_check.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "vacuum/table_xid_age.sql",
+      "sha256": "a425107757e73eeddfa013efd919a2a25a88b2382fe37dd5b0cca7d730d2c576",
+      "url": "https://github.com/pgexperts/pgx_scripts/blob/e4f312d37b5fcf8a9f18fe857cee00ece13a387d/vacuum/table_xid_age.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    }
+  ],
+  "risk_counts": {
+    "read-only": 13,
+    "non-read-only": 3,
+    "review-required": 9
+  },
+  "notice": "Materiale upstream di riferimento, non validato e non incluso nello smoke. La classificazione è euristica; non promette sicurezza. Gli script shell non sono stati eseguiti."
+}

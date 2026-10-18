@@ -1,0 +1,1777 @@
+[
+  {
+    "postgres_major": 14,
+    "scripts": [
+      {
+        "path": "scripts/administration/configuration/connection-capacity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/non-default-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/vacuum-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/wal-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/active.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/by-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/idle-in-transaction.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/databases.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/extensions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/largest-relations.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/materialized-views.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/partition-tree.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/routines.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/schemas.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/sequences.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/server-info.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/active-backup-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/recovery-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/relation-size-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/toast-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/analyze.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/create-index.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/vacuum.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/dead-tuples.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/oldest-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/wraparound-risk.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/advisory-locks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/blocking-sessions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/long-running.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/prepared-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/ssl-connections.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/wait-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/database-sizes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/tablespace-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/checkpointer.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/database-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/reset-times.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/table-activity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/definitions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/duplicate-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/invalid-indexes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/unused-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/usage-by-table.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/buffercache-summary.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/performance/io/database-io-timing.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/pg-stat-io.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-mean-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-temp-blocks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-total-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/subscriptions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/workers.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/primary-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-receiver.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-replay.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/logical-stats.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/retention.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/database-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/hba-rule-health.sql",
+        "admin": "passed",
+        "pg_monitor": "not-run: requires superuser"
+      },
+      {
+        "path": "scripts/security/privileges/relation-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/rls-policies.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/schema-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/expiring-logins.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/membership.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/security/roles/role-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/archive-status.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/ready-files.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/retention-context.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/wal-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      }
+    ],
+    "checks": {
+      "optional_extensions_nonpublic_schema_and_missing_guard": true,
+      "read_only_write_rejected": true,
+      "monitor_write_rejected": true,
+      "logical_backup_restore_200_rows": true,
+      "real_blocker_observed": true,
+      "curated_blocker_query_reports_waiter": true
+    },
+    "server_version": "14.24",
+    "image_id": "0df736b1752db794e9843289ca8aee15063c37ae3e8daa3b11572ab6cc12c451"
+  },
+  {
+    "postgres_major": 15,
+    "scripts": [
+      {
+        "path": "scripts/administration/configuration/connection-capacity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/non-default-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/vacuum-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/wal-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/active.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/by-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/idle-in-transaction.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/databases.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/extensions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/largest-relations.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/materialized-views.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/partition-tree.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/routines.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/schemas.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/sequences.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/server-info.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/active-backup-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/recovery-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/relation-size-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/toast-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/analyze.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/create-index.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/vacuum.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/dead-tuples.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/oldest-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/wraparound-risk.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/advisory-locks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/blocking-sessions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/long-running.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/prepared-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/ssl-connections.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/wait-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/database-sizes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/tablespace-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/checkpointer.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/database-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/reset-times.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/table-activity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/definitions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/duplicate-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/invalid-indexes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/unused-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/usage-by-table.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/buffercache-summary.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/performance/io/database-io-timing.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/pg-stat-io.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-mean-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-temp-blocks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-total-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/subscriptions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/workers.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/primary-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-receiver.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-replay.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/logical-stats.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/retention.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/database-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/hba-rule-health.sql",
+        "admin": "passed",
+        "pg_monitor": "not-run: requires superuser"
+      },
+      {
+        "path": "scripts/security/privileges/relation-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/rls-policies.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/schema-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/expiring-logins.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/membership.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/security/roles/role-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/archive-status.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/ready-files.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/retention-context.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/wal-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      }
+    ],
+    "checks": {
+      "optional_extensions_nonpublic_schema_and_missing_guard": true,
+      "read_only_write_rejected": true,
+      "monitor_write_rejected": true,
+      "logical_backup_restore_200_rows": true,
+      "real_blocker_observed": true,
+      "curated_blocker_query_reports_waiter": true
+    },
+    "server_version": "15.19",
+    "image_id": "319d040b5d68e3e5b98a238f0b5d375b4b4d9c5b3a6a9afb0308a8bcf0de72a5"
+  },
+  {
+    "postgres_major": 16,
+    "scripts": [
+      {
+        "path": "scripts/administration/configuration/connection-capacity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/non-default-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/vacuum-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/wal-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/active.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/by-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/idle-in-transaction.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/databases.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/extensions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/largest-relations.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/materialized-views.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/partition-tree.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/routines.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/schemas.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/sequences.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/server-info.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/active-backup-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/recovery-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/relation-size-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/toast-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/analyze.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/create-index.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/vacuum.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/dead-tuples.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/oldest-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/wraparound-risk.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/advisory-locks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/blocking-sessions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/long-running.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/prepared-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/ssl-connections.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/wait-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/database-sizes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/tablespace-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/checkpointer.sql",
+        "admin": "version-guard-passed",
+        "pg_monitor": "version-guard-passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/database-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/reset-times.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/table-activity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/definitions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/duplicate-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/invalid-indexes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/unused-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/usage-by-table.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/buffercache-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/database-io-timing.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/pg-stat-io.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-mean-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-temp-blocks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-total-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/subscriptions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/workers.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/primary-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-receiver.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-replay.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/logical-stats.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/retention.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/database-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/hba-rule-health.sql",
+        "admin": "passed",
+        "pg_monitor": "not-run: requires superuser"
+      },
+      {
+        "path": "scripts/security/privileges/relation-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/rls-policies.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/schema-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/expiring-logins.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/membership.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/role-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/archive-status.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/ready-files.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/retention-context.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/wal-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      }
+    ],
+    "checks": {
+      "optional_extensions_nonpublic_schema_and_missing_guard": true,
+      "read_only_write_rejected": true,
+      "monitor_write_rejected": true,
+      "logical_backup_restore_200_rows": true,
+      "real_blocker_observed": true,
+      "curated_blocker_query_reports_waiter": true
+    },
+    "server_version": "16.15",
+    "image_id": "81bd698b4594e751a3269e4dcd3e03a4a0ec0daf7b72e7aa1abd43cce9887542"
+  },
+  {
+    "postgres_major": 17,
+    "scripts": [
+      {
+        "path": "scripts/administration/configuration/connection-capacity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/non-default-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/vacuum-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/wal-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/active.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/by-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/idle-in-transaction.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/databases.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/extensions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/largest-relations.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/materialized-views.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/partition-tree.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/routines.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/schemas.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/sequences.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/server-info.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/active-backup-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/recovery-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/relation-size-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/toast-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/analyze.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/create-index.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/vacuum.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/dead-tuples.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/oldest-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/wraparound-risk.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/advisory-locks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/blocking-sessions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/long-running.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/prepared-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/ssl-connections.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/wait-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/database-sizes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/tablespace-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/checkpointer.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/database-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/reset-times.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/table-activity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/definitions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/duplicate-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/invalid-indexes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/unused-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/usage-by-table.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/buffercache-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/database-io-timing.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/pg-stat-io.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-mean-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-temp-blocks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-total-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/subscriptions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/workers.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/primary-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-receiver.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-replay.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/logical-stats.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/retention.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/database-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/hba-rule-health.sql",
+        "admin": "passed",
+        "pg_monitor": "not-run: requires superuser"
+      },
+      {
+        "path": "scripts/security/privileges/relation-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/rls-policies.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/schema-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/expiring-logins.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/membership.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/role-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/archive-status.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/ready-files.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/retention-context.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/wal-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      }
+    ],
+    "checks": {
+      "optional_extensions_nonpublic_schema_and_missing_guard": true,
+      "read_only_write_rejected": true,
+      "monitor_write_rejected": true,
+      "logical_backup_restore_200_rows": true,
+      "real_blocker_observed": true,
+      "curated_blocker_query_reports_waiter": true
+    },
+    "server_version": "17.11",
+    "image_id": "79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537"
+  },
+  {
+    "postgres_major": 18,
+    "scripts": [
+      {
+        "path": "scripts/administration/configuration/connection-capacity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/non-default-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/vacuum-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/configuration/wal-settings.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/active.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/by-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/connections/idle-in-transaction.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/databases.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/extensions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/largest-relations.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/materialized-views.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/partition-tree.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/routines.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/schemas.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/sequences.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/administration/inventory/server-info.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/active-backup-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/backup/inspection/recovery-state.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/relation-size-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/bloat/toast-breakdown.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/analyze.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/create-index.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/progress/vacuum.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/dead-tuples.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/oldest-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/maintenance/vacuum/wraparound-risk.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/advisory-locks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/blocking-sessions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/long-running.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/prepared-transactions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/ssl-connections.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/activity/wait-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/database-sizes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/capacity/tablespace-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/checkpointer.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/database-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/reset-times.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/monitoring/statistics/table-activity.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/definitions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/duplicate-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/invalid-indexes.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/unused-candidates.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/indexes/usage-by-table.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/buffercache-summary.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/database-io-timing.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/io/pg-stat-io.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-mean-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-temp-blocks.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/performance/queries/top-total-time.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/subscriptions.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/logical/workers.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/primary-senders.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-receiver.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/physical/standby-replay.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/logical-stats.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/replication/slots/retention.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/database-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/hba-rule-health.sql",
+        "admin": "passed",
+        "pg_monitor": "not-run: requires superuser"
+      },
+      {
+        "path": "scripts/security/privileges/relation-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/rls-policies.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/privileges/schema-acl.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/expiring-logins.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/membership.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/security/roles/role-inventory.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/archive-status.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/archive/ready-files.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/retention-context.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      },
+      {
+        "path": "scripts/wal/retention/wal-counters.sql",
+        "admin": "passed",
+        "pg_monitor": "passed"
+      }
+    ],
+    "checks": {
+      "optional_extensions_nonpublic_schema_and_missing_guard": true,
+      "read_only_write_rejected": true,
+      "monitor_write_rejected": true,
+      "logical_backup_restore_200_rows": true,
+      "real_blocker_observed": true,
+      "curated_blocker_query_reports_waiter": true
+    },
+    "server_version": "18.6",
+    "image_id": "c293117fcecda7344b5480222e813b9f673d7abd69b1dd95eff239b768b04f59"
+  }
+]

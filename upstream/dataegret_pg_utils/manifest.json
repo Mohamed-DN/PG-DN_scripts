@@ -1,0 +1,791 @@
+{
+  "repository": "dataegret/pg-utils",
+  "repository_url": "https://github.com/dataegret/pg-utils",
+  "commit": "0835aa25b815b0589cf66f88537bb7952fb50543",
+  "branch_at_fetch": "master",
+  "license": "Permesso custom nel LICENSE.md upstream",
+  "license_source": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/LICENSE.md",
+  "selection": "albero tracciato; README root preservato come README.upstream.md; submodule non inizializzati esclusi",
+  "submodules_not_imported": [
+    "pg_index_watch (gitlink registrato dal repository, contenuto non inizializzato)"
+  ],
+  "files": [
+    {
+      "path": ".gitmodules",
+      "sha256": "845ba7f6dda61f3f2ca0a5a68c2dfc30ab0844d1f5a42c62402edcb675eb3d91",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/.gitmodules",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "132d9a5dc239c7212aa0eee3e892e1ff7511a88d38c088db41f766db58381c35",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/LICENSE.md",
+      "risk": "read-only",
+      "risk_basis": "Testo di licenza."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "507daf7de33afb1b6070b35d462ecc1b2bafbaa208d4aff74606d66578deab69",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/README.md",
+      "risk": "review-required",
+      "risk_basis": "Original upstream README, including attributions; documentation only, not audited."
+    },
+    {
+      "path": "bin/README.md",
+      "sha256": "31711699cdd07a942a9481b58149232abdbb5f2f3da4073b844df3ce466c1ab5",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/README.md",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "bin/check_replication_lag.pl",
+      "sha256": "240d4c710b17f15563e278b5e870d04d0e14d9a6cc1381127a0421b79d386bc4",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/check_replication_lag.pl",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/generate_pgbouncer_userlist.sh",
+      "sha256": "25578df3a8c88061f97339d248e1c34f44930a9ad8bd7325bacb509ce5091006",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/generate_pgbouncer_userlist.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/log_check.sh",
+      "sha256": "be6a6be2a1d5ad3206092e5f6bf33603c9d88061bc2ab5673a5d177b72c6c9b3",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/log_check.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/makecron.sh",
+      "sha256": "efce3537cd08f73d00896f6111ee990f5611a00e89facf65f2798b596877d0eb",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/makecron.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/offlag.sh",
+      "sha256": "33689e7b81fcfea781f6fa217f267d5e25b191ed49c9c64b61d0a760b6210e6c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/offlag.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/pg_log_search.pl",
+      "sha256": "64114441d94cc81b48934fa0c37d3a56fb0aceacbf894e08029b8885e328bfe2",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/pg_log_search.pl",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/postgresql-audit.sh",
+      "sha256": "9f8813051543056ad19cf6cdfec23af2c0accd6432e29aef9090f102f3850eb4",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/postgresql-audit.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/server-audit.sh",
+      "sha256": "12f6c3ff19fb509b3811dff6e7887193c1f0bf09c06a24f326eab5713670d909",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/server-audit.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/server-checklist.sh",
+      "sha256": "55a5409f90503d7e68a1bf08e694bb68eba33dc4b4587b0b79f34fdc8aa5d21f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/server-checklist.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/slony_extract_schema_to_file.sh",
+      "sha256": "1bb6eccc0072842aaf906cceef858a6b69e883a6032a56b8613fc82f36a240eb",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/slony_extract_schema_to_file.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "bin/stuff-update.sh",
+      "sha256": "638a45ce2f91f8eff263eb8dccd298092960feedfad594d8bdf489023dac4184",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/bin/stuff-update.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "loganalyze/log_analyze.pl",
+      "sha256": "264704876be7ca661364005b76e6398169be4d7b466cb67f54c49314576c3aa7",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/loganalyze/log_analyze.pl",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/cluster_config.slonik.template",
+      "sha256": "6a354ce72de55fabddaa19642ebe9cfa95fc886e2a7e09cc926d7abc6e634b80",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/cluster_config.slonik.template",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/create_set.slonik",
+      "sha256": "0847060f24d537613b0dd7dcb2131e9af7f1fa9d394768873087752a875c63a5",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/create_set.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/create_slave_node.slonik",
+      "sha256": "bdbfdcc3b8632a04e2c4ecffd7295ef3919e27b7390ba4fca7e1a66d9538d539",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/create_slave_node.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/drop_set.slonik",
+      "sha256": "a6bb80f97e7d3ed4a85c802e9a130df44d1ab34c71c592fb3abce75f29ada713",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/drop_set.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/drop_slave_node.slonik",
+      "sha256": "328d6f5f382a9a9394c1495896e65481f8b8d66466f85cd2bfc08ca7650f2907",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/drop_slave_node.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/execute_script.slonik",
+      "sha256": "e72c41eb2361329ba3c0b169881924d63d98c415458e5dfaf68f9ded5a4d2477",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/execute_script.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/init_cluster.slonik",
+      "sha256": "ced56001af5946a2f62cd848eb7cd83b40d2a0cb6023df8a0163ac9bb398974e",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/init_cluster.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/populate_set.slonik.template",
+      "sha256": "b49783952cf43b3f72fdd6cd19214e15b65f0624d66cbef26d866c623138b028",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/populate_set.slonik.template",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/populate_set.slonik_footer",
+      "sha256": "2910feb73150dc6c880c6dc94f89da4fcc392b983786e6cc8c5deebcd78f6f0f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/populate_set.slonik_footer",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "slonik_template/populate_set.slonik_header",
+      "sha256": "26ad1370c7147db3fda8d0a0ff3212f4ba5a736c304884458ef55d4057ae74f2",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/populate_set.slonik_header",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "slonik_template/set_drop_items.slonik",
+      "sha256": "af8b33db82d6a82321b2fee3bfc0e7ca9366463c84e5ecae7901f8cd5f22bee3",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/set_drop_items.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/setup_cluster.slonik",
+      "sha256": "9b655fe39cb1fa546619868ae087a701663e04582fd7cee2667d808c2193e4b5",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/setup_cluster.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/slon.conf.template",
+      "sha256": "7b70d4f538db3a8f8a71b1d5792367d1bc431f7dc73a91881877204636331b19",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/slon.conf.template",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/store_path.slonik",
+      "sha256": "4f353455a1748e56fa2941dda7b03be38513b6d526ed111e01858d8883b88716",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/store_path.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/subscribe_set.slonik",
+      "sha256": "a02fdb95a2f9225680e785bc3e40f2f427c2843c3a6ccefe5a2e52efaf3a9883",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/subscribe_set.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "slonik_template/switchover.slonik",
+      "sha256": "fa38ffd1b5ec33933357011e0e2a0fdc64c4279680e04cc8de652f48cc1523f6",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/slonik_template/switchover.slonik",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "sql/83compat.sql",
+      "sha256": "f3d3ba752a65b3287246a0a7f2e2a9a88f4bd65d506857eee1afa9c0f9ce3701",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/83compat.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/amcheck_indexes.sql",
+      "sha256": "bcb24ee8e30c45a5ebf0643af9dc3a66be33eb7964542b2e38446dd09b2fd06a",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/amcheck_indexes.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/cache_stat.sql",
+      "sha256": "bf5e7ec17fa93b963392072eac21e6013c1fbe5fbc4714f6cc34fa77085aef69",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/cache_stat.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_all_tables_have_pk.sql",
+      "sha256": "ad69ec5b2cd8d0574e697a2e2a44fa1993a709c2df99e3e5908627e301974e86",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_all_tables_have_pk.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_are_all_subscribed.sql",
+      "sha256": "80478ee98d664f8aad00d4d3337bf939cea898c48bc1293f65f0792240e79a16",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_are_all_subscribed.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_config.sql",
+      "sha256": "29bf952cdd2a007839b144f2754dea102335f53e177209788ee505b8394cc32c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_config.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_missing_grants.sql",
+      "sha256": "143b081aab30417577a23a72199981eb288367ae87f110daf8444d819012bd45",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_missing_grants.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_strange_fk.sql",
+      "sha256": "67f5244efd321a4651b8e22b71fafb94b9d9daa430dbd2887c9665996830d02b",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_strange_fk.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/check_uniq_indexes.sql",
+      "sha256": "224a4f81b66cd0aef38267a1a79d04672479e2a924cb263609a4f135c7094322",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/check_uniq_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/create_db_activity_view.sql",
+      "sha256": "fc7fc801feacdeb186f0e6c892db3eb906ad67ea7999b2f7a2fce7acb19afb34",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_db_activity_view.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_db_activity_view9.2.sql",
+      "sha256": "e8ab54e433e86cbdd73b1d48ca1e6dc98c68cb5d740d91daef422201d9f50e9b",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_db_activity_view9.2.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_query_stat_cpu_time_view.sql",
+      "sha256": "89935ceee9ac70f087c89fc22cf2c1d6ee2a28fd1ad90c2be25bdf805ed92d2a",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_query_stat_cpu_time_view.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_query_stat_io_time_view.sql",
+      "sha256": "291711335d0a1ba03aecc09303a13ef658d7c4d60886daeba091c09b0ce6eb54",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_query_stat_io_time_view.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_query_stat_log.sql",
+      "sha256": "c92d078c29baa62c2f405e19ad0cb28be3e24aa7ec68722d6f5d1219fd236deb",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_query_stat_log.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_query_stat_time_view.sql",
+      "sha256": "317e8228095960c8b1badf7fcf6772222c014dcc60928c3a2a407f953af38e00",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_query_stat_time_view.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_repl_activity_view9.5.sql",
+      "sha256": "89d15f974a9c8ab1ecbd0b1e4998a692586314c8548ca6e57cac083afbe0539e",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_repl_activity_view9.5.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_slonik_set_full.sql",
+      "sha256": "886cb5cfb34a40e28ad1b35fd5add715079d0aec85162db2cb0d47ee7338b90f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_slonik_set_full.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_slonik_set_incremental.sql",
+      "sha256": "9eed35eff93e26e9c85480711a4d763624855009a88b44be2c74ac11e7a26774",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_slonik_set_incremental.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/create_xlog_math_procedures.sql",
+      "sha256": "125d3332fc0c4c456ca2ddfa3f29f37f403cff7e407ee0f1ba8fea5e8a193dab",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/create_xlog_math_procedures.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/db_activity.sql",
+      "sha256": "97fd0c571aa260d602ed1a4bb2ce8c6f5bb1148f5e6cf37ba1569431f8bd75cc",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/db_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/db_activity9.2.sql",
+      "sha256": "76c6bab3a8ff22ea3e0e633a87bb5cac8fa32496156e4ec9628159cf7a7eb13c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/db_activity9.2.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/db_activity9.6.sql",
+      "sha256": "f56ff608d369f931179bb4d0ff5648213dc980f1ea3b964631148a6ddf85022e",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/db_activity9.6.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/dirty_to_read_stat.sql",
+      "sha256": "c1b094f4f69ba7b07de630e620b82a2368d312bf820eb09b91518c0f8af700c5",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/dirty_to_read_stat.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/generate_drop_items.sql",
+      "sha256": "4d0125214386c57e7425e341cc4e94630d2940474ff04a70bc7495a9be77341c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/generate_drop_items.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/global_reports/query_stat_cpu_time.sql",
+      "sha256": "ddbad6e260e4320d82c7e20dae3dd4c9c1921ede0f9ac084a7b1f58b93bad4bd",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_cpu_time.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_io_time.sql",
+      "sha256": "8d6eed2fe91782f7ecd1a51ea87bbf90bbbb037ec753f1d6628c39b809b5859d",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_io_time.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total.sql",
+      "sha256": "04063f63891df168be30a436af8feadd2811aee63b6fcef9d8e2977748b772be",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_10.sql",
+      "sha256": "5d0a9830155b474d0e518127db89187cc1718274903c6f01c628d1686fc2f00f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_10.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_11.sql",
+      "sha256": "5d0a9830155b474d0e518127db89187cc1718274903c6f01c628d1686fc2f00f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_11.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_13.sql",
+      "sha256": "91c15efc7165ead7c136da07c11d19ba5204d2bc6371320544f3c4fb12b1c54e",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_13.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_14.sql",
+      "sha256": "870ca5b9e4d5709fbe46acac3532e8c5fd5a8abc7b92a220302ee3884af7dd67",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_14.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_15.sql",
+      "sha256": "870ca5b9e4d5709fbe46acac3532e8c5fd5a8abc7b92a220302ee3884af7dd67",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_15.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_16.sql",
+      "sha256": "870ca5b9e4d5709fbe46acac3532e8c5fd5a8abc7b92a220302ee3884af7dd67",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_16.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_17.sql",
+      "sha256": "23b0e08067686bb8f7b3013714a2eef32d719b6c784d2496e7db03b3f76ed3ad",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_17.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/global_reports/query_stat_total_18.sql",
+      "sha256": "26e033f73a0f2ce6bdb9d518822f44afcd68baa26afa0cb5d7db6098882942d6",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/global_reports/query_stat_total_18.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/index_bloat.sql",
+      "sha256": "b701a615e150d32c08b2cd039191232da6cd143729cf1c15d74c158f08ac9488",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_bloat.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/index_candidates_from_ssd.sql",
+      "sha256": "32998e3aae6374550a9753a4c48752f0e4e96ae892eea2b7732c9973a1803745",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_candidates_from_ssd.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/index_candidates_to_deduplicate.sql",
+      "sha256": "4a058e9964b64080de425b10e008151cb688b7bf69c259911eee37040cbcd566",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_candidates_to_deduplicate.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/index_candidates_to_partial.sql",
+      "sha256": "3c699efda7cc9ce109decb578311bf75708f9ff022c0d0ac4f02bd4cb7513b78",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_candidates_to_partial.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/index_candidates_to_ssd.sql",
+      "sha256": "fea9ed0c1d8dbfcfa80f20f2f9c5e372cf6cc01fc41955212e95937a4b6c04ab",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_candidates_to_ssd.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/index_disk_activity.sql",
+      "sha256": "3455d3a5d59d92ff2c626b9e0b147c2573059c8e21460bfad176b604a4f733de",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/index_disk_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/indexes_with_nulls.sql",
+      "sha256": "5fcd27bba640b7640ac991e63792a24035d225970c11d5c9ee542ed62ab4e525",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/indexes_with_nulls.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/indexing_progress.sql",
+      "sha256": "f821fa7f83608aa756c6a651a7341555f4962120474c819fec6f456d55e07f79",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/indexing_progress.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/locktree.sql",
+      "sha256": "84542bd6dc03e38da9f3480e185b627c01498b0c02bbfe8257b4166c05a51ee8",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/locktree.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/low_used_indexes.sql",
+      "sha256": "0a032beec51db9c08c1e33bcaca42215f961a8c29de2f95ae62d013a9ab704ec",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/low_used_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/low_used_indexes_with_replica.sql",
+      "sha256": "e67f66034887595be4f8d7747e470255f4fd48ae4ea6b70cbe9d31469c56af63",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/low_used_indexes_with_replica.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/master_wal_position.sql",
+      "sha256": "61e3073134d7098b8cc7be3b7fa500a566b241ae6615b413b27b43f17cdcd485",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/master_wal_position.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/old/create_db_activity_view_old.sql",
+      "sha256": "926a6cc4126c68dfc264e05f78b42226536857b8019eef10f6eb90cc3af2886f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/old/create_db_activity_view_old.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/old/table_disk_activity.sql",
+      "sha256": "9a870ec3a0551c612eb3595a8726dc85eb73fe86222523aba44c34cf81f12c5f",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/old/table_disk_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_counts.sql",
+      "sha256": "7edec3d70e691aeb232312dfbbe52d6761835bf1f52ab11d4b1b18961aaf2921",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_counts.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_cpu_time.sql",
+      "sha256": "57e90dd91cb1048150b55d18562e53ec21d67be93bb61d5e00f28d4ce732e9d2",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_cpu_time.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_io_time.sql",
+      "sha256": "bda1ea4ec9af80a08c330af538f045a58027ccdee6572ad220c16d457abd0ec1",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_io_time.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_rows.sql",
+      "sha256": "07e451610723f215f4b6598048b96d42eb4ad6f646f9333f3277e5bbece3f430",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_rows.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_time.sql",
+      "sha256": "79b3c38999b4468fdc9869560a2fba7cf47b1ab4aaacc63bb1de28d176e2e5d5",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_time.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/query_stat_total_single_db.sql",
+      "sha256": "b8aa3f681c229319f84ae92cd4d84e35fe1e60f9d72edb9bc541d9670d3ea868",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/query_stat_total_single_db.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/redundant_indexes.sql",
+      "sha256": "92ddd90bdb1b2e650321a656433c01d1e0cb5bddd896f0f4418fecefcead101c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/redundant_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/reindex_non_btree_indexes.sql",
+      "sha256": "b497b17c3bdb9561f27ff61feb06e8efc81281589eebe34352bab25e22519067",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/reindex_non_btree_indexes.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/replication_pretty.sql",
+      "sha256": "6a717d1e3ff059d2f5de4c0cbe7758ac6118f4d75cbb5f46cef0347a50de7df7",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/replication_pretty.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/seq_scan_tables.sql",
+      "sha256": "0018ca2c741639e2892c44486a2fec9a2044e3798039ecdb9f19ea0849bb9032",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/seq_scan_tables.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/seq_scan_tables_with_replica.sql",
+      "sha256": "400660c5bfd3821b66b5b02e0bfa41fefdecd8fa0a51c9fe1f56ca2583570832",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/seq_scan_tables_with_replica.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/set_default_grants.sql",
+      "sha256": "8eb1656025d01e8f18b35e791414845ebd7dc7bdd4ea6d5bd85cb042737a9a00",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/set_default_grants.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/set_missing_grants.sql",
+      "sha256": "2e262328f9cc0d39e6f4a9f867873b8d258eb6e1d3cb560e02b22d58dd13c929",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/set_missing_grants.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/slave_wal_position.sql",
+      "sha256": "34f070140f38fc1283969162877a0dddb74990af916c94b717b7574ef7b530b1",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/slave_wal_position.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/slony/temp.txt",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/slony/temp.txt",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "sql/slony_tables.sql",
+      "sha256": "c2350660edf7560aaaf93f6220c943f6fcb954b33da897daaf66b52c374c98d9",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/slony_tables.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/sync_tablespaces.sql",
+      "sha256": "a99d7a8183bc419e68f25303ab4fafee1b4e2e0b26722744afd5a7c1d88d2c28",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/sync_tablespaces.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/table_bloat.sql",
+      "sha256": "5428ca3e7c98f344c96cf1b31f27a89ae8d7615f5e3cbe716f82f7b06dd302fe",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_bloat.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_bloat_approx.sql",
+      "sha256": "6946836d32dda1a2cff96c59a393501eba6449caa48bc99ab8e6d2de3d836a69",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_bloat_approx.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_bloat_approx12.sql",
+      "sha256": "78f5657b0a9e35e57c90599e7fa817ed08fb35a1a157fbcbc86d60d7b86e5aa4",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_bloat_approx12.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_candidates_from_ssd.sql",
+      "sha256": "5a8a0ea1bf217c55b80e868c2c60269fe134f56502ae64e8a4583ad9b018ecdf",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_candidates_from_ssd.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_candidates_to_ssd.sql",
+      "sha256": "9644be32119954261394c4b9aa33debc702ffc7037a8caf193675cefafde2720",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_candidates_to_ssd.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_index_write_activity.sql",
+      "sha256": "85f4ee6de0d0b7bc6f5d0ec4963ce221f6cd2abf628d9855f4b8f46a89839122",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_index_write_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/table_write_activity.sql",
+      "sha256": "c51d261615eb53174363bc995b7cafe7d8eb84b85807a12311ffb2d91edaa918",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/table_write_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/top_databases.sql",
+      "sha256": "2293d5987beecd2c71a426dfdcc1d9be71d4bcd4c329e59bc66c421e28172107",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/top_databases.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/top_tables.sql",
+      "sha256": "630a2354336998474cd9c9b19cb2fa9055f96a9ae4f0d7c51b600e692d10bc16",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/top_tables.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/vacuum_progress.sql",
+      "sha256": "8ade8e690addc87af33be67cd8ddacfca56ee5ea527f9a4c35b7ced14dd6f52c",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/vacuum_progress.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/vacuum_truncate_speedup.sql",
+      "sha256": "e4cabfeb866f92c49e52508fb74cef8d48bf4f4f905e0147a24798c8b7a9d8b8",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/vacuum_truncate_speedup.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/versions_check.sql",
+      "sha256": "49d390fb516c8dae2f75711d0e3858311bd4bc00fce79c6291aa8ae601db3816",
+      "url": "https://github.com/dataegret/pg-utils/blob/0835aa25b815b0589cf66f88537bb7952fb50543/sql/versions_check.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    }
+  ],
+  "risk_counts": {
+    "read-only": 58,
+    "non-read-only": 20,
+    "review-required": 31
+  },
+  "notice": "Materiale upstream di riferimento, non validato e non incluso nello smoke. La classificazione è euristica; non promette sicurezza. Gli script shell non sono stati eseguiti."
+}

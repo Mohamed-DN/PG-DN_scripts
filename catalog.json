@@ -1,0 +1,685 @@
+{
+  "schema_version": 1,
+  "scripts": [
+    {
+      "title": "Connection capacity",
+      "description": "Compare configured connection limit with visible client backends; poolers and reserved slots affect capacity.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for full count",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/configuration/connection-capacity.sql"
+    },
+    {
+      "title": "Non-default settings",
+      "description": "Show only allowlisted diagnostic settings; connection strings, commands, paths and secrets are excluded.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_settings for full view",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/configuration/non-default-settings.sql"
+    },
+    {
+      "title": "Vacuum and autovacuum settings",
+      "description": "Show allowlisted vacuum-related settings; command strings, paths and secrets are excluded.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_settings for full values",
+      "risk": "read-only",
+      "source": "user:script 1",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/administration/configuration/vacuum-settings.sql"
+    },
+    {
+      "title": "WAL and checkpoint settings",
+      "description": "Inspect safe WAL retention and archiving settings; command strings, paths and secrets are excluded.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_settings for full view",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/administration/configuration/wal-settings.sql"
+    },
+    {
+      "title": "Active sessions",
+      "description": "Show active sessions, age, waits and bounded query prefix; query text may contain sensitive values.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats; otherwise own sessions",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/triage.md",
+      "path": "scripts/administration/connections/active.sql"
+    },
+    {
+      "title": "Connections by state",
+      "description": "Summarize visible sessions by database, role, state and wait class.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete details",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/triage.md",
+      "path": "scripts/administration/connections/by-state.sql"
+    },
+    {
+      "title": "Idle transactions",
+      "description": "Find idle-in-transaction sessions and transaction age.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats; otherwise own sessions",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/locks.md",
+      "path": "scripts/administration/connections/idle-in-transaction.sql"
+    },
+    {
+      "title": "Database inventory",
+      "description": "List non-template databases, owners, connection limits and allocated size.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/databases.sql"
+    },
+    {
+      "title": "Installed extensions",
+      "description": "Show extensions installed in this database; no installation or update is performed.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 3",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/extensions.sql"
+    },
+    {
+      "title": "Largest relations",
+      "description": "Rank user tables by total allocated bytes including indexes and TOAST.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/largest-relations.sql"
+    },
+    {
+      "title": "Materialized view inventory",
+      "description": "List materialized view ownership, tablespace and population state without exposing view definitions.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/materialized-views.sql"
+    },
+    {
+      "title": "Partition hierarchy",
+      "description": "List partition parents and children using catalog inheritance links, without scanning table data.",
+      "postgres": "14+",
+      "privilege": "CONNECT",
+      "risk": "read-only",
+      "source": "original; https://www.postgresql.org/docs/18/catalog-pg-inherits.html",
+      "runbook": "runbooks/triage.md",
+      "path": "scripts/administration/inventory/partition-tree.sql"
+    },
+    {
+      "title": "Routine inventory",
+      "description": "List function and procedure metadata without exposing routine source text or bodies.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; routine metadata visibility depends on privileges",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/routines.sql"
+    },
+    {
+      "title": "Schema inventory",
+      "description": "List non-system schemas and owners.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/schemas.sql"
+    },
+    {
+      "title": "Sequence inventory",
+      "description": "List sequence ownership and bounds without exposing current sequence values.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; sequence metadata visibility depends on privileges",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/administration/inventory/sequences.sql"
+    },
+    {
+      "title": "Server identity",
+      "description": "Identify database, role, server version, startup and primary or standby state before diagnosis.",
+      "postgres": "14+",
+      "privilege": "CONNECT",
+      "risk": "read-only",
+      "source": "original; https://www.postgresql.org/docs/18/functions-info.html",
+      "runbook": "runbooks/triage.md",
+      "path": "scripts/administration/inventory/server-info.sql"
+    },
+    {
+      "title": "Active backup senders",
+      "description": "Show current walsender activity as clues for a physical backup; validate against backup tooling.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:+Postgres_Backup_Recovery.sql",
+      "runbook": "runbooks/backup-restore.md",
+      "path": "scripts/backup/inspection/active-backup-senders.sql"
+    },
+    {
+      "title": "Recovery state",
+      "description": "Report recovery state and system identifier/timeline; control data access may require elevated privileges.",
+      "postgres": "14+",
+      "privilege": "pg_monitor; control functions may need elevated rights",
+      "risk": "read-only",
+      "source": "user:+Postgres_Backup_Recovery.sql",
+      "runbook": "runbooks/backup-restore.md",
+      "path": "scripts/backup/inspection/recovery-state.sql"
+    },
+    {
+      "title": "Relation size breakdown",
+      "description": "Compare heap, indexes and total allocated size; these are not direct bloat estimates.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/bloat/relation-size-breakdown.sql"
+    },
+    {
+      "title": "TOAST storage breakdown",
+      "description": "Show heap, index and TOAST allocation for larger user tables.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/bloat/toast-breakdown.sql"
+    },
+    {
+      "title": "Analyze progress",
+      "description": "Show active ANALYZE progress counters.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for full visibility",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/progress/analyze.sql"
+    },
+    {
+      "title": "Index build progress",
+      "description": "Show active index build progress; no cancellation or mutation is performed.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for full visibility",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/maintenance/progress/create-index.sql"
+    },
+    {
+      "title": "Vacuum progress",
+      "description": "Show active vacuum phase and block counters common to PostgreSQL 14-18.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for full visibility",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/progress/vacuum.sql"
+    },
+    {
+      "title": "Dead tuple estimates",
+      "description": "Rank user tables by estimated dead tuples and show last maintenance times.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; statistics may be stale",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/vacuum/dead-tuples.sql"
+    },
+    {
+      "title": "Old transactions",
+      "description": "Inspect backends with open transactions; long transactions can delay cleanup.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete details",
+      "risk": "read-only",
+      "source": "user:+Postgres_Troubleshooting_WAL_Replica_Vacuum_Bloat.sql",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/vacuum/oldest-transactions.sql"
+    },
+    {
+      "title": "Transaction and multixact age",
+      "description": "Compare database XID and multixact ages with configured autovacuum thresholds; investigate trends before acting.",
+      "postgres": "14+",
+      "privilege": "CONNECT",
+      "risk": "read-only",
+      "source": "original; https://www.postgresql.org/docs/18/routine-vacuuming.html",
+      "runbook": "runbooks/vacuum-bloat.md",
+      "path": "scripts/maintenance/vacuum/wraparound-risk.sql"
+    },
+    {
+      "title": "Advisory lock summary",
+      "description": "List advisory lock ownership and wait state without exposing session query text.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete session details",
+      "risk": "read-only",
+      "source": "user:script 4.txt",
+      "runbook": "runbooks/locks.md",
+      "path": "scripts/monitoring/activity/advisory-locks.sql"
+    },
+    {
+      "title": "Blocking sessions",
+      "description": "Show one row per blocked session and blocking PID; a zero PID denotes a prepared transaction.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete activity",
+      "risk": "read-only",
+      "source": "original; https://www.postgresql.org/docs/18/functions-info.html",
+      "runbook": "runbooks/locks.md",
+      "path": "scripts/monitoring/activity/blocking-sessions.sql"
+    },
+    {
+      "title": "Long-running queries",
+      "description": "Find active queries older than one minute; query text may contain sensitive literals.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete details",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/monitoring/activity/long-running.sql"
+    },
+    {
+      "title": "Prepared transactions",
+      "description": "List two-phase transactions; resolution belongs to the transaction coordinator.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 3",
+      "runbook": "runbooks/locks.md",
+      "path": "scripts/monitoring/activity/prepared-transactions.sql"
+    },
+    {
+      "title": "SSL connection summary",
+      "description": "Show TLS use and negotiated parameters without client or issuer distinguished names.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete visibility",
+      "risk": "read-only",
+      "source": "user:script 4.txt",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/monitoring/activity/ssl-connections.sql"
+    },
+    {
+      "title": "Wait event summary",
+      "description": "Summarize sessions by backend type, state and wait event.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for complete details",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/triage.md",
+      "path": "scripts/monitoring/activity/wait-summary.sql"
+    },
+    {
+      "title": "Database sizes",
+      "description": "Rank connectable databases by allocated size.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/capacity/database-sizes.sql"
+    },
+    {
+      "title": "Tablespace inventory",
+      "description": "List tablespace names and configured paths; filesystem free space is not included.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/capacity/tablespace-inventory.sql"
+    },
+    {
+      "title": "Checkpointer counters",
+      "description": "Show checkpoint and restartpoint counters on PostgreSQL 17+; cumulative counters need delta snapshots.",
+      "postgres": "17+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/statistics/checkpointer.sql"
+    },
+    {
+      "title": "Database counters",
+      "description": "Show cumulative transaction, deadlock, temp and block counters; use snapshot deltas for rates.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/statistics/database-counters.sql"
+    },
+    {
+      "title": "Statistics reset times",
+      "description": "Show database statistics reset timestamps to interpret cumulative counters.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/statistics/reset-times.sql"
+    },
+    {
+      "title": "Table activity",
+      "description": "Show scans, estimated tuples and last maintenance timestamps.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; estimates and visibility vary",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/monitoring/statistics/table-activity.sql"
+    },
+    {
+      "title": "Index definitions",
+      "description": "List index definitions for review.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 2.txt",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/indexes/definitions.sql"
+    },
+    {
+      "title": "Duplicate index candidates",
+      "description": "Find exact-signature index pairs for manual review, comparing keys, expressions, predicates, opclasses, collations and storage options; no index is removed.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 4.txt",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/indexes/duplicate-candidates.sql"
+    },
+    {
+      "title": "Invalid indexes",
+      "description": "Identify indexes marked invalid or not ready for DBA investigation.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/indexes/invalid-indexes.sql"
+    },
+    {
+      "title": "Unused index candidates",
+      "description": "Find valid large indexes with zero scans; review workload cycles before any decision and never auto-drop.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Main_commands.sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/indexes/unused-candidates.sql"
+    },
+    {
+      "title": "Index usage by table",
+      "description": "Compare sequential and index scans and tuple fetches; counters can reset.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/indexes/usage-by-table.sql"
+    },
+    {
+      "title": "Buffer cache summary",
+      "description": "Summarize shared-buffer usage only when pg_buffercache is already installed; extension schema is discovered and quoted safely.",
+      "postgres": "16+",
+      "privilege": "pg_monitor; function EXECUTE may be granted separately",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/performance/io/buffercache-summary.sql"
+    },
+    {
+      "title": "Database I/O timing",
+      "description": "Show cumulative block timings; zero can mean track_io_timing was disabled.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/performance/io/database-io-timing.sql"
+    },
+    {
+      "title": "I/O by backend and context",
+      "description": "Inspect cumulative I/O counters; correlate them with operating system metrics.",
+      "postgres": "16+",
+      "privilege": "pg_read_all_stats; PostgreSQL 16+",
+      "risk": "read-only",
+      "source": "user:script 4",
+      "runbook": "runbooks/monitoring.md",
+      "path": "scripts/performance/io/pg-stat-io.sql"
+    },
+    {
+      "title": "Statements by mean time",
+      "description": "Rank normalized statements by mean time; low call counts may skew results.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats; extension already installed",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/queries/top-mean-time.sql"
+    },
+    {
+      "title": "Statements by temporary blocks",
+      "description": "Find statements with cumulative temporary block writes; compare snapshots for rates.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats; extension already installed",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/queries/top-temp-blocks.sql"
+    },
+    {
+      "title": "Statements by total time",
+      "description": "Rank pg_stat_statements by cumulative execution time; extension must already be available.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats; extension already installed",
+      "risk": "read-only",
+      "source": "user:POSTGRES_STATS.Sql",
+      "runbook": "runbooks/slow-queries.md",
+      "path": "scripts/performance/queries/top-total-time.sql"
+    },
+    {
+      "title": "Logical subscriptions",
+      "description": "List subscriptions without connection strings or credentials.",
+      "postgres": "14+",
+      "privilege": "database owner or pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:script 3",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/logical/subscriptions.sql"
+    },
+    {
+      "title": "Logical replication workers",
+      "description": "Show logical replication worker state and bounded query prefixes.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:script 3",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/logical/workers.sql"
+    },
+    {
+      "title": "Physical replication senders",
+      "description": "On primary show sender state and byte lag; time lag is approximate and may be NULL.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats for full visibility",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/physical/primary-senders.sql"
+    },
+    {
+      "title": "Standby WAL receiver",
+      "description": "On standby inspect receiver state; connection string is omitted to avoid credentials.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/physical/standby-receiver.sql"
+    },
+    {
+      "title": "Standby replay status",
+      "description": "Estimate received-but-not-replayed bytes and time since last replay; time can mislead when idle.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/physical/standby-replay.sql"
+    },
+    {
+      "title": "Logical slot counters",
+      "description": "Inspect cumulative logical decoding slot statistics.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:script 3",
+      "runbook": "runbooks/replication-lag.md",
+      "path": "scripts/replication/slots/logical-stats.sql"
+    },
+    {
+      "title": "Replication slot retention",
+      "description": "Show WAL retained by slots; inactive slots may retain large volumes.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/replication/slots/retention.sql"
+    },
+    {
+      "title": "Database ACL",
+      "description": "Expand database ACL entries; null ACLs use built-in defaults.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/privileges/database-acl.sql"
+    },
+    {
+      "title": "HBA rule health",
+      "description": "Show parse health for pg_hba.conf rules without exposing databases, users, addresses or authentication options.",
+      "postgres": "14+",
+      "privilege": "superuser by default; an administrator can grant SELECT on the view",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/privileges/hba-rule-health.sql"
+    },
+    {
+      "title": "Relation ACL",
+      "description": "Inspect explicit ACL entries for user relations.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/privileges/relation-acl.sql"
+    },
+    {
+      "title": "Row-level security policy inventory",
+      "description": "List user tables' RLS flags and policy names, modes, commands and roles; policy expressions are excluded.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; metadata visibility depends on ownership/privileges",
+      "risk": "read-only",
+      "source": "user:script 3.txt",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/privileges/rls-policies.sql"
+    },
+    {
+      "title": "Schema ACL",
+      "description": "List schema ACLs; role membership and ownership affect effective privileges.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/privileges/schema-acl.sql"
+    },
+    {
+      "title": "Expiring login roles",
+      "description": "Identify login roles expired or expiring in 30 days.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/roles/expiring-logins.sql"
+    },
+    {
+      "title": "Role memberships",
+      "description": "Show granted membership and delegation options.",
+      "postgres": "16+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "original + https://www.postgresql.org/docs/16/catalog-pg-auth-members.html",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/roles/membership.sql"
+    },
+    {
+      "title": "Role inventory",
+      "description": "List role attributes and validity without password hashes.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:+Postgres_Comandi_Principali_Diagnostica_Stats_Ruoli.sql",
+      "runbook": "runbooks/security.md",
+      "path": "scripts/security/roles/role-inventory.sql"
+    },
+    {
+      "title": "Archive status",
+      "description": "Inspect cumulative archive success and failure counters; archive ordering can have exceptions.",
+      "postgres": "14+",
+      "privilege": "database CONNECT",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/wal/archive/archive-status.sql"
+    },
+    {
+      "title": "Ready WAL archive files",
+      "description": "Count .ready/.done marker files in pg_wal/archive_status; marker sizes are not WAL sizes.",
+      "postgres": "14+",
+      "privilege": "pg_monitor or EXECUTE on pg_ls_archive_statusdir",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/wal/archive/ready-files.sql"
+    },
+    {
+      "title": "WAL retention context",
+      "description": "Summarize slots, senders and retention settings that may influence pg_wal growth.",
+      "postgres": "14+",
+      "privilege": "database CONNECT; settings visibility may require pg_read_all_settings",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/wal/retention/retention-context.sql"
+    },
+    {
+      "title": "WAL counters",
+      "description": "Show cumulative WAL byte and record counters; compare snapshots for rates.",
+      "postgres": "14+",
+      "privilege": "pg_read_all_stats",
+      "risk": "read-only",
+      "source": "user:PROBLEMA_WAL_POSTGRES.sql",
+      "runbook": "runbooks/wal-growth.md",
+      "path": "scripts/wal/retention/wal-counters.sql"
+    }
+  ]
+}
