@@ -1,0 +1,34 @@
+-- check if "\if" is supported (psql 10+)
+\if false
+  \echo cannot work, you need psql version 10+ (Postgres server can be older)
+  select 1/0;
+\endif
+
+select current_setting('server_version_num')::integer >= 180000 as postgres_dba_pgvers_18plus \gset
+
+select current_setting('server_version_num')::integer >= 170000 as postgres_dba_pgvers_17plus \gset
+
+select current_setting('server_version_num')::integer >= 140000 as postgres_dba_pgvers_14plus \gset
+
+select current_setting('server_version_num')::integer >= 130000 as postgres_dba_pgvers_13plus \gset
+
+select current_setting('server_version_num')::integer >= 100000 as postgres_dba_pgvers_10plus \gset
+\if :postgres_dba_pgvers_10plus
+  \set postgres_dba_last_wal_receive_lsn pg_last_wal_receive_lsn
+  \set postgres_dba_last_wal_replay_lsn pg_last_wal_replay_lsn
+  \set postgres_dba_is_wal_replay_paused pg_is_wal_replay_paused
+\else
+  \set postgres_dba_last_wal_receive_lsn pg_last_xlog_receive_location
+  \set postgres_dba_last_wal_replay_lsn pg_last_xlog_replay_location
+  \set postgres_dba_is_wal_replay_paused pg_is_xlog_replay_paused
+\endif
+
+-- TODO: improve work with custom GUCs for Postgres 9.5 and older
+select current_setting('server_version_num')::integer >= 90600 as postgres_dba_pgvers_96plus \gset
+\if :postgres_dba_pgvers_96plus
+  select coalesce(current_setting('postgres_dba.wide', true), 'off') = 'on' as postgres_dba_wide \gset
+\else
+  set client_min_messages to 'fatal';
+  select :postgres_dba_wide as postgres_dba_wide \gset
+  reset client_min_messages;
+\endif

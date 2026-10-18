@@ -1,0 +1,10 @@
+.work/
+__pycache__/
+*.pyc
+.env
+.pgpass
+pg_service.conf
+*.dump
+*.backup
+*.log
+test-results/

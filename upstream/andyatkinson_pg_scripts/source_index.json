@@ -1,0 +1,406 @@
+{
+  "repository": "andyatkinson/pg_scripts",
+  "repository_url": "https://github.com/andyatkinson/pg_scripts",
+  "commit": "b7736708e0cfa5b8a3e88df8b1704a80b3566896",
+  "license": "Assente al commit acquisito; nessun permesso di ridistribuzione rilevato",
+  "action": "Il clone completo resta soltanto in .work/upstream, escluso dal repository. Nessun codice o README upstream è stato copiato in upstream/.",
+  "tracked_file_count_local_clone": 99,
+  "files_index": [
+    {
+      "path": ".gitignore",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/.gitignore"
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/README.md"
+    },
+    {
+      "path": "administration/copy-swap-drop.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/copy-swap-drop.sql"
+    },
+    {
+      "path": "administration/edit_postgresql.conf.sh",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/edit_postgresql.conf.sh"
+    },
+    {
+      "path": "administration/int-bigint-investigations/explore_amount_free.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/int-bigint-investigations/explore_amount_free.sql"
+    },
+    {
+      "path": "administration/int-bigint-investigations/explore_int_pk_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/int-bigint-investigations/explore_int_pk_tables.sql"
+    },
+    {
+      "path": "administration/pgbadger_log.sh",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/pgbadger_log.sh"
+    },
+    {
+      "path": "administration/shared_buffers.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/shared_buffers.sql"
+    },
+    {
+      "path": "administration/tail_log.sh",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/administration/tail_log.sh"
+    },
+    {
+      "path": "approximate_count.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/approximate_count.sql"
+    },
+    {
+      "path": "backfilling/0-populate-riders.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/backfilling/0-populate-riders.sql"
+    },
+    {
+      "path": "backfilling/1-create-schema.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/backfilling/1-create-schema.sql"
+    },
+    {
+      "path": "backfilling/2-create-table.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/backfilling/2-create-table.sql"
+    },
+    {
+      "path": "backfilling/3-insert-into-select-from.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/backfilling/3-insert-into-select-from.sql"
+    },
+    {
+      "path": "backfilling/README.md",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/backfilling/README.md"
+    },
+    {
+      "path": "big_in_lists/create_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/big_in_lists/create_tables.sql"
+    },
+    {
+      "path": "bulk_table_renamer.sh",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/bulk_table_renamer.sh"
+    },
+    {
+      "path": "cache_hit_rate.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/cache_hit_rate.sql"
+    },
+    {
+      "path": "cancel_backend.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/cancel_backend.sql"
+    },
+    {
+      "path": "concurrent_index_build_progress.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/concurrent_index_build_progress.sql"
+    },
+    {
+      "path": "constraint_definition_ddl.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/constraint_definition_ddl.sql"
+    },
+    {
+      "path": "create_index_create_statement.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/create_index_create_statement.sql"
+    },
+    {
+      "path": "create_read_only_role.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/create_read_only_role.sql"
+    },
+    {
+      "path": "detect_transaction_id_wraparound.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/detect_transaction_id_wraparound.sql"
+    },
+    {
+      "path": "find_dbid_database_oid.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_dbid_database_oid.sql"
+    },
+    {
+      "path": "find_hot_updates.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_hot_updates.sql"
+    },
+    {
+      "path": "find_indexed_columns_high_null_frac.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_indexed_columns_high_null_frac.sql"
+    },
+    {
+      "path": "find_missing_indexes.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_missing_indexes.sql"
+    },
+    {
+      "path": "find_replica_identity.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_replica_identity.sql"
+    },
+    {
+      "path": "find_slow_queries_approximate_p99.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_slow_queries_approximate_p99.sql"
+    },
+    {
+      "path": "find_unused_indexes.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_unused_indexes.sql"
+    },
+    {
+      "path": "find_unused_indexes_only.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/find_unused_indexes_only.sql"
+    },
+    {
+      "path": "foreign_keys.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/foreign_keys.sql"
+    },
+    {
+      "path": "generate_add_foreign_keys_ddl_to_target_table.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/generate_add_foreign_keys_ddl_to_target_table.sql"
+    },
+    {
+      "path": "generate_data.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/generate_data.sql"
+    },
+    {
+      "path": "hunting_iops.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/hunting_iops.sql"
+    },
+    {
+      "path": "idle_sessions_count.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/idle_sessions_count.sql"
+    },
+    {
+      "path": "idle_transactions.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/idle_transactions.sql"
+    },
+    {
+      "path": "index_analysis_and_bloat_estimate.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/index_analysis_and_bloat_estimate.sql"
+    },
+    {
+      "path": "index_size_usage_stats.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/index_size_usage_stats.sql"
+    },
+    {
+      "path": "insert_only_pg_stat_user_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/insert_only_pg_stat_user_tables.sql"
+    },
+    {
+      "path": "last_tables_autovacuumed.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/last_tables_autovacuumed.sql"
+    },
+    {
+      "path": "list_10_largest_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_10_largest_tables.sql"
+    },
+    {
+      "path": "list_10_worst_queries.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_10_worst_queries.sql"
+    },
+    {
+      "path": "list_all_sequences.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_all_sequences.sql"
+    },
+    {
+      "path": "list_all_sequences_column_owner.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_all_sequences_column_owner.sql"
+    },
+    {
+      "path": "list_collations.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_collations.sql"
+    },
+    {
+      "path": "list_comments.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_comments.sql"
+    },
+    {
+      "path": "list_db_views.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_db_views.sql"
+    },
+    {
+      "path": "list_enums.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_enums.sql"
+    },
+    {
+      "path": "list_indexes.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_indexes.sql"
+    },
+    {
+      "path": "list_long_running_queries.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_long_running_queries.sql"
+    },
+    {
+      "path": "list_partitioned_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_partitioned_tables.sql"
+    },
+    {
+      "path": "list_schemata.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_schemata.sql"
+    },
+    {
+      "path": "list_single_column_multicolumn_index_counts.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_single_column_multicolumn_index_counts.sql"
+    },
+    {
+      "path": "list_table_object_dependencies.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_table_object_dependencies.sql"
+    },
+    {
+      "path": "list_tables_root_tables_no_fks.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_tables_root_tables_no_fks.sql"
+    },
+    {
+      "path": "list_tables_without_primary_key.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/list_tables_without_primary_key.sql"
+    },
+    {
+      "path": "lock_blocking_waiting_pg_locks.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/lock_blocking_waiting_pg_locks.sql"
+    },
+    {
+      "path": "max_connection.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/max_connection.sql"
+    },
+    {
+      "path": "monitor_replication_lag.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/monitor_replication_lag.sql"
+    },
+    {
+      "path": "multiple_row_updates.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/multiple_row_updates.sql"
+    },
+    {
+      "path": "per_table_options_reloptions_all_regular_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/per_table_options_reloptions_all_regular_tables.sql"
+    },
+    {
+      "path": "percent_not_null.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/percent_not_null.sql"
+    },
+    {
+      "path": "pg_stat_activity_pg_locks.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/pg_stat_activity_pg_locks.sql"
+    },
+    {
+      "path": "pg_stat_database.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/pg_stat_database.sql"
+    },
+    {
+      "path": "pg_wait_sampling_queries.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/pg_wait_sampling_queries.sql"
+    },
+    {
+      "path": "pgbench_setup.sh",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/pgbench_setup.sh"
+    },
+    {
+      "path": "pgss_sort_average_calls_desc.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/pgss_sort_average_calls_desc.sql"
+    },
+    {
+      "path": "psql_csv_output.txt",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/psql_csv_output.txt"
+    },
+    {
+      "path": "public_transaction_ids/create_and_use_functions.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/public_transaction_ids/create_and_use_functions.sql"
+    },
+    {
+      "path": "random_between.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/random_between.sql"
+    },
+    {
+      "path": "readonly_table.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/readonly_table.sql"
+    },
+    {
+      "path": "relation_size.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/relation_size.sql"
+    },
+    {
+      "path": "relation_size_extended.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/relation_size_extended.sql"
+    },
+    {
+      "path": "relation_size_partitions_estimates.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/relation_size_partitions_estimates.sql"
+    },
+    {
+      "path": "scrub_email.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/scrub_email.sql"
+    },
+    {
+      "path": "scrub_email_batch.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/scrub_email_batch.sql"
+    },
+    {
+      "path": "show_server_version_num.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/show_server_version_num.sql"
+    },
+    {
+      "path": "soft_deletes_detection.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/soft_deletes_detection.sql"
+    },
+    {
+      "path": "stats_and_ratios.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/stats_and_ratios.sql"
+    },
+    {
+      "path": "table_bloat.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/table_bloat.sql"
+    },
+    {
+      "path": "table_stats.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/table_stats.sql"
+    },
+    {
+      "path": "table_with_column.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/table_with_column.sql"
+    },
+    {
+      "path": "tables_with_index_usage_counts.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/tables_with_index_usage_counts.sql"
+    },
+    {
+      "path": "terminate_backend.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/terminate_backend.sql"
+    },
+    {
+      "path": "top_10_tables_by_row_count.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/top_10_tables_by_row_count.sql"
+    },
+    {
+      "path": "top_10_tables_by_size.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/top_10_tables_by_size.sql"
+    },
+    {
+      "path": "top_updated_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/top_updated_tables.sql"
+    },
+    {
+      "path": "uuid_experiments/README.md",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/uuid_experiments/README.md"
+    },
+    {
+      "path": "uuid_experiments/create_indexes.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/uuid_experiments/create_indexes.sql"
+    },
+    {
+      "path": "uuid_experiments/create_tables.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/uuid_experiments/create_tables.sql"
+    },
+    {
+      "path": "uuid_experiments/page_density.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/uuid_experiments/page_density.sql"
+    },
+    {
+      "path": "uuid_experiments/results.md",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/uuid_experiments/results.md"
+    },
+    {
+      "path": "vacuum_information_dead_tuples.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/vacuum_information_dead_tuples.sql"
+    },
+    {
+      "path": "vacuum_tables_txid_exceeds_freeze_table_age.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/vacuum_tables_txid_exceeds_freeze_table_age.sql"
+    },
+    {
+      "path": "view_extensions.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/view_extensions.sql"
+    },
+    {
+      "path": "waiting_queries.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/waiting_queries.sql"
+    },
+    {
+      "path": "wal_analysis.sql",
+      "url": "https://github.com/andyatkinson/pg_scripts/blob/b7736708e0cfa5b8a3e88df8b1704a80b3566896/wal_analysis.sql"
+    }
+  ]
+}

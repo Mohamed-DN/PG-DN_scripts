@@ -1,0 +1,390 @@
+{
+  "repository": "NikolayS/postgres_dba",
+  "repository_url": "https://github.com/NikolayS/postgres_dba",
+  "commit": "455c2f69aae37fc679c763f8de0952bdd5517a1b",
+  "branch_at_fetch": "master",
+  "license": "BSD-3-Clause",
+  "license_source": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/LICENSE",
+  "selection": "albero tracciato; README root preservato come README.upstream.md; submodule non inizializzati esclusi",
+  "submodules_not_imported": [],
+  "files": [
+    {
+      "path": ".cursor/rules/sql-style.mdc",
+      "sha256": "c598657f705f043498315025d97095d15b21a7325492c410432dda6de2077729",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/.cursor/rules/sql-style.mdc",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": ".github/workflows/claude-code-review.yml",
+      "sha256": "e7a56d697d1f90cbca07b69278749a82960080194631fc2aeae6000548775e15",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/.github/workflows/claude-code-review.yml",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": ".github/workflows/claude.yml",
+      "sha256": "80ef675db50d4b1394cbf543cea6829cbe4637408c866dc92f46e517eebcbf4d",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/.github/workflows/claude.yml",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "sha256": "aaa1b46de6d6d526d5e8a6420129dd1d47807b1f64041cdafcf57f610c2a0b1c",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/.github/workflows/test.yml",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "14a198e6e05c4230e52a900202ee5037cc9e06947ff4cbc0e16d7e4130226226",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/.gitignore",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "db0b7dde72d84536521d8b0892ff4adf51dc9550b1dca7f47e11494504bdaaf5",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/CLAUDE.md",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "a5bcaf959d9ede3c0b834b8792a38eda445d4c20b04611453a8d35a753a1aa31",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/LICENSE",
+      "risk": "read-only",
+      "risk_basis": "Testo di licenza."
+    },
+    {
+      "path": "README.upstream.md",
+      "original_path": "README.md",
+      "sha256": "21c78c737af3f31192d410ab12d6446b862ee2755f18fa2b26c397591009e33e",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/README.md",
+      "risk": "review-required",
+      "risk_basis": "Original upstream README, including attributions; documentation only, not audited."
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "sha256": "86b2fcc0f6196159f6f05f99bdcb708350a1cc9e39dce0dcade916a87f02e3ed",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/RELEASE_NOTES.md",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "init/generate.sh",
+      "sha256": "0aad0d829f5b3032c245913d0dc0fbe46e321fb1304a95c3e98c4aeb286895c3",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/init/generate.sh",
+      "risk": "review-required",
+      "risk_basis": "Codice, configurazione o script non SQL da esaminare manualmente; nessuna esecuzione o audit di sicurezza effettuato."
+    },
+    {
+      "path": "matviews/refresh_all.sql",
+      "sha256": "3792168532626fdea689c6f696e4351ebb822579670cdfcaf689045a85b4ddcd",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/matviews/refresh_all.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "misc/generate_password.sql",
+      "sha256": "3093b938d3196fa069d97abcebade2491a96c2a62aeaca628735e138d3880525",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/misc/generate_password.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "roles/alter_user_with_random_password.psql",
+      "sha256": "b9c6d1543bd979beef6e9ee05cd2e7e47740ba88f1662dd8271eb7d5563402b4",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/roles/alter_user_with_random_password.psql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "roles/create_user_with_random_password.psql",
+      "sha256": "741923b36df36dc82f285696dd437ec73a248abb1a2a59441dadcffd6af3cf07",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/roles/create_user_with_random_password.psql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/0_node.sql",
+      "sha256": "a47d0d6e3a81ebed595eadf2dbe3f143ac5a3b637fccbfa8632835128e421945",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/0_node.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/1_databases.sql",
+      "sha256": "9bd6174f15786285477125e8e24b6687a9af67f276af03be8df54bdcf60db585",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/1_databases.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/2_table_sizes.sql",
+      "sha256": "cae8c49a840c8c14668e8d6c7985545614b8f1b017e6f7344a7ceea411cf0de2",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/2_table_sizes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/3_load_profiles.sql",
+      "sha256": "d0ad9539a411ffbd4ba7f013741e23a548ee0019691d96977aa1eb5da2a9e2b6",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/3_load_profiles.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/a1_activity.sql",
+      "sha256": "2e03f60ed451d265be6dee5333c25b4d790b26ccd63ce76de76faff4615e7c04",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/a1_activity.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/b1_table_estimation.sql",
+      "sha256": "a097d8946a40fb3a3397565aceb4871bf545f7b149bf89e44aa4e831dbbee7ff",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/b1_table_estimation.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/b2_btree_estimation.sql",
+      "sha256": "abfc3c426a99d7769759734fb39df389d421c1fc656757f4bf198e4e687b27b2",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/b2_btree_estimation.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/b3_table_pgstattuple.sql",
+      "sha256": "d3ad902f4748d7ec8c05b872e6cd3c885c043cae484cbe4c1dca6ea400201cd6",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/b3_table_pgstattuple.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/b4_btree_pgstattuple.sql",
+      "sha256": "1a3931bf579348912b9c2a1b254d466add1c72b65e356010c972a26381be7e81",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/b4_btree_pgstattuple.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/b5_tables_no_stats.sql",
+      "sha256": "97c6bfd1eb3f6c95fcd77cc03dd1d4320f3c090d8eec0a894be45efe1f093ba4",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/b5_tables_no_stats.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/c1_amcheck_indexes.sql",
+      "sha256": "9b9e274a7a0b84a2a0b157d4404a3112e02330c4e100437a1f8a73af7059efbe",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/c1_amcheck_indexes.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/c2_amcheck_heap.sql",
+      "sha256": "695c4cc606bd7d7120443f2b99d9d8049297f2c7b5a6053aedc4c83988592049",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/c2_amcheck_heap.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/c3_amcheck_parent.sql",
+      "sha256": "98e728bb4a9fd3a4299916aa89b45ce011fda5746bf9e4d37c8c6b7b5e264101",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/c3_amcheck_parent.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/c4_amcheck_full.sql",
+      "sha256": "d39a4978f047d4ea5440632933b40c01b26ea653b37afb4a4d81ab6287e8b480",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/c4_amcheck_full.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/e1_extensions.sql",
+      "sha256": "3dab70204c296ab74d5a8f5113b3b1666510a7189deb526a581fe689d5370368",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/e1_extensions.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/i1_rare_indexes.sql",
+      "sha256": "566ea22ea9d805cfdadab1a0b35d8d0bd8a47d8c376be7b2c00c51bf6091d818",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/i1_rare_indexes.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/i2_redundant_indexes.sql",
+      "sha256": "579595463a55ec0a82211443d30611411d9f47f566d4d3dbce5aa7f46f27e7a2",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/i2_redundant_indexes.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/i3_non_indexed_fks.sql",
+      "sha256": "476373996f836395995adb4f098b859882631b84398b367df83bffc861b31172",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/i3_non_indexed_fks.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/i4_invalid_indexes.sql",
+      "sha256": "0cab34ad03c94b962ccd92f7e6249532fcef8c16075666374304d7371ba4a3d4",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/i4_invalid_indexes.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/i5_indexes_migration.sql",
+      "sha256": "14cf0681c8c6e1f919ca9b083ae64c5449728ed7428088b22791f47c46733ff1",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/i5_indexes_migration.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/l1_lock_trees.sql",
+      "sha256": "7fee4a1314c66112abc3ae1227fae0876f937889bd5da231d59d180cd2da0298",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/l1_lock_trees.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/l2_lock_trees.sql",
+      "sha256": "ec367d86c8d33e87e7879e1f651bc6583b30d1289eab542184d54025db2e2b3e",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/l2_lock_trees.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/m1_buffercache.sql",
+      "sha256": "968718d3dc2da62d85913fe7d8a33b8dd0f6235cd2fa8a18556f4e8c4cc8c0d0",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/m1_buffercache.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/p1_index_create_progress.sql",
+      "sha256": "2a78a5defc5d17fc36d170dd99a42ee9f7dd892a6cca4164558f58c4889205d1",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/p1_index_create_progress.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/r1_create_user_with_random_password.sql",
+      "sha256": "767be071d58df1e0b02a9236d5c774725f85fa5f013ede0bb079e0e033b36db3",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/r1_create_user_with_random_password.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/r2_alter_user_with_random_password.sql",
+      "sha256": "2bfb142ae6ed3d39405e66bae534ec2e5d8dcc29160e6ea9992d87adf6e08d0a",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/r2_alter_user_with_random_password.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/s1_pg_stat_statements_top_total.sql",
+      "sha256": "c8df27ed4c1d5e960ab7165419fbb1b1bad26d5d5d5f48ab0d9e5950b27b981a",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/s1_pg_stat_statements_top_total.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/s2_pg_stat_statements_report.sql",
+      "sha256": "49b9f03299f850b71a0592165c5cc0ed7ac5f68fd4d95078c2c19356138a5b5b",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/s2_pg_stat_statements_report.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/s3_pg_stat_statements_workload.sql",
+      "sha256": "c53c0827102afc85005c3662347fbd5fdc4b622968bbc1ae1208571f944147b6",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/s3_pg_stat_statements_workload.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/t1_tuning.sql",
+      "sha256": "3d26d96aa2b25deeebfeb85eaaaecf8904f4a8fa6c11f79832da63ecb9f31858",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/t1_tuning.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/t2_storage_parameters.sql",
+      "sha256": "7df283c37ceafaceb09b6baa4fb67320d5a560c6045339fd2592212240a15239",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/t2_storage_parameters.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "sql/v1_vacuum_activity.sql",
+      "sha256": "782ef0ad077f4f50f82ab8e24e57507a35bda7a2b13dc152d4e419d0ee2bb716",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/v1_vacuum_activity.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/v2_autovacuum_progress_and_queue.sql",
+      "sha256": "127d14a5020c7292090e1eed02d855c3f95885726069269bdd474273ae584973",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/v2_autovacuum_progress_and_queue.sql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "sql/x1_alignment_padding.sql",
+      "sha256": "7dccaa4c6aab0ce66bf4e7d55efba7d5b4a73d117d4f0494e9af5651d810b701",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/sql/x1_alignment_padding.sql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    },
+    {
+      "path": "start.psql",
+      "sha256": "5066ce4c9a3403a0e135db611b3165f1ce9cad8063eeb254177020ba7903e9db",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/start.psql",
+      "risk": "non-read-only",
+      "risk_basis": "Rilevati comandi SQL potenzialmente mutanti; controllare contesto, transazioni e privilegi prima dell'uso."
+    },
+    {
+      "path": "test/regression/0_node.out",
+      "sha256": "f3cdcbe814968430bdfa5834e348cfa698ec95f2e713ca2b97d06b319ca186c9",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/test/regression/0_node.out",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "test/regression/a1_activity.out",
+      "sha256": "350de87f0b4164dd4f337fda6dbd448bbab63d544b83585d2786729db54d8a75",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/test/regression/a1_activity.out",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "test/regression/p1_alignment_padding.out",
+      "sha256": "4193ba6781e2beabae0e69dc0535a1820c4dad2bbe7433800dea347e448c2f0d",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/test/regression/p1_alignment_padding.out",
+      "risk": "review-required",
+      "risk_basis": "Tipo o contenuto non classificato automaticamente."
+    },
+    {
+      "path": "warmup.psql",
+      "sha256": "e55ccf6af5953c111e727865f73291f7239d55b2c0c9f2364ac34195e14610fe",
+      "url": "https://github.com/NikolayS/postgres_dba/blob/455c2f69aae37fc679c763f8de0952bdd5517a1b/warmup.psql",
+      "risk": "read-only",
+      "risk_basis": "Nessuna istruzione mutante riconosciuta dalla scansione testuale; non costituisce verifica di sicurezza."
+    }
+  ],
+  "risk_counts": {
+    "read-only": 21,
+    "non-read-only": 20,
+    "review-required": 11
+  },
+  "notice": "Materiale upstream di riferimento, non validato e non incluso nello smoke. La classificazione è euristica; non promette sicurezza. Gli script shell non sono stati eseguiti."
+}
