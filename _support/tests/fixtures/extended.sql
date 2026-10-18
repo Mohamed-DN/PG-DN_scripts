@@ -1,0 +1,50 @@
+-- Synthetic objects in a disposable cluster; never run against an existing database.
+CREATE ROLE pgdn_reader LOGIN;
+CREATE ROLE pgdn_owner NOLOGIN;
+CREATE ROLE pgdn_expired LOGIN VALID UNTIL '2000-01-01';
+GRANT pgdn_owner TO pgdn_reader;
+GRANT CONNECT ON DATABASE pgdn_lab TO pgdn_reader;
+GRANT USAGE ON SCHEMA pgdn_fixture TO pgdn_reader;
+GRANT SELECT ON pgdn_fixture.orders TO pgdn_reader;
+ALTER DEFAULT PRIVILEGES IN SCHEMA pgdn_fixture GRANT SELECT ON TABLES TO pgdn_reader;
+CREATE TABLE pgdn_fixture.default_acl_table(id integer);
+CREATE VIEW pgdn_fixture.public_view AS SELECT id FROM pgdn_fixture.orders;
+GRANT SELECT ON pgdn_fixture.public_view TO PUBLIC;
+CREATE FUNCTION pgdn_fixture.safe_definer(integer) RETURNS integer
+LANGUAGE sql SECURITY DEFINER SET search_path = pg_catalog AS 'SELECT $1 + 1';
+REVOKE ALL ON FUNCTION pgdn_fixture.safe_definer(integer) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION pgdn_fixture.safe_definer(integer) TO pgdn_reader;
+CREATE FUNCTION pgdn_fixture.touch_row() RETURNS trigger LANGUAGE plpgsql
+AS 'BEGIN NEW.touched := clock_timestamp(); RETURN NEW; END';
+CREATE TRIGGER pgdn_touch BEFORE UPDATE ON pgdn_fixture.orders
+FOR EACH ROW EXECUTE FUNCTION pgdn_fixture.touch_row();
+CREATE TABLE pgdn_fixture.owned_table(id integer);
+ALTER TABLE pgdn_fixture.owned_table OWNER TO pgdn_owner;
+CREATE TABLE pgdn_fixture.private_table(id integer);
+REVOKE ALL ON pgdn_fixture.private_table FROM pgdn_reader;
+CREATE TABLE pgdn_fixture.never_analyzed(id integer) WITH (autovacuum_enabled=false);
+INSERT INTO pgdn_fixture.never_analyzed SELECT generate_series(1,30);
+CREATE TABLE pgdn_fixture.hot_heap(id integer, payload text) WITH (fillfactor=40,autovacuum_enabled=false);
+INSERT INTO pgdn_fixture.hot_heap SELECT i,'before' FROM generate_series(1,1000) AS i;
+UPDATE pgdn_fixture.hot_heap SET payload='after';
+ANALYZE pgdn_fixture.hot_heap;
+CREATE TABLE pgdn_fixture.toast_heap(id integer, payload text) WITH (autovacuum_enabled=false);
+ALTER TABLE pgdn_fixture.toast_heap ALTER COLUMN payload SET STORAGE EXTERNAL;
+INSERT INTO pgdn_fixture.toast_heap SELECT i,repeat(md5(i::text),1000) FROM generate_series(1,100) AS i;
+CREATE INDEX toast_heap_id_idx ON pgdn_fixture.toast_heap(id);
+ANALYZE pgdn_fixture.toast_heap;
+CREATE TABLE pgdn_fixture.null_sample(id integer, optional integer);
+INSERT INTO pgdn_fixture.null_sample SELECT i,CASE WHEN i%2=0 THEN NULL ELSE i END FROM generate_series(1,1000) AS i;
+ANALYZE pgdn_fixture.null_sample;
+CREATE INDEX orders_payload_duplicate ON pgdn_fixture.orders(payload);
+CREATE INDEX orders_partial_other ON pgdn_fixture.orders(id) WHERE id > 150;
+CREATE TABLE pgdn_fixture.duplicate_keys(id integer);
+INSERT INTO pgdn_fixture.duplicate_keys VALUES(1),(1);
+CREATE SEQUENCE pgdn_fixture.descending_limit MINVALUE -10 MAXVALUE -1 INCREMENT -1 START -9 CACHE 1;
+SELECT nextval('pgdn_fixture.descending_limit');
+CREATE TABLE pgdn_fixture.copy_target(id integer);
+CREATE TABLE pgdn_fixture.prepared_target(id integer);
+CREATE EXTENSION postgres_fdw SCHEMA extensions;
+CREATE SERVER pgdn_foreign FOREIGN DATA WRAPPER postgres_fdw OPTIONS(host 'pgdn_redaction_canary',dbname 'synthetic');
+CREATE USER MAPPING FOR pgdn_reader SERVER pgdn_foreign OPTIONS(user 'pgdn_redaction_canary');
+CREATE FOREIGN TABLE pgdn_fixture.remote_metadata(id integer) SERVER pgdn_foreign OPTIONS(schema_name 'synthetic',table_name 'synthetic');

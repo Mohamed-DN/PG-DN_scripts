@@ -16,6 +16,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / '_support/tools'))
 from catalog import scripts
+from query_scenarios import populate, assert_results, live_results, result_lines
 
 
 class Lab:
@@ -44,7 +45,8 @@ class Lab:
                      '--label', 'pgdn.disposable=true', '--label', f'pgdn.owner={self.owner}',
                      '-e', 'POSTGRES_HOST_AUTH_METHOD=trust',
                      '-e', 'POSTGRES_DB=pgdn_lab', f'docker.io/library/postgres:{self.version}-alpine',
-                     '-c', 'wal_level=logical', '-c', 'shared_preload_libraries=pg_stat_statements', timeout=300)
+                     '-c', 'wal_level=logical', '-c', 'max_prepared_transactions=10',
+                     '-c', 'shared_preload_libraries=pg_stat_statements', timeout=300)
         deadline = time.monotonic() + 90
         while time.monotonic() < deadline:
             ready = self.command('exec', self.name, 'pg_isready', '-U', 'postgres', check=False)
@@ -60,10 +62,16 @@ class Lab:
         if self.created:
             label = self.command('inspect', '--format', '{{ index .Config.Labels "pgdn.owner" }}', self.name, check=False)
             if label.returncode == 0 and label.stdout.strip() == self.owner:
-                self.command('rm', '-f', '-v', self.name, check=False)
+                removed = self.command('rm', '-f', '-v', self.name, check=False)
+                return 'passed' if removed.returncode == 0 else 'failed'
+            return 'not-present' if label.returncode else 'refused: foreign owner'
+        return 'not-created'
 
     def run(self):
-        report = {'postgres_major': int(self.version), 'scripts': [], 'checks': {}}
+        report = {'postgres_major': int(self.version), 'scripts': [], 'checks': {},
+                  'resources': {'container': self.name, 'owner': self.owner},
+                  'network_isolated': True, 'host_ports_published': False}
+        self.report = report
         self.start()
         report['server_version'] = self.sql('SHOW server_version;').stdout.strip()
         report['image_id'] = self.command('inspect', '--format', '{{.Image}}', self.name).stdout.strip()
@@ -121,7 +129,9 @@ SELECT pg_create_physical_replication_slot('pgdn_reserved',true);
 SELECT pg_create_logical_replication_slot('pgdn_logical','pgoutput');
 SELECT count(*) FROM pgdn_fixture.orders;
 ''')
+        populate(self)
         self.command('cp', str(ROOT / 'scripts'), self.name + ':/tmp/pgdn-scripts')
+        observed = {}
         for item in scripts():
             row = {'path': item['path'], 'sha256': hashlib.sha256((ROOT / item['path']).read_bytes()).hexdigest()}
             minimum = int(re.search(r'\d+', item['postgres']).group())
@@ -130,15 +140,24 @@ SELECT count(*) FROM pgdn_fixture.orders;
             if result.returncode:
                 raise RuntimeError(f"PG{self.version} {item['path']}: {result.stderr[-2500:]}")
             row['admin'] = 'passed' if int(self.version) >= minimum else 'version-guard-passed'
+            if int(self.version) < minimum and not re.search(r'PostgreSQL\s+\d+\+.*(?:required|skipped)', result.stdout, re.I):
+                raise RuntimeError(f"Version guard did not explain the skip: {item['path']}")
+            row['admin_result_lines'] = len(result_lines(result.stdout)) if int(self.version) >= minimum else 0
+            observed[item['path']] = result.stdout
             privilege = item.get('privilege', '').lower()
             if 'superuser' not in privilege or ' or pg_monitor' in privilege:
                 limited = self.sql(f'\\i {path}\n', user='pgdn_monitor', check=False)
                 if limited.returncode:
                     raise RuntimeError(f"PG{self.version} pg_monitor {item['path']}: {limited.stderr[-2500:]}")
                 row['pg_monitor'] = 'passed' if int(self.version) >= minimum else 'version-guard-passed'
+                row['pg_monitor_result_lines'] = len(result_lines(limited.stdout)) if int(self.version) >= minimum else 0
             else:
-                row['pg_monitor'] = 'not-run: requires superuser'
+                limited = self.sql(f'\\i {path}\n', user='pgdn_monitor', check=False)
+                if limited.returncode == 0 or 'permission denied' not in limited.stderr.lower():
+                    raise RuntimeError(f"Expected permission denial was not proved: {item['path']}")
+                row['pg_monitor'] = 'permission-denied-as-expected'
             report['scripts'].append(row)
+        assert_results(self, observed, report)
         def diagnosis(relative):
             return self.sql('\\i /tmp/pgdn-scripts/' + relative + '\n').stdout
         fk_rows = diagnosis('performance/indexes/foreign-keys-without-index.sql')
@@ -240,6 +259,10 @@ SELECT count(*) FROM pgdn_fixture.orders;
             holder.communicate(timeout=15)
             if waiter:
                 waiter.communicate(timeout=15)
+        live_results(self, report)
+        for row in report['scripts']:
+            row['scenario_assertions'] = [name for name, scenario in report['scenario_checks'].items()
+                                          if row['path'] in scenario['scripts']]
         return report
 
 
@@ -261,9 +284,15 @@ def main():
             return report
         except Exception as exc:
             print(f'PostgreSQL {version}: FAIL {exc}', flush=True)
-            return {'postgres_major': int(version), 'error': str(exc)}
+            report = getattr(lab, 'report', {'postgres_major': int(version)})
+            report['error'] = str(exc)
+            return report
         finally:
-            lab.close()
+            cleanup = lab.close()
+            if hasattr(lab, 'report'):
+                lab.report['cleanup'] = cleanup
+                if cleanup not in {'passed', 'not-present', 'not-created'}:
+                    lab.report['error'] = 'Lab cleanup ' + cleanup
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
         futures = [pool.submit(exercise, version) for version in args.versions]
         for future in as_completed(futures):

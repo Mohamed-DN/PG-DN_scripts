@@ -1,43 +1,39 @@
 # Verifica e limiti
 
-Snapshot verificato il 18 ottobre 2026 su GitHub Actions ([run 39151437450](https://github.com/Mohamed-DN/PG-DN_scripts/actions/runs/39151437450)), commit [b746e4a](https://github.com/Mohamed-DN/PG-DN_scripts/commit/b746e4ac549a7a50c226da4a396ff65cb844a580). Le prove sono riproducibili con i comandi in [tests/README.md](../tests/README.md), su database effimeri isolati dagli ambienti esistenti.
+Verifica aggiornata il 18 ottobre 2026 su container Podman effimeri. I report registrano versione effettiva del server, immagine, SHA-256 dei file eseguiti, esito per ruolo e pulizia delle risorse del laboratorio.
 
-## Script PostgreSQL
+## Matrice completa della libreria operativa
 
-Tutti i **144 file SQL** sono stati eseguiti come amministratore e come `pg_monitor` dove consentito, sulle cinque major supportate. Il controllo HBA richiede superuser ed è esplicitamente escluso dal ruolo monitor. Le funzionalità assenti nelle versioni precedenti usano guardie: il passaggio della guardia non equivale all'esecuzione di una vista non disponibile.
+Tutti i **144 file SQL** di `scripts/` sono eseguiti su PostgreSQL 14–18, come amministratore e con `pg_monitor`. Le query che richiedono 16 o 17 terminano con la guardia sulle major precedenti: il report le distingue dalle SELECT realmente eseguite. Per la vista HBA è verificata la negazione al ruolo monitor e il successo amministrativo.
 
-| Server effettivo | File controllati | Esecuzione SQL | Prove comportamentali |
-| :-- | --: | :-- | :-- |
-| PostgreSQL 14.24 | 144 | PASS | 14 controlli PASS |
-| PostgreSQL 15.19 | 144 | PASS | 14 controlli PASS |
-| PostgreSQL 16.15 | 144 | PASS | 14 controlli PASS |
-| PostgreSQL 17.11 | 144 | PASS | 14 controlli PASS |
-| PostgreSQL 18.6 | 144 | PASS | 14 controlli PASS |
+| Server effettivo | File | Controlli di base | Verifiche estese | Pulizia |
+| :-- | --: | --: | --: | :-- |
+| 14.24 | 144 | 14 | 76 | passed |
+| 15.19 | 144 | 14 | 76 | passed |
+| 16.15 | 144 | 14 | 77 | passed |
+| 17.11 | 144 | 14 | 77 | passed |
+| 18.6 | 144 | 14 | 77 | passed |
 
-[Rapporto JSON della matrice](evidence/postgres-matrix.json) · [SHA-256 dei 144 file](evidence/curated-sha256.json). Gli hash registrati da ciascuna major coincidono con questo snapshot SQL.
+[Rapporto JSON](evidence/postgres-matrix.json) · [Copertura per file](evidence/SQL_COVERAGE.md) · [SHA-256 dello snapshot](evidence/curated-sha256.json) · [Piano e significato degli esiti](QUERY_TEST_PLAN.md).
 
-Sono passati anche **13 test Python** su navigazione, modifica delle protezioni, scelta della home, proprietà delle risorse temporanee e integrità upstream. Il generatore è idempotente, i collegamenti locali sono validi e actionlint 1.7.12 non segnala errori nei workflow. Gitleaks 8.30.1, con regole predefinite e output redatto, ha segnalato due valori nel manifest SHA-256: entrambi sono stati verificati contro i byte SQL e sono hash di file, quindi falsi positivi. Non sono emerse credenziali dalla scansione. La revisione indipendente non ha rilevato problemi aperti nelle query e nella navigazione.
+Le verifiche estese controllano oggetti e privilegi su dati noti, indici duplicati e invalidi, TOAST, sequenze, aritmetica dei contatori e casi negativi. Una mutazione della query degli indici rimuove soltanto il confronto dei predicati: il falso positivo prodotto dalla copia alterata viene rilevato. Il file SQL operativo rimane invariato.
 
-## Cosa provano i controlli comportamentali
+I processi attivi comprendono sessioni idle, advisory lock, COPY, build concorrente di indici, ANALYZE, VACUUM, CLUSTER, chiamata all'API di backup e query realmente più vecchia di un minuto. I processi osservati sono poi cancellati nel solo lab: questa parte prova la diagnostica, non il completamento della manutenzione.
 
-- Estensioni opzionali installate in uno schema diverso da `public` e guardie quando assenti.
-- Rifiuto di scritture nella transazione read-only e di DDL dal ruolo ristretto.
-- Foreign key senza copertura d'indice, includendo casi positivi e negativi con chiavi invertite, indici parziali, colonne INCLUDE e prefissi intercalati.
-- RLS con e senza policy, vincoli non validati, enum e domini, indici delle partizioni associati al figlio corretto.
-- Headroom delle sequenze senza consumo di valori e identificatori quotati con punti e spazi.
-- Dump logico custom e restore, con confronto di conteggio e checksum su 200 righe.
-- Contesa reale, sessione bloccante e aggregazioni per bloccante e relazione.
+## Backup fisico e replica
 
-I contatori cumulativi e gli indicatori di costo restano da interpretare su intervalli rappresentativi. Un risultato SQL valido non rende automatica una decisione di manutenzione.
+Il laboratorio PostgreSQL **18.6** osserva la query di progresso durante un vero `pg_basebackup`, verifica il manifest con `pg_verifybackup` e avvia la replica streaming. A replay sospeso, il lag è positivo e lo standby resta a 20 righe; alla ripresa converge alle **120 righe** del primary.
 
-## Backup fisico e replica streaming
+Tutte le **24 diagnostiche** di backup, WAL e replica sono eseguite sia sul primary sia sullo standby (**48 esecuzioni**). I controlli puntuali verificano sender in streaming con lag positivo, receiver e slot attivi, avanzamento del replay e identico system identifier con ruoli recovery differenti. Pulizia delle sole risorse proprietarie: **passed**.
 
-La prova PostgreSQL **18.6** ha creato primary e standby isolati e verificato il backup fisico con `pg_verifybackup`. A replay sospeso, il ritardo osservato era **72.504 byte** e lo standby è rimasto a 20 righe. Dopo la ripresa, primary e standby sono convergenti a **120 righe**. Tutte le **24 query** in replica, WAL e ispezione backup sono passate anche sullo standby. La pulizia delle sole risorse del lab è riuscita.
+[Rapporto fisico](evidence/physical-replication.json) · [Laboratorio riproducibile](REPLICATION_LAB.md).
 
-[Rapporto JSON](evidence/physical-replication.json) · [Laboratorio riproducibile](REPLICATION_LAB.md). Questa prova dimostra backup fisico verificato e streaming; non dimostra PITR con archivio storico, promozione o failover.
+## Controlli del repository
+
+Sono passati **14 test Python** di navigazione e protezione delle risorse. Il validatore controlla header, convenzioni e link; la generazione è idempotente. I manifest verificano i byte dei **226 file upstream** conservati. I test di risorse verificano anche il rifiuto di cancellare container altrui e la segnalazione di una rimozione fallita.
 
 ## Limiti
 
-Gli **226 file upstream** in otto raccolte sono riferimenti separati: i manifest ne verificano integrità e provenienza, ma non sono eseguiti né certificati dalla matrice SQL. La classificazione del rischio delle sorgenti esterne è euristica.
+Gli originali esterni in `_support/upstream/` sono riferimenti separati e non sono dichiarati eseguiti o certificati dalla matrice delle query curate. Versioni 8.x–13, tutti i possibili privilegi, sistemi cloud gestiti e carichi di produzione non sono coperti da questo laboratorio.
 
-Le prove non simulano carico e dimensioni di produzione, sistemi cloud gestiti, tutte le estensioni o ogni combinazione di privilegi. I controlli statici non sono un parser SQL completo né una sandbox per codice arbitrario. Le procedure PITR, Barman e pgBackRest richiedono prove nel proprio ambiente. Non sono stati eseguiti comandi su database di produzione.
+Un risultato non vuoto non dimostra ogni proprietà della query: il dettaglio distingue esecuzione, guardia e verifiche specifiche del risultato. Le prove non dimostrano PITR con archivio storico, failover, Barman o pgBackRest. Non sono stati eseguiti comandi su database di produzione.

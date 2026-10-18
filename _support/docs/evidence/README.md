@@ -5,6 +5,7 @@
 | File | Evidenza |
 | :-- | :-- |
 | [postgres-matrix.json](postgres-matrix.json) | 144 file su cinque major, ruolo amministrativo/monitor e controlli comportamentali |
+| [SQL_COVERAGE.md](SQL_COVERAGE.md) | Major, privilegi e numero di scenari specifici verificati per ciascun file SQL |
 | [curated-sha256.json](curated-sha256.json) | Hash dei file SQL dello snapshot verificato |
 | [physical-replication.json](physical-replication.json) | Backup fisico verificato e streaming con pausa/ripresa del replay |
 

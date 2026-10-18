@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -224,12 +225,28 @@ class ReplicationLab:
             raise RuntimeError("Could not reload the isolated replication HBA rule")
         self.report["checks"]["replication_trust_scoped_to_internal_lab"] = True
         self.stage = "basebackup-and-verify"
-        self.command(
-            "exec", "-i", "--user", "postgres", self.standby, "pg_basebackup", "-w", "-h", "primary",
+        backup = subprocess.Popen([
+            self.engine, "exec", "-i", "--user", "postgres", self.standby, "pg_basebackup", "-w", "-h", "primary",
             "-p", "5432", "-U", "pgdn_repl", "-D", PGDATA,
             "-X", "stream", "-R", "-c", "fast", "-S", "pgdn_repl_slot",
-            "--manifest-checksums=SHA256", timeout=90,
-        )
+            "--manifest-checksums=SHA256", "--max-rate=1M"],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="replace")
+        try:
+            def observe_backup():
+                result = self.exec(self.primary, "psql", "-X", "-w", "-v", "ON_ERROR_STOP=1",
+                                   "-U", "postgres", "-d", "postgres", "-At",
+                                   input=(ROOT / 'scripts/backup/inspection/basebackup-progress.sql').read_text(encoding='utf-8'))
+                rows = [line.split('|') for line in result.stdout.splitlines() if re.match(r'^\d+\|', line)]
+                return result.stdout.strip() if any(len(row) >= 6 and row[5].isdigit() and int(row[5]) > 0 for row in rows) else ''
+            self.report['active_basebackup_diagnostic'] = self.wait_for('curated base backup progress', observe_backup, timeout=45)
+            self.report['checks']['curated_basebackup_progress_nonempty'] = True
+            _, backup_error = backup.communicate(timeout=120)
+            if backup.returncode:
+                raise RuntimeError('Physical backup failed: ' + self.redact(backup_error[-1800:]))
+        finally:
+            if backup.poll() is None:
+                backup.kill()
+                backup.communicate(timeout=10)
         verify = self.exec(
             self.standby, "pg_verifybackup", PGDATA, timeout=45, user="postgres",
         )
@@ -320,7 +337,7 @@ class ReplicationLab:
         self.report["checks"]["paused_standby_remained_at_baseline"] = True
         self.report["fixture_rows_while_paused"] = int(stale_count)
 
-        self.stage = "diagnostic-sql-on-standby"
+        self.stage = "diagnostic-sql-on-primary-and-standby"
         for relative in SQL_CHECKS:
             path = ROOT / relative
             result = self.exec(
@@ -328,13 +345,44 @@ class ReplicationLab:
                 "-U", "postgres", "-d", "postgres", "-At", input=path.read_text(encoding="utf-8"),
                 check=False, timeout=30,
             )
+            primary = self.exec(
+                self.primary, "psql", "-X", "-w", "-v", "ON_ERROR_STOP=1",
+                "-U", "postgres", "-d", "postgres", "-At", input=path.read_text(encoding="utf-8"),
+                check=False, timeout=30,
+            )
             self.report["scripts"].append({
                 "path": relative,
-                "status": "passed" if result.returncode == 0 else "failed",
+                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "status": "passed" if result.returncode == primary.returncode == 0 else "failed",
                 "exit_code": result.returncode,
                 "output": result.stdout.strip()[-1200:],
                 "error": result.stderr.strip()[-1800:],
+                "primary": {'exit_code': primary.returncode, 'output': primary.stdout.strip()[-1200:],
+                            'error': primary.stderr.strip()[-1800:]},
             })
+
+        records = {row['path']: row for row in self.report['scripts']}
+        def lines(relative, primary=False):
+            row = records['scripts/' + relative]
+            output = row['primary']['output'] if primary else row['output']
+            return [line.split('|') for line in output.splitlines()
+                    if line and line not in {'BEGIN','COMMIT','SET','Pager usage is off.'}]
+        senders = lines('replication/physical/primary-senders.sql', primary=True)
+        receiver = lines('replication/physical/standby-receiver-health.sql')
+        replay = lines('replication/physical/standby-replay.sql')
+        primary_identity = lines('backup/inspection/recovery-state.sql', primary=True)
+        standby_identity = lines('backup/inspection/recovery-state.sql')
+        semantic = {
+            'curated_primary_sender_positive_lag': any(len(row) > 9 and row[3] == 'streaming' and row[9].isdigit() and int(row[9]) > 0 for row in senders),
+            'curated_standby_receiver_streaming': any(len(row) > 7 and row[1] == 'streaming' and row[7] == 'pgdn_repl_slot' for row in receiver),
+            'curated_standby_replay_positive_lag': any(len(row) > 2 and row[2].isdigit() and int(row[2]) > 0 for row in replay),
+            'curated_recovery_system_identifier_matches': len(primary_identity) == len(standby_identity) == 1 and primary_identity[0][0] == 'f'
+                and standby_identity[0][0] == 't' and primary_identity[0][1] == standby_identity[0][1],
+            'curated_primary_physical_slot_active': any(row[:4] == ['pgdn_repl_slot','physical','','t'] for row in lines('replication/slots/retention.sql', primary=True)),
+        }
+        self.report['checks'].update(semantic)
+        if not all(semantic.values()):
+            raise RuntimeError('Physical diagnostic result mismatch: ' + ', '.join(name for name, value in semantic.items() if not value))
 
         self.stage = "resume-and-convergence"
         self.psql(self.standby, "SELECT pg_wal_replay_resume();")
