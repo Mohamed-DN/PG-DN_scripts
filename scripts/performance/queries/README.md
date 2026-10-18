@@ -1,12 +1,13 @@
 # Queries
 
-[← Home](../../../README.md) · [Sicurezza e privilegi](../../../_support/docs/SAFETY.md)
+[← Home](../../../README.md) · [Come eseguire gli script](../../../_support/docs/QUICKSTART.md) · [Sicurezza e privilegi](../../../_support/docs/SAFETY.md)
 
 **3 query** · client `psql` · diagnosi in transazione read-only.
 
 Leggere header, versione e privilegi prima dell’esecuzione. I contatori di attività sono cumulativi: un valore isolato non giustifica un’azione correttiva.
 
-## 🗂️ Mappa della libreria
+<details>
+<summary>🗂️ Mappa della libreria · apri / chiudi</summary>
 
 ```text
 queries/
@@ -16,11 +17,11 @@ queries/
 +-- top-total-time.sql                               ← Statements by total time
 ```
 
-```console
-psql -X -v ON_ERROR_STOP=1 -f scripts/performance/queries/top-mean-time.sql
-```
+</details>
 
-Comando da eseguire dalla radice del checkout.
+## Scegli uno script
+
+Trova il controllo nella tabella, apri il file e leggi scopo, versione e privilegi. La colonna **Procedura** spiega come interpretare il risultato e scegliere il passo successivo.
 
 | Script | Scopo | PostgreSQL | Privilegi | Procedura |
 | :-- | :-- | :-- | :-- | :-- |

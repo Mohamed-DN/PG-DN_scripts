@@ -1,6 +1,6 @@
 # Monitoraggio
 
-[← Home](../../README.md) · [Sicurezza e privilegi](../../_support/docs/SAFETY.md)
+[← Home](../../README.md) · [Come eseguire gli script](../../_support/docs/QUICKSTART.md) · [Sicurezza e privilegi](../../_support/docs/SAFETY.md)
 
 **26 query** · client `psql` · diagnosi in transazione read-only.
 
@@ -8,7 +8,8 @@ Leggere header, versione e privilegi prima dell’esecuzione. I contatori di att
 
 [activity](activity/README.md) · [capacity](capacity/README.md) · [statistics](statistics/README.md)
 
-## 🗂️ Mappa della libreria
+<details>
+<summary>🗂️ Mappa della libreria · apri / chiudi</summary>
 
 ```text
 monitoring/
@@ -52,11 +53,11 @@ flowchart TD
     root --> c2["statistics · 16 query"]
 ```
 
-```console
-psql -X -v ON_ERROR_STOP=1 -f scripts/monitoring/activity/advisory-locks.sql
-```
+</details>
 
-Comando da eseguire dalla radice del checkout.
+## Scegli uno script
+
+Trova il controllo nella tabella, apri il file e leggi scopo, versione e privilegi. La colonna **Procedura** spiega come interpretare il risultato e scegliere il passo successivo.
 
 | Script | Scopo | PostgreSQL | Privilegi | Procedura |
 | :-- | :-- | :-- | :-- | :-- |

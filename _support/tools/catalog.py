@@ -17,6 +17,11 @@ LABELS = {
     'performance': 'Prestazioni', 'maintenance': 'Manutenzione',
     'replication': 'Replica', 'wal': 'WAL e archiviazione', 'backup': 'Backup',
 }
+COLORS = {
+    'administration': '🟦', 'backup': '🟩', 'maintenance': '🟧',
+    'monitoring': '🟪', 'performance': '🟨', 'replication': '🔷',
+    'security': '🟥', 'wal': '🔶',
+}
 PURPOSES = {
     'scripts': 'Libreria PostgreSQL integrata e commentata',
     'administration': 'Istanza, configurazione, connessioni e cataloghi',
@@ -60,7 +65,8 @@ def library_map(directory: Path, *, files: bool = False) -> str:
         entries = directories + (sorted(folder.glob('*.sql')) if files else [])
         for i, path in enumerate(entries):
             last = i == len(entries) - 1
-            label = prefix + '+-- ' + path.name + ('/' if path.is_dir() else '')
+            accent = COLORS.get(path.name, '') + ' ' if path.is_dir() and path.parent == ROOT / 'scripts' else ''
+            label = prefix + '+-- ' + accent + path.name + ('/' if path.is_dir() else '')
             if path.is_dir():
                 key = path.relative_to(ROOT / 'scripts').as_posix()
                 count = len(list(path.rglob('*.sql')))
@@ -86,15 +92,49 @@ def scripts() -> list[dict[str, str]]:
     return [metadata(p) for p in sorted((ROOT / 'scripts').rglob('*.sql'))]
 
 
-def procedure_map() -> str:
-    """List current procedures without maintenance internals on the home page."""
-    entries = sorted(p for p in (ROOT / 'procedures').glob('*.md') if p.name != 'README.md')
-    lines = ['procedures/', '|']
-    for path in entries:
-        heading = re.search(r'^#\s+(.+)$', path.read_text(encoding='utf-8'), re.M)
+def procedures() -> list[dict[str, str]]:
+    result = []
+    for path in sorted((ROOT / 'procedures').rglob('*.md')):
+        if path.name.lower() == 'readme.md' or any(part in IGNORED for part in path.parts):
+            continue
+        text = path.read_text(encoding='utf-8-sig')
+        heading = re.search(r'^#\s+(.+)$', text, re.M)
         title = heading.group(1) if heading else path.stem.replace('-', ' ')
-        lines.append(f'{"+-- " + path.name:<30} ← {title}')
+        paragraphs = re.split(r'\n\s*\n', text)
+        summary = next((p.strip() for p in paragraphs if p.strip() and not p.lstrip().startswith(('#', '[', '```', '<!--'))), '')
+        summary = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', summary).replace('\n', ' ')
+        summary = re.split(r'(?<=[.!?])\s+', summary, maxsplit=1)[0]
+        if len(summary) > 220:
+            summary = summary[:217].rsplit(' ', 1)[0] + '…'
+        result.append({'path': path.relative_to(ROOT / 'procedures').as_posix(), 'title': title, 'summary': summary})
+    return result
+
+
+def procedure_map() -> str:
+    """List procedures recursively, including future scenario subdirectories."""
+    folder = ROOT / 'procedures'
+    items = {folder / item['path']: item for item in procedures()}
+    lines = ['procedures/', '|']
+    def visit(directory, prefix=''):
+        if not directory.exists():
+            return
+        folders = sorted(p for p in directory.iterdir() if p.is_dir() and any(x.is_relative_to(p) for x in items))
+        entries = folders + sorted(p for p in items if p.parent == directory)
+        for i, path in enumerate(entries):
+            label = prefix + '+-- ' + path.name + ('/' if path.is_dir() else '')
+            detail = f'{sum(x.is_relative_to(path) for x in items)} procedure' if path.is_dir() else items[path]['title']
+            lines.append(f'{label:<38} ← {detail}')
+            if path.is_dir():
+                visit(path, prefix + ('    ' if i == len(entries) - 1 else '|   '))
+    visit(folder)
     return '```text\n' + '\n'.join(lines) + '\n```'
+
+
+def procedure_table() -> str:
+    rows = ['| Procedura | Quando usarla |', '| :-- | :-- |']
+    for item in procedures():
+        rows.append(f"| [{escape(item['title'])}]({quote(item['path'], safe='/.-')}) | {escape(item['summary'])} |")
+    return '\n'.join(rows)
 
 
 def tree(directory: Path, prefix: str = '', extra: tuple[Path, ...] = ()) -> list[str]:
@@ -147,6 +187,7 @@ def outputs() -> dict[Path, str]:
         import os
         home = Path(os.path.relpath(ROOT / 'README.md', directory)).as_posix()
         safety = Path(os.path.relpath(ROOT / '_support/docs/SAFETY.md', directory)).as_posix()
+        quickstart = Path(os.path.relpath(ROOT / '_support/docs/QUICKSTART.md', directory)).as_posix()
         children = sorted(p for p in directory.iterdir() if p.is_dir() and p.name not in IGNORED)
         nav = ' · '.join(f'[{p.name}]({p.name}/README.md)' for p in children)
         diagram = ''
@@ -156,16 +197,22 @@ def outputs() -> dict[Path, str]:
                 count = sum((ROOT / x['path']).is_relative_to(child) for x in selected)
                 diagram += f'    root --> c{i}["{child.name} · {count} query"]\n'
             diagram += '```\n\n'
-        example = (f"```console\npsql -X -v ON_ERROR_STOP=1 -f {selected[0]['path']}\n```\n\n"
-                   'Comando da eseguire dalla radice del checkout.\n\n') if selected else ''
-        result[directory / 'README.md'] = (f'# {title}\n\n[← Home]({home}) · [Sicurezza e privilegi]({safety})\n\n'
+        result[directory / 'README.md'] = (f'# {title}\n\n[← Home]({home}) · [Come eseguire gli script]({quickstart}) · [Sicurezza e privilegi]({safety})\n\n'
             f'**{len(selected)} query** · client `psql` · diagnosi in transazione read-only.\n\n'
             'Leggere header, versione e privilegi prima dell’esecuzione. I contatori di attività sono cumulativi: '
             'un valore isolato non giustifica un’azione correttiva.\n\n' + (nav + '\n\n' if nav else '') +
-            '## 🗂️ Mappa della libreria\n\n' + library_map(directory, files=True) + '\n\n' +
-            diagram + example + table(selected, directory) + '\n\n> Indice generato da `python _support/tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.\n')
+            '<details>\n<summary>🗂️ Mappa della libreria · apri / chiudi</summary>\n\n' +
+            library_map(directory, files=True) + '\n\n' + diagram + '</details>\n\n' +
+            '## Scegli uno script\n\nTrova il controllo nella tabella, apri il file e leggi scopo, versione e privilegi. '
+            'La colonna **Procedura** spiega come interpretare il risultato e scegliere il passo successivo.\n\n' +
+            table(selected, directory) + '\n\n> Indice generato da `python _support/tools/catalog.py`; modificare gli header SQL per aggiornare le descrizioni.\n')
     result[ROOT / '_support/catalog.json'] = json.dumps({'schema_version': 1, 'scripts': items}, ensure_ascii=False, indent=2) + '\n'
     result[ROOT / '_support/docs/CATALOG.md'] = '# Catalogo degli script curati\n\n[← Home](../../README.md) · [Origini e correzioni](SOURCE_REVIEW.md)\n\n' + table(items, ROOT / '_support/docs') + '\n'
+    procedure_index = ROOT / 'procedures/README.md'
+    if procedure_index.exists():
+        text = procedure_index.read_text(encoding='utf-8')
+        if '<!-- BEGIN GENERATED INDEX -->' in text:
+            result[procedure_index] = replace_block(text, 'INDEX', procedure_table())
     readme = (ROOT / 'README.md').read_text(encoding='utf-8')
     readme = replace_block(readme, 'COUNTS', f'**{len(items)} script curati** · PostgreSQL 14–18')
     if '<!-- BEGIN GENERATED MAP -->' in readme:

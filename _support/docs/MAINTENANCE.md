@@ -12,6 +12,18 @@
 
 Il generatore aggiorna gli alberi di script e procedure nella home. Gli altri materiali rimangono in `_support/` e non compaiono negli alberi operativi. Non modificare a mano le sezioni tra `BEGIN GENERATED` e `END GENERATED`, né i README generati in `scripts/`.
 
+## Aggiungere una procedura
+
+1. Crea un file `.md` in `procedures/`, oppure in una sottocartella per argomento. Usa un titolo `#` chiaro e un primo paragrafo che spieghi quando seguire la guida.
+2. Descrivi controlli iniziali, link ai file SQL, risultati attesi, decisioni e verifica finale. Per gli interventi indica prerequisiti e recupero o escalation.
+3. Dopo il push su `main`, l'albero nella home e l'indice di `procedures/` includono automaticamente il nuovo file. Per aggiornare gli indici localmente usa `python _support/tools/catalog.py`.
+
+## Quando parte l'automazione
+
+**Refresh navigation non ha un timer.** Parte dopo un push su `main` che modifica `scripts/`, `procedures/`, il generatore, la definizione del workflow o il README principale. Aggiunte, modifiche, cancellazioni e spostamenti sono rilevati attraverso i percorsi cambiati. Le modifiche alle sole fonti esterne o agli altri materiali di supporto non avviano questo aggiornamento.
+
+Il workflow aggiorna solo gli indici generati e crea un commit soltanto se il contenuto cambia. Il commit del bot non innesca un ciclo di aggiornamenti. Il pulsante **Run workflow** permette anche un avvio manuale. [Definizione del workflow](../../.github/workflows/navigation.yml).
+
 ## Aggiornare una sorgente esterna
 
 Acquisisci la nuova revisione in una directory di lavoro separata. Confronta commit, licenza repository, avvisi dei singoli file e changelog. Non eseguire gli script durante l’importazione e non sovrascrivere le query curate con un aggiornamento del vendor.

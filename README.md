@@ -1,4 +1,9 @@
+![PG-DN · PostgreSQL Operations Library](_support/docs/assets/banner.svg)
+
 # PG-DN scripts
+
+[![Verifica degli script](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml/badge.svg)](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml)
+[![Indici automatici](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/navigation.yml/badge.svg)](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/navigation.yml)
 
 Script e procedure PostgreSQL per amministrazione, monitoraggio e risoluzione dei problemi.
 
@@ -11,6 +16,8 @@ Script e procedure PostgreSQL per amministrazione, monitoraggio e risoluzione de
 | **[📂 Script](scripts/README.md)** | Query ordinate per categoria e funzione, con scopo, versione, privilegi e procedura collegata. |
 | **[🧭 Procedure](procedures/README.md)** | Percorsi passo per passo: controllo iniziale, script da eseguire, lettura dei risultati, intervento e verifica. |
 
+Per iniziare: scegli una procedura se hai un problema da risolvere, oppure una categoria se sai già quale controllo ti serve. Apri lo script collegato, leggi versione e privilegi, poi segui le indicazioni per interpretare il risultato.
+
 ## Script
 
 Apri la categoria che ti serve. Ogni cartella contiene un indice con i link ai singoli file SQL.
@@ -19,33 +26,33 @@ Apri la categoria che ti serve. Ogni cartella contiene un indice con i link ai s
 ```text
 scripts/
 |
-+-- administration/                                  ← 31 script · Istanza, configurazione, connessioni e cataloghi
++-- 🟦 administration/                                ← 31 script · Istanza, configurazione, connessioni e cataloghi
 |   +-- configuration/                               ← 4 script · Parametri effettivi, capacità e impostazioni operative
 |   +-- connections/                                 ← 6 script · Sessioni, transazioni e occupazione connessioni
 |   +-- inventory/                                   ← 21 script · Oggetti, vincoli, tipi, partizioni e dipendenze
-+-- backup/                                          ← 4 script · Diagnosi backup fisico e stato recovery
++-- 🟩 backup/                                        ← 4 script · Diagnosi backup fisico e stato recovery
 |   +-- inspection/                                  ← 4 script · Identità cluster, recovery e attività di base backup
-+-- maintenance/                                     ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
++-- 🟧 maintenance/                                   ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
 |   +-- bloat/                                       ← 2 script · Dimensioni heap, indici e TOAST; indicatori da verificare
 |   +-- progress/                                    ← 6 script · Progresso VACUUM, ANALYZE, COPY, CLUSTER e indici
 |   +-- vacuum/                                      ← 9 script · Tuple morte, transazioni lunghe, XID e autovacuum
-+-- monitoring/                                      ← 26 script · Controlli quotidiani, attività e trend operativi
++-- 🟪 monitoring/                                    ← 26 script · Controlli quotidiani, attività e trend operativi
 |   +-- activity/                                    ← 8 script · Attese, blocchi, transazioni e connessioni SSL
 |   +-- capacity/                                    ← 2 script · Dimensioni, crescita e spazio allocato
 |   +-- statistics/                                  ← 16 script · Contatori database, cache, SLRU e checkpoint
-+-- performance/                                     ← 29 script · Query, indici, statistiche del planner e I/O
++-- 🟨 performance/                                   ← 29 script · Query, indici, statistiche del planner e I/O
 |   +-- indexes/                                     ← 12 script · Indici, vincoli, FK, utilizzo e candidati da analizzare
 |   +-- io/                                          ← 6 script · Letture, scritture, timing e buffer cache
 |   +-- queries/                                     ← 3 script · Top SQL, tempi e file temporanei
 |   +-- statistics/                                  ← 8 script · Distribuzione dati, partizioni, HOT e sequenze
-+-- replication/                                     ← 14 script · Replica fisica/logica, consumer e retention
++-- 🔷 replication/                                   ← 14 script · Replica fisica/logica, consumer e retention
 |   +-- logical/                                     ← 5 script · Publication, subscription e sincronizzazione tabelle
 |   +-- physical/                                    ← 5 script · Sender, receiver, replay e conflitti dello standby
 |   +-- slots/                                       ← 4 script · Slot, xmin, WAL trattenuti e margine di retention
-+-- security/                                        ← 17 script · Ruoli, accessi, ACL e row-level security
++-- 🟥 security/                                      ← 17 script · Ruoli, accessi, ACL e row-level security
 |   +-- privileges/                                  ← 11 script · Grant, privilegi effettivi, RLS e regole di accesso
 |   +-- roles/                                       ← 6 script · Membership, ereditarietà e attributi dei ruoli
-+-- wal/                                             ← 6 script · Generazione WAL, archiviazione e checkpoint
++-- 🔶 wal/                                           ← 6 script · Generazione WAL, archiviazione e checkpoint
     +-- archive/                                     ← 2 script · Archiver, fallimenti e marker pronti da archiviare
     +-- retention/                                   ← 4 script · Contatori, segmenti e cause della crescita WAL
 ```
@@ -58,7 +65,7 @@ scripts/
 ```text
 scripts/
 |
-+-- administration/                                  ← 31 script · Istanza, configurazione, connessioni e cataloghi
++-- 🟦 administration/                                ← 31 script · Istanza, configurazione, connessioni e cataloghi
 |   +-- configuration/                               ← 4 script · Parametri effettivi, capacità e impostazioni operative
 |   |   +-- connection-capacity.sql                  ← Connection capacity
 |   |   +-- non-default-settings.sql                 ← Non-default settings
@@ -93,13 +100,13 @@ scripts/
 |       +-- types-enums-domains.sql                  ← Enum and domain type inventory
 |       +-- unvalidated-constraints.sql              ← Unvalidated constraints
 |       +-- views-and-definitions.sql                ← View inventory with options
-+-- backup/                                          ← 4 script · Diagnosi backup fisico e stato recovery
++-- 🟩 backup/                                        ← 4 script · Diagnosi backup fisico e stato recovery
 |   +-- inspection/                                  ← 4 script · Identità cluster, recovery e attività di base backup
 |       +-- active-backup-senders.sql                ← Active backup senders
 |       +-- backup-api-activity.sql                  ← Backup API activity
 |       +-- basebackup-progress.sql                  ← Base backup progress
 |       +-- recovery-state.sql                       ← Recovery state
-+-- maintenance/                                     ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
++-- 🟧 maintenance/                                   ← 17 script · Vacuum, freeze, spazio e avanzamento operazioni
 |   +-- bloat/                                       ← 2 script · Dimensioni heap, indici e TOAST; indicatori da verificare
 |   |   +-- relation-size-breakdown.sql              ← Relation size breakdown
 |   |   +-- toast-breakdown.sql                      ← TOAST storage breakdown
@@ -120,7 +127,7 @@ scripts/
 |       +-- toast-storage-share.sql                  ← TOAST storage candidates
 |       +-- vacuum-history.sql                       ← Per-table vacuum history
 |       +-- wraparound-risk.sql                      ← Transaction and multixact age
-+-- monitoring/                                      ← 26 script · Controlli quotidiani, attività e trend operativi
++-- 🟪 monitoring/                                    ← 26 script · Controlli quotidiani, attività e trend operativi
 |   +-- activity/                                    ← 8 script · Attese, blocchi, transazioni e connessioni SSL
 |   |   +-- advisory-locks.sql                       ← Advisory lock summary
 |   |   +-- blocking-impact.sql                      ← Blocking impact by backend
@@ -150,7 +157,7 @@ scripts/
 |       +-- table-hot-updates.sql                    ← Table HOT update ratios
 |       +-- table-statistics-coverage.sql            ← Table statistics coverage
 |       +-- temporary-files.sql                      ← Temporary file counters by database
-+-- performance/                                     ← 29 script · Query, indici, statistiche del planner e I/O
++-- 🟨 performance/                                   ← 29 script · Query, indici, statistiche del planner e I/O
 |   +-- indexes/                                     ← 12 script · Indici, vincoli, FK, utilizzo e candidati da analizzare
 |   |   +-- access-methods.sql                       ← Index access methods
 |   |   +-- constraint-index-signatures.sql          ← Constraint index signatures
@@ -184,7 +191,7 @@ scripts/
 |       +-- physical-correlation.sql                 ← Column physical correlation
 |       +-- sequence-context.sql                     ← Sequence inventory context
 |       +-- sequence-headroom.sql                    ← Sequence exhaustion headroom
-+-- replication/                                     ← 14 script · Replica fisica/logica, consumer e retention
++-- 🔷 replication/                                   ← 14 script · Replica fisica/logica, consumer e retention
 |   +-- logical/                                     ← 5 script · Publication, subscription e sincronizzazione tabelle
 |   |   +-- publication-tables.sql                   ← Logical publication table mapping
 |   |   +-- publications.sql                         ← Logical publication configuration
@@ -202,7 +209,7 @@ scripts/
 |       +-- retention.sql                            ← Replication slot retention
 |       +-- wal-limit-headroom.sql                   ← Replication slot WAL limit headroom
 |       +-- xmin-horizons.sql                        ← Replication slot xmin horizons
-+-- security/                                        ← 17 script · Ruoli, accessi, ACL e row-level security
++-- 🟥 security/                                      ← 17 script · Ruoli, accessi, ACL e row-level security
 |   +-- privileges/                                  ← 11 script · Grant, privilegi effettivi, RLS e regole di accesso
 |   |   +-- database-acl.sql                         ← Database ACL
 |   |   +-- effective-database-privileges.sql        ← Effective database privileges for roles
@@ -222,7 +229,7 @@ scripts/
 |       +-- role-attributes.sql                      ← Role security attributes
 |       +-- role-inventory.sql                       ← Role inventory
 |       +-- role-membership-edges.sql                ← Role membership edges with portable attributes
-+-- wal/                                             ← 6 script · Generazione WAL, archiviazione e checkpoint
++-- 🔶 wal/                                           ← 6 script · Generazione WAL, archiviazione e checkpoint
     +-- archive/                                     ← 2 script · Archiver, fallimenti e marker pronti da archiviare
     |   +-- archive-status.sql                       ← Archive status
     |   +-- ready-files.sql                          ← Ready WAL archive files
@@ -244,25 +251,25 @@ Parti da [triage](procedures/triage.md) se la causa non è chiara, oppure scegli
 ```text
 procedures/
 |
-+-- backup-restore.md          ← Backup, restore e PITR
-+-- barman.md                  ← Backup e PITR con Barman
-+-- incident-template.md       ← Scheda incidente PostgreSQL
-+-- locks.md                   ← Diagnosi dei lock
-+-- monitoring.md              ← Baseline e monitoraggio PostgreSQL
-+-- pgbackrest.md              ← Backup e PITR con pgBackRest
-+-- pitr.md                    ← PITR fisico su istanza isolata
-+-- replication-lag.md         ← Ritardo di replica fisica e logica
-+-- security.md                ← Diagnosi ruoli, privilegi e autenticazione
-+-- slow-queries.md            ← Diagnosi query lente
-+-- triage.md                  ← Triage iniziale PostgreSQL
-+-- vacuum-bloat.md            ← Autovacuum, VACUUM e bloat
-+-- wal-growth.md              ← Crescita di WAL e ritardo archivio
++-- backup-restore.md                  ← Backup, restore e PITR
++-- barman.md                          ← Backup e PITR con Barman
++-- incident-template.md               ← Scheda incidente PostgreSQL
++-- locks.md                           ← Diagnosi dei lock
++-- monitoring.md                      ← Baseline e monitoraggio PostgreSQL
++-- pgbackrest.md                      ← Backup e PITR con pgBackRest
++-- pitr.md                            ← PITR fisico su istanza isolata
++-- replication-lag.md                 ← Ritardo di replica fisica e logica
++-- security.md                        ← Diagnosi ruoli, privilegi e autenticazione
++-- slow-queries.md                    ← Diagnosi query lente
++-- triage.md                          ← Triage iniziale PostgreSQL
++-- vacuum-bloat.md                    ← Autovacuum, VACUUM e bloat
++-- wal-growth.md                      ← Crescita di WAL e ritardo archivio
 ```
 <!-- END GENERATED PROCEDURES -->
 
 ## Esegui uno script
 
-Configura la connessione `psql`, leggi scopo e privilegi nell'header del file, quindi esegui dalla radice del repository:
+Configura la connessione `psql`, leggi scopo, versione e privilegi nell'header del file, quindi esegui dalla radice del repository:
 
 ```console
 psql -X -v ON_ERROR_STOP=1 -f scripts/administration/inventory/server-info.sql
@@ -270,6 +277,6 @@ psql -X -v ON_ERROR_STOP=1 -f scripts/administration/inventory/server-info.sql
 
 Le query in `scripts/` usano transazioni di sola lettura e timeout. Gli interventi sono descritti nelle procedure e richiedono la verifica dei prerequisiti. [Configurazione della connessione ed esempi](_support/docs/QUICKSTART.md).
 
-Gli alberi si aggiornano automaticamente dopo il push su `main` quando aggiungi, sposti o rimuovi script e procedure. Per aggiornare gli indici prima del push: `python _support/tools/catalog.py`.
+Gli alberi e gli indici si aggiornano dopo un push su `main` che aggiunge, modifica, sposta o rimuove script o procedure. **Nessuna esecuzione periodica**: se la raccolta non cambia, l'automazione non parte. Per aggiornare gli indici prima del push: `python _support/tools/catalog.py`. [Aggiungere uno script o una procedura](_support/docs/MAINTENANCE.md).
 
 Documentazione tecnica, fonti, test e strumenti di manutenzione sono raccolti in **[_support/](_support/README.md)**.

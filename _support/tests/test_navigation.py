@@ -20,7 +20,7 @@ class NavigationTest(unittest.TestCase):
         self.root = Path(self.temp.name)
         (self.root / 'scripts' / 'wal').mkdir(parents=True)
         (self.root / '_support/docs').mkdir(parents=True)
-        (self.root / 'README.md').write_text('<!-- BEGIN GENERATED COUNTS -->\n<!-- END GENERATED COUNTS -->\n<!-- BEGIN GENERATED TREE -->\n<!-- END GENERATED TREE -->\n')
+        (self.root / 'README.md').write_text('<!-- BEGIN GENERATED COUNTS -->\n<!-- END GENERATED COUNTS -->\n<!-- BEGIN GENERATED TREE -->\n<!-- END GENERATED TREE -->\n<!-- BEGIN GENERATED PROCEDURES -->\n<!-- END GENERATED PROCEDURES -->\n')
         self.fixture = '-- Title: WAL test\n-- Description: Archive | status\n-- Postgres: 14+\n-- Privilege: pg_monitor\n-- Risk: read-only\n-- Source: original\n-- Runbook: procedures/wal-growth.md\nSELECT 1;\n'
 
     def generate(self):
@@ -66,18 +66,41 @@ class NavigationTest(unittest.TestCase):
     def test_procedure_map_tracks_add_rename_and_remove(self):
         folder = self.root / 'procedures'
         folder.mkdir()
-        (folder / 'README.md').write_text('# Index\n', encoding='utf-8')
+        (folder / 'README.md').write_text('# Index\n\n<!-- BEGIN GENERATED INDEX -->\n<!-- END GENERATED INDEX -->\n', encoding='utf-8')
         path = folder / 'locks.md'
-        path.write_text('# Blocchi e attese\n', encoding='utf-8')
+        path.write_text('# Blocchi e attese\n\nUsare per sessioni bloccate. Continuare con la diagnosi.\n', encoding='utf-8')
         with patch.object(catalog, 'ROOT', self.root):
             self.assertIn('locks.md', catalog.procedure_map())
             self.assertIn('Blocchi e attese', catalog.procedure_map())
             self.assertNotIn('README.md', catalog.procedure_map())
-            path = path.rename(folder / 'blocking.md')
+            added = self.generate()
+            self.assertIn('[Blocchi e attese](locks.md)', added[folder / 'README.md'])
+            self.assertIn('Usare per sessioni bloccate.', added[folder / 'README.md'])
+            self.assertNotIn('Continuare con la diagnosi.', added[folder / 'README.md'])
+            (folder / 'new area').mkdir()
+            path = path.rename(folder / 'new area/blocked sessions.md')
             self.assertNotIn('locks.md', catalog.procedure_map())
-            self.assertIn('blocking.md', catalog.procedure_map())
+            self.assertIn('blocked sessions.md', catalog.procedure_map())
+            moved = self.generate()
+            self.assertIn('new%20area/blocked%20sessions.md', moved[folder / 'README.md'])
+            self.assertIn('blocked sessions.md', moved[self.root / 'README.md'])
             path.unlink()
-            self.assertNotIn('blocking.md', catalog.procedure_map())
+            removed = self.generate()
+            self.assertNotIn('blocked sessions.md', catalog.procedure_map())
+            self.assertNotIn('blocked%20sessions.md', removed[folder / 'README.md'])
+            self.assertNotIn('new area/', removed[self.root / 'README.md'])
+
+    def test_script_map_is_collapsed_and_table_is_visible(self):
+        (self.root / 'scripts/wal/status.sql').write_text(self.fixture)
+        with patch.object(catalog, 'ROOT', self.root):
+            content = catalog.outputs()[self.root / 'scripts/wal/README.md']
+            self.assertIn('<details>\n<summary>', content)
+            self.assertLess(content.index('<details>'), content.index('```text'))
+            self.assertLess(content.index('status.sql'), content.index('</details>'))
+            self.assertLess(content.index('</details>'), content.index('| Script |'))
+            self.assertNotIn('```console', content)
+            self.assertIn('Come eseguire gli script', content)
+            self.assertIn('## Scegli uno script', content)
 
     def test_home_tree_shows_only_the_script_library(self):
         (self.root / '_support/technical-only.md').touch()
