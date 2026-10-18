@@ -86,7 +86,7 @@ PG-DN_scripts/
 │   │   ├── navigation.yml
 │   │   ├── README.md
 │   │   └── validate.yml
-│   └── README.md
+│   └── AUTOMATION.md
 ├── docs/
 │   ├── adr/
 │   │   ├── 0001-repository-layout.md
