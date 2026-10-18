@@ -22,4 +22,5 @@ flowchart LR
 | [Audit upstream](UPSTREAM_AUDIT.md) | Licenze, commit e limiti |
 | [Architettura](architecture.md) | Struttura e ciclo di vita |
 | [Contribuire](CONTRIBUTING.md) | Aggiungere e verificare script |
+| [Manutenzione della raccolta](MAINTENANCE.md) | Estendere il catalogo e aggiornare le fonti esterne |
 | [Validazione](VALIDATION.md) | Prove effettuate e limiti |
