@@ -14,6 +14,7 @@ Materiali per approfondire l'uso della raccolta e mantenerla aggiornata.
 | Origine delle query e correzioni | [Revisione delle fonti](docs/SOURCE_REVIEW.md) |
 | Raccolte esterne e originali di riferimento | [Fonti](upstream/README.md) |
 | Risultati e limiti delle verifiche | [Validazione](docs/VALIDATION.md) |
+| Schema di prova e controlli sui risultati | [Piano di verifica delle query](docs/QUERY_TEST_PLAN.md) |
 | Riprodurre i test | [Test](tests/README.md) |
 | Aggiornare indici e catalogo | [Strumenti](tools/README.md) |
 | Aggiungere script e procedure | [Contribuire](docs/CONTRIBUTING.md) |

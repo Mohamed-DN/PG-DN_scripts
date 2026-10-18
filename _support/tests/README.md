@@ -2,6 +2,8 @@
 
 [← Home](../../README.md) · [Risultati](../docs/VALIDATION.md)
 
+[Piano, fixture, scenari e significato degli esiti](../docs/QUERY_TEST_PLAN.md). Ogni report associa gli hash dei file alle esecuzioni, ai risultati osservati e agli scenari effettivamente verificati.
+
 ```console
 python -m unittest discover -s _support/tests -v
 python _support/tools/validate.py
