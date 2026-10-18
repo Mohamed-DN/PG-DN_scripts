@@ -253,6 +253,7 @@ procedures/
 |
 +-- backup-restore.md                  ← Backup, restore e PITR
 +-- barman.md                          ← Backup e PITR con Barman
++-- daily-health-check.md              ← Controllo giornaliero PostgreSQL
 +-- incident-template.md               ← Scheda incidente PostgreSQL
 +-- locks.md                           ← Diagnosi dei lock
 +-- monitoring.md                      ← Baseline e monitoraggio PostgreSQL

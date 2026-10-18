@@ -9,6 +9,7 @@ Procedure operative per triage, diagnosi e recupero di PostgreSQL 14–18. Sono 
 | :-- | :-- |
 | [Backup, restore e PITR](backup-restore.md) | Usare per verificare protezione dati, recuperare una base logica o predisporre ripristino fisico. |
 | [Backup e PITR con Barman](barman.md) | Procedura riferita alla sintassi documentata per **Barman 3.17.0** e PostgreSQL 14–18. |
+| [Controllo giornaliero PostgreSQL](daily-health-check.md) | Usare questa sequenza per un controllo manuale dello stato del servizio e per individuare le anomalie che richiedono una diagnosi dedicata. |
 | [Scheda incidente PostgreSQL](incident-template.md) | Copiare questa scheda in uno spazio autorizzato dal processo di incident response. |
 | [Diagnosi dei lock](locks.md) | Usare quando sessioni applicative sono in attesa, DDL resta bloccato o l'allarme mostra lock non concessi. |
 | [Baseline e monitoraggio PostgreSQL](monitoring.md) | Questa procedura aiuta a stabilire una baseline e leggere gli allarmi senza trasformare valori istantanei in diagnosi. |
