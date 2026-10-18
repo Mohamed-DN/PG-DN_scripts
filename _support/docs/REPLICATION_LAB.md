@@ -32,6 +32,6 @@ Il risultato documenta l'eseguibilità su questa versione e in questo ruolo. Non
 
 ## Evidenza corrente
 
-L'esecuzione pubblicata in [`evidence/physical-replication.json`](evidence/physical-replication.json) è passata con Podman e `docker.io/library/postgres:18-alpine`, server PostgreSQL 18.6. `pg_verifybackup` ha confermato il manifest; lo standby era in recovery e lo stato di streaming era attivo. La replica iniziale ha raggiunto 20 righe; a replay sospeso il lag osservato era 72.504 byte e lo standby è rimasto a 20 righe. Dopo la ripresa primary e standby sono entrambi arrivati a 120 righe. Tutti i 24 file diagnostici hanno restituito codice 0. La pulizia delle risorse con etichetta proprietario è passata senza errori.
+L'esecuzione pubblicata in [`evidence/physical-replication.json`](evidence/physical-replication.json) è passata con Docker e `docker.io/library/postgres:18-alpine`, server PostgreSQL 18.6. `pg_verifybackup` ha confermato il manifest; lo standby era in recovery e lo stato di streaming era attivo. La replica iniziale ha raggiunto 20 righe; a replay sospeso il lag osservato era 72.504 byte e lo standby è rimasto a 20 righe. Dopo la ripresa primary e standby sono entrambi arrivati a 120 righe. Tutti i 24 file diagnostici hanno restituito codice 0. La pulizia delle risorse con etichetta proprietario è passata senza errori.
 
 Questa prova non testa promozione/failover, replica logica, archiviazione WAL, recupero point-in-time o ripristino da backup in un cluster distinto. Il campo `pitr_proven` resta `false` nel JSON.

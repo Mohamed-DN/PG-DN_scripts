@@ -1,6 +1,6 @@
 # Verifica e limiti
 
-Snapshot verificato il 18 ottobre 2026. Le prove sono riproducibili con i comandi in [tests/README.md](../tests/README.md), su database effimeri isolati dagli ambienti esistenti.
+Snapshot verificato il 18 ottobre 2026 su GitHub Actions ([run 39151437450](https://github.com/Mohamed-DN/PG-DN_scripts/actions/runs/39151437450)), commit [b746e4a](https://github.com/Mohamed-DN/PG-DN_scripts/commit/b746e4ac549a7a50c226da4a396ff65cb844a580). Le prove sono riproducibili con i comandi in [tests/README.md](../tests/README.md), su database effimeri isolati dagli ambienti esistenti.
 
 ## Script PostgreSQL
 
@@ -14,7 +14,7 @@ Tutti i **144 file SQL** sono stati eseguiti come amministratore e come `pg_moni
 | PostgreSQL 17.11 | 144 | PASS | 14 controlli PASS |
 | PostgreSQL 18.6 | 144 | PASS | 14 controlli PASS |
 
-[Rapporto JSON della matrice](evidence/postgres-matrix.json) · [SHA-256 dei 144 file](evidence/curated-sha256.json). Gli hash registrati da ciascuna major coincidono con lo snapshot testato. Le successive note di range nell'header non modificano il codice eseguibile; la verifica byte per byte escludendo la sola riga `Postgres` conferma l'invarianza. Gli artifact GitHub Actions attestano l'esecuzione del commit indicato dal relativo run.
+[Rapporto JSON della matrice](evidence/postgres-matrix.json) · [SHA-256 dei 144 file](evidence/curated-sha256.json). Gli hash registrati da ciascuna major coincidono con questo snapshot SQL.
 
 Sono passati anche **12 test Python** su navigazione, modifica delle protezioni, scelta della home, proprietà delle risorse temporanee e integrità upstream. Il generatore è idempotente, i collegamenti locali sono validi e actionlint 1.7.12 non segnala errori nei workflow. Gitleaks 8.30.1, con regole predefinite e output redatto, ha segnalato due valori nel manifest SHA-256: entrambi sono stati verificati contro i byte SQL e sono hash di file, quindi falsi positivi. Non sono emerse credenziali dalla scansione. La revisione indipendente non ha rilevato problemi aperti nelle query e nella navigazione.
 
