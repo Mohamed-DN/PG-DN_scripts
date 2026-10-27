@@ -1,5 +1,7 @@
 ![PG-DN · PostgreSQL Operations Library](_support/docs/assets/banner.svg)
 
+Una raccolta operativa per capire lo stato di PostgreSQL e scegliere il passo successivo: query di diagnosi collegate a procedure, con versione minima e privilegi dichiarati. Le fonti importate restano separate dalla libreria curata in `scripts/`.
+
 # PG-DN scripts
 
 [![Verifica degli script](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml/badge.svg)](https://github.com/Mohamed-DN/PG-DN_scripts/actions/workflows/validate.yml)
@@ -281,3 +283,8 @@ Le query in `scripts/` usano transazioni di sola lettura e timeout. Gli interven
 Gli alberi e gli indici si aggiornano dopo un push su `main` che aggiunge, modifica, sposta o rimuove script o procedure. **Nessuna esecuzione periodica**: se la raccolta non cambia, l'automazione non parte. Per aggiornare gli indici prima del push: `python _support/tools/catalog.py`. [Aggiungere uno script o una procedura](_support/docs/MAINTENANCE.md).
 
 Documentazione tecnica, fonti, test e strumenti di manutenzione sono raccolti in **[_support/](_support/README.md)**.
+
+## Verificare una modifica alla raccolta
+
+Dalla radice del repository esegui `python _support/tools/catalog.py --check` per controllare che gli indici generati siano allineati alle fonti. Il controllo della navigazione non esegue SQL e non attesta il comportamento sul database: le prove di compatibilità e i loro limiti sono documentati in [_support/tests/](_support/tests/README.md) e nelle [evidenze](_support/docs/evidence/README.md).
+
